@@ -1,0 +1,6 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{RESQUEST_FILENAME} !-d
+RewriteCond %{RESQUEST_FILENAME} !-f
+RewriteCond %{HTTPS} off
+RewriteRule ^(\w+)/?$ index.php?ruta=$1
