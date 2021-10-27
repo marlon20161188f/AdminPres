@@ -390,7 +390,7 @@ $("#menu-toggle").click(function(e){
 <script src="<?php echo $url_site; ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
 
-<script src="<?php echo $url_site; ?>dist/js/main1.js"></script>
+<script src="<?php echo $url_site; ?>dist/js/main2.js"></script>
 
 	
  </body>

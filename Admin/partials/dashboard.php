@@ -30,7 +30,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <label class="fieldlabels">Tipo de Documento:</label>
-                                        <select class="form-control"type="text" name="uname" placeholder="DNI"> 
+                                        <select class="form-control"type="text" name="uname" placeholder="DNI"style="margin:5px;"> 
                                             <option>DNI</option>
                                             <OPTIOn>RUC</OPTIOn>
                                         </select> 
@@ -69,7 +69,7 @@
                                 <div class="row">
                                     <div class="col-6">
                                         <label class="fieldlabels">Tipo de Préstamo: </label> 
-                                        <select class="form-control"type="email" name="email" placeholder="Mensual" >
+                                        <select class="form-control"type="email" name="email" placeholder="Mensual"style="margin:5px;margin-bottom: 1.6rem;" >
                                             <option>Diario</option>
                                             <option>Semanal</option>
                                             <option>Mensual</option>

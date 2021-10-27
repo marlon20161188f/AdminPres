@@ -1,15 +1,24 @@
+<style>
+  #menu * { list-style:none;}
+  #menu li{ line-height:180%;}
+  #menu li a{color:#222; text-decoration:none;}
+  #menu li a:before{ content:"\025b8"; color:#ddd; margin-right:4px;}
+  #menu input[name="list"] {
+    position: absolute;
+    left: -1000em;
+    }
+  #menu label:before{ content:"\025b8"; margin-right:4px;}
+  #menu input:checked ~ label:before{ content:"\025be";}
+  #menu .interior{display: none;}
+  #menu input:checked ~ ul{display:block;}
+
+</style>
 <div class="content-wrapper"style="min-height: 1170.12px;">
     <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Utilidades</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Utilidades</li>
-            </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -42,33 +51,88 @@
                       <th>Código de Préstamo</th>
                       <th>Datos del Cliente</th>
                       <th>Monto Prestado</th>
-                      <th>Intereses y Moras</th>
+                      <th>Interes Utilitario</th>
+                      <th>Moras</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
                       <td>B001-0002</td>
-                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> MERA SEDANO, ERIKA MILAGROS</strong><br> <strong>DNI:</strong> 47012506<br> <strong>RUC:</strong> 4701250<br> </td>
-                      <td>15000</td>
-                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> Interes utilitario: 5%</strong><br> <strong>Mora:</strong> 12/08/2021 - S/ 10<br> <strong>Mora:</strong> 02/10/2021 - S/ 10<br> </td>
+                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> MERA SEDANO, ERIKA MILAGROS</strong><br> <strong>DNI:</strong> 47012506<br> </td>
+                      <td>S/ 15000</td>
+                      <td>5%</td>
+                      <td style="font-size: 11px;">
+                        <ul id="menu">
+                        <li><input type="checkbox" name="list" id="nivel1-1"><label for="nivel1-1"><strong><i class="ti-wheelchair"></i> Moras: </strong>2<br></label>
+                        <ul class="interior">
+                              <li><input name="list"   ><label for="nivel2-1"> <strong> </strong> 12/08/2021 - S/ 10<br></label>
+                              </li>
+                              <li><input name="list"   ><label   ><strong> </strong> 02/10/2021 - S/ 10<br></label>
+                              </li>
+                        </ul>
+                        </li>
+                        </ul>
+                      </td>
                     </tr>
                     <tr>
                       <td>B001-0003</td>
-                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> GOMEZ ALFONSO, JUAN BRYAN</strong><br> <strong>DNI:</strong> 47012123<br> <strong>RUC:</strong> 47012123<br> </td>
-                      <td>10000</td>
-                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> Interes utilitario: 2.5%</strong><br> <strong>Mora:</strong> 12/07/2021 - S/ 10<br> <strong>Mora:</strong> 22/19/2021 - S/ 20<br> <strong>Mora:</strong> 21/10/2021 - S/ 15<br></td>
+                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> GOMEZ ALFONSO, JUAN BRYAN</strong><br> <strong>DNI:</strong> 47012123<br> </td>
+                      <td>S/ 10000</td>
+                      <td>2.5%</td>
+                      <td style="font-size: 11px;">
+                        <ul id="menu">
+                        <li><input type="checkbox" name="list" id="2nivel1-1"><label for="2nivel1-1"><strong><i class="ti-wheelchair"></i> Moras: </strong>3<br></label>
+                        <ul class="interior">
+                              <li><input name="list" ><label > <strong> </strong> 12/07/2021 - S/ 10<br></label>
+                              </li>
+                              <li><input name="list" ><label ><strong> </strong> 22/19/2021 - S/ 20<br></label>
+                              </li>
+                              <li><input name="list" ><label ><strong> </strong> 21/10/2021 - S/ 15<br></label>
+                              </li>
+                        </ul>
+                        </li>
+                        </ul>
+                      </td>
                     </tr>
                     <tr>
                       <td>B001-0091</td>
-                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> DOMINGUEZ FERNANDEZ, YOVANA OLGA</strong><br> <strong>DNI:</strong> 47012500<br> <strong>RUC:</strong> 47012500<br> </td>
-                      <td>11000</td>
-                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> Interes utilitario: 3%</strong><br> <strong>Mora:</strong> 02/08/2021 - S/ 10<br> <strong>Mora:</strong> 15/19/2021 - S/ 15<br> </td>
-                    </tr>
+                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> DOMINGUEZ FERNANDEZ, YOVANA OLGA</strong><br> <strong>RUC:</strong> 47012500<br> </td>
+                      <td>S/ 11000</td>
+                      <td>3%</td>
+                      <td style="font-size: 11px;">
+                        <ul id="menu">
+                        <li><input type="checkbox" name="list" id="3nivel1-1"><label for="3nivel1-1"><strong><i class="ti-wheelchair"></i> Moras: </strong>2<br></label>
+                        <ul class="interior">
+                              <li><input name="list" ><label > <strong> </strong> 21/08/2021 - S/ 10<br></label>
+                              </li>
+                              <li><input name="list" ><label ><strong> </strong> 02/09/2021 - S/ 15<br></label>
+                              </li>
+                        </ul>
+                        </li>
+                        </ul>
+                      </td>                   
+                     </tr>
                     <tr>
                       <td>B001-0006</td>
-                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> COAQUIRA CHARAGUA, ROSA MARIA</strong><br> <strong>DNI:</strong> 45420911<br> <strong>RUC:</strong> 45420911<br> </td>
-                      <td>35000</td>
-                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> Interes utilitario: 4%</strong><br> <strong>Mora:</strong> 10/07/2021 - S/ 15<br> <strong>Mora:</strong> 02/08/2021 - S/ 10<br><strong>Mora:</strong> 12/09/2021 - S/ 20<br><strong>Mora:</strong> 02/10/2021 - S/ 25<br> </td>
+                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> COAQUIRA CHARAGUA, ROSA MARIA</strong><br>  <strong>RUC:</strong> 45420911<br> </td>
+                      <td>S/ 35000</td>
+                      <td>4%</td>
+                      <td style="font-size: 11px;">
+                        <ul id="menu">
+                        <li><input type="checkbox" name="list" id="4nivel1-1"><label for="4nivel1-1"><strong><i class="ti-wheelchair"></i> Moras: </strong>4<br></label>
+                        <ul class="interior">
+                              <li><input name="list" ><label > <strong> </strong> 10/07/2021 - S/ 15<br></label>
+                              </li>
+                              <li><input name="list" ><label ><strong> </strong> 02/08/2021 - S/ 20<br></label>
+                              </li>
+                              <li><input name="list" ><label ><strong> </strong> 01/10/2021 - S/ 10<br></label>
+                              </li>
+                              <li><input name="list" ><label ><strong> </strong> 29/06/2021 - S/ 25<br></label>
+                              </li>
+                        </ul>
+                        </li>
+                        </ul>
+                      </td>                    
                     </tr>
                   </tbody>
                 </table>

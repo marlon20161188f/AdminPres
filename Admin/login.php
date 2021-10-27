@@ -33,7 +33,7 @@ require 'config/constantes.php'; //Constantes de la aplicacion
                 --button-radius: 0.7rem;
 
                 /* SIZES */
-                --max-width: 758px;
+                --max-width: 379px;
                 --max-height: 420px;
 
                 font-size: 16px;
@@ -273,7 +273,7 @@ require 'config/constantes.php'; //Constantes de la aplicacion
 <body>
   <div class="container">
 	<!-- Sign Up -->
-	<div class="container__form container--signup">
+	<!-- <div class="container__form container--signup">
 		<form action="#" class="form" id="form1">
 			<h2 class="form__title">Registre una Cuenta</h2>
 			<input type="text" placeholder="Usuario" class="input">
@@ -281,10 +281,10 @@ require 'config/constantes.php'; //Constantes de la aplicacion
 			<input type="password" placeholder="Contraseña" class="input">
 			<button class="btn">Registrar</button>
 		</form>
-	</div>
+	</div> -->
 
 	<!-- Sign In -->
-	<div class="container__form container--signin">
+	
 		<form action="#" class="form" id="form2">
 			<h2 class="form__title">Ingrese su Cuenta</h2>
 			<input type="email" placeholder="Email" class="input">
@@ -293,10 +293,10 @@ require 'config/constantes.php'; //Constantes de la aplicacion
 			<button class="btn"><a href="<?php echo $url_site; ?>index.php" class="btn_login">
             Iniciar sesión</a></button>
 		</form>
-	</div>
+	
 
 	<!-- Overlay -->
-	<div class="container__overlay">
+	<!-- <div class="container__overlay">
 		<div class="overlay">
 			<div class="overlay__panel overlay--left">
 				<button class="btn" id="signIn">Ingresar</button>
@@ -305,7 +305,7 @@ require 'config/constantes.php'; //Constantes de la aplicacion
 				<button class="btn" id="signUp">Registrar</button>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>
   
 <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>

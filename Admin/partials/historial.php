@@ -1,4 +1,13 @@
 <div class="content-wrapper"style="min-height: 1170.12px;">
+<section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Historial</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
 <section class="content">
       <div class="container-fluid">
         <div class="row">
@@ -18,23 +27,27 @@
                 <form class="form-horizontal" method="post">
                     <div class="card-body">
                         <div class="form-group row">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Cliente : </label>
-                            <div class="col-sm-10">
-                            <input type="text" class="form-control" id="caja_busqueda" placeholder="Cliente">
+                            <label for="inputEmail3" class="col-sm-1 col-form-label">Cliente : </label>
+                            <div class="col-sm-5">
+                            <input  type="text" class="form-control" id="caja_busqueda" placeholder="Cliente">
                             </div>
+                            <div class="col-sm-4 card-footer"style="background-color: rgb(255 255 255);padding:0rem;">
+                                <button hidden type="submit" class="btn btn-info">Buscar otro cliente</button>
+                             </div>
+                            <div class="col-sm-2 card-footer"style="background-color: rgb(255 255 255);padding:0rem;">
+                                <button type="submit" class="btn btn-info">Buscar otro cliente</button>
+                             </div>
                         </div>
                     </div>
                     <!-- /.card-body -->
-                    <div class="card-footer">
-                        <button type="submit" class="btn btn-info">Buscar</button>
-                    </div>
+                 
                     <!-- /.card-footer -->
                 </form>
+                <div id="datos"></div>
                 </div>
                 <!-- /.card -->
 
             </div>
-       
         </div>
         <!-- /.row -->
       </div><!-- /.container-fluid -->
