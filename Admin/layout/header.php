@@ -76,7 +76,7 @@
   <link rel="stylesheet" href="<?php echo $url_site; ?>plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="<?php echo $url_site; ?>plugins/summernote/summernote-bs4.min.css">
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 </style>
 <body class="control-sidebar-slide-open layout-fixed sidebar-mini layout-navbar-fixed" style="height: auto;">

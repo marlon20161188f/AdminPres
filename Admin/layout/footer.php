@@ -391,7 +391,6 @@ $("#menu-toggle").click(function(e){
 
 
 <script src="<?php echo $url_site; ?>dist/js/main2.js"></script>
-
 	
  </body>
 </html>
