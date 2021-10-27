@@ -1,3 +1,7 @@
+<!-- Preloader -->
+<div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div>
 <div class="content-wrapper"style="min-height: 1170.12px;">
     <div class="container-fluid ">
         <div class="row justify-content-center">
@@ -12,7 +16,7 @@
                             <li id="personal"><strong>Configuración</strong></li>
                             <li id="payment"><strong>Cronograma</strong></li>
                             <li id="confirm"><strong>Visualización</strong></li>
-                            <li id="viuw"><strong>Validar</strong></li>
+                            <li id="viuw"><strong>Finalizar</strong></li>
                         </ul>
                         <div class="progress">
                             <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
@@ -39,7 +43,6 @@
                                         <label class="fieldlabels">Numero de Documento:</label>
                                         <input type="text"placeholder="73208361" /> 
                                     </div>
-                                   
                                 <!-- <div class="row">
                                     <div class="col-6">
                                         <label class="fieldlabels">Email: *</label> 
@@ -54,7 +57,9 @@
                                         <input type="password" name="cpwd" placeholder="Confirm Password" />
                                     </div> -->
                                 </div>    
-                            </div> <input type="button" name="next" class="next action-button" value="Siguiente" />
+                            </div> 
+                            <!-- validar -->
+                            <input type="button" name="next" class="next action-button" value="Siguiente" />
                         </fieldset>
                         <fieldset>
                             <div class="form-card">
@@ -73,20 +78,19 @@
                                             <option>Diario</option>
                                             <option>Semanal</option>
                                             <option>Mensual</option>
-                                            <option>Anual</option>
                                         </select> 
                                         <label class="fieldlabels">Número de cuotas: </label>
                                         <input type="number"  placeholder="10" />
+                                        <label class="fieldlabels">Fecha de Desembolso: </label> 
+                                        <input type="date" name="pwd" placeholder="24/10/2021" /> 
                                     </div>
                                     <div class="col-6">
                                         <label class="fieldlabels">Tasa de Interés %: </label> 
                                         <input type="number" name="pwd" placeholder="5" /> 
                                         <label class="fieldlabels">Mora por día de Retraso S/ : </label> 
                                         <input type="number" name="cpwd" placeholder="10" />
-                                    </div>
-                                    <div class="col-6">
-                                        <label class="fieldlabels">Fecha de Desembolso: </label> 
-                                        <input type="date" name="pwd" placeholder="24/10/2021" /> 
+                                        <label class="fieldlabels">Monto Prestado S/ : </label> 
+                                        <input type="number" name="pwd" placeholder="12000" /> 
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +101,7 @@
                             <div class="form-card">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h2 class="fs-title">Cronograma de pagos:</h2>
+                                        <h2 class="fs-title">Cronograma de cobros:</h2>
                                     </div>
                                     <div class="col-5">
                                         <h2 class="steps">Paso 3 - 4</h2>
@@ -114,14 +118,14 @@
                             <div class="form-card">
                                 <div class="row">
                                     <div class="col-7">
-                                        <h2 class="fs-title">Cronograma de pagos:</h2>
+                                        <h2 class="fs-title">Datos del Préstamo:</h2>
                                     </div>
                                     <div class="col-5">
                                         <h2 class="steps">Paso 4 - 4</h2>
                                     </div>
                                 </div> 
                                 <div class="row justify-content-center">
-                                    <div class="col-4">
+                                    <div class="col-6">
                                     <?php include('layout/tabla_visualisar.php'); ?>
                                     </div>
                                 </div>
@@ -139,7 +143,7 @@
                                 </div> <br><br>
                                 <h2 class="purple-text text-center"><strong>ÉXITO !</strong></h2> <br>
                                 <div class="row justify-content-center">
-                                    <div class="col-3"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
+                                    <div class="col-1"> <img src="https://i.imgur.com/GwStPmg.png" class="fit-image"> </div>
                                 </div> <br><br>
                                 <div class="row justify-content-center">
                                     <div class="col-7 text-center">

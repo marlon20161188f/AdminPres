@@ -1,7 +1,6 @@
 <!-- </section>
 		</div> -->
 	</div>
-	
 
 	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
 
@@ -147,6 +146,7 @@ $("#menu-toggle").click(function(e){
     e.preventDefault();$("#wrapper").toggleClass("toggled");
 });
 </script>    
+
 
 
 <!-- AdminLTE App -->
@@ -391,6 +391,24 @@ $("#menu-toggle").click(function(e){
 
 
 <script src="<?php echo $url_site; ?>dist/js/main2.js"></script>
-	
+
+<!-- tabla clientes -->
+<script>
+  $(function () {
+    $("#examples").DataTable({
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#examples_wrapper .col-md-6:eq(0)');
+    $('#exampless').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": false,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+    });
+  });
+</script>  
  </body>
 </html>

@@ -45,6 +45,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="<?php echo $url_site; ?>clientes/" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Clientes
+              </p>
+            </a>
+          </li>
           <li class="nav-header">Collection Process</li>
           <li class="nav-item">
             <a href="<?php echo $url_site; ?>cobranza/" class="nav-link">

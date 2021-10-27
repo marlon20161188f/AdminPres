@@ -82,6 +82,7 @@
 <body class="control-sidebar-slide-open layout-fixed sidebar-mini layout-navbar-fixed" style="height: auto;">
 <div class="container-flex-owcs black" style="box-shadow: 0px 3px 6px #00000029; position:absolute; height:2.5rem">  </div>
 <div class="wrapper container-fluid" id="wrapper" >
+  
             <?php include('layout/Navbar.php'); ?>
 		<!-- <div class="row">  -->
             <?php include('layout/sidebar.php'); ?>

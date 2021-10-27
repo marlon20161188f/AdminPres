@@ -52,6 +52,8 @@
                       <th>Datos del Cliente</th>
                       <th>Monto Prestado</th>
                       <th>Interes Utilitario</th>
+                      <th>Monto Cobrado</th>
+                      <th>Utilidades</th>
                       <th>Moras</th>
                     </tr>
                   </thead>
@@ -61,6 +63,8 @@
                       <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> MERA SEDANO, ERIKA MILAGROS</strong><br> <strong>DNI:</strong> 47012506<br> </td>
                       <td>S/ 15000</td>
                       <td>5%</td>
+                      <td>S/ 15750</td>
+                      <td>S/ 750</td>
                       <td style="font-size: 11px;">
                         <ul id="menu">
                         <li><input type="checkbox" name="list" id="nivel1-1"><label for="nivel1-1"><strong><i class="ti-wheelchair"></i> Moras: </strong>2<br></label>
@@ -78,7 +82,9 @@
                       <td>B001-0003</td>
                       <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> GOMEZ ALFONSO, JUAN BRYAN</strong><br> <strong>DNI:</strong> 47012123<br> </td>
                       <td>S/ 10000</td>
-                      <td>2.5%</td>
+                      <td>25%</td>
+                      <td>S/ 12500</td>
+                      <td>S/ 2500</td>
                       <td style="font-size: 11px;">
                         <ul id="menu">
                         <li><input type="checkbox" name="list" id="2nivel1-1"><label for="2nivel1-1"><strong><i class="ti-wheelchair"></i> Moras: </strong>3<br></label>
@@ -98,7 +104,9 @@
                       <td>B001-0091</td>
                       <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> DOMINGUEZ FERNANDEZ, YOVANA OLGA</strong><br> <strong>RUC:</strong> 47012500<br> </td>
                       <td>S/ 11000</td>
-                      <td>3%</td>
+                      <td>10%</td>
+                      <td>S/ 12100</td>
+                      <td>S/ 1100</td>
                       <td style="font-size: 11px;">
                         <ul id="menu">
                         <li><input type="checkbox" name="list" id="3nivel1-1"><label for="3nivel1-1"><strong><i class="ti-wheelchair"></i> Moras: </strong>2<br></label>
@@ -116,7 +124,9 @@
                       <td>B001-0006</td>
                       <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> COAQUIRA CHARAGUA, ROSA MARIA</strong><br>  <strong>RUC:</strong> 45420911<br> </td>
                       <td>S/ 35000</td>
-                      <td>4%</td>
+                      <td>10%</td>
+                      <td>S/ 38500</td>
+                      <td>S/ 3500</td>
                       <td style="font-size: 11px;">
                         <ul id="menu">
                         <li><input type="checkbox" name="list" id="4nivel1-1"><label for="4nivel1-1"><strong><i class="ti-wheelchair"></i> Moras: </strong>4<br></label>

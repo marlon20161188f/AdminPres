@@ -8,7 +8,9 @@ if(isset($_GET['ruta'])){
    include('partials/dashboard.php');
     $ruta = 'dashboard';
 }
-
+if($ruta == 'clientes'){
+    include('partials/clientes.php');
+}
 if($ruta == 'cobranza'){
     include('partials/cobranza.php');
 }

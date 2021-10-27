@@ -32,24 +32,25 @@
       <div class="table-responsive">
         <table id="tabla_id"class="table table-hover table-xs"style="background-color:#8f8f8f21;">
           <thead><tr class="first" style="background-color:#001f3f;color:#ffffff;">
-            <th class="th1 text-center">MORA</th>
+            
              <th class="th2 text-center">CODIGO DE PRÉSTAMO</th>
               <th class="th3 text-center">FECHA DE VENCIMIENTO</th> 
               <th class="th4">DATOS</th> 
               <th class="th5 text-center">VALOR DE CUOTA</th> 
+              <th class="th1 text-center">MORA</th>
               <th class="th6 text-center">TOTAL A PAGAR</th> 
               <th class="th7 text-center">OPCIONES</th></tr></thead>
-       <tbody><tr><td class="text-center"><!---->
-                                                            10.00
-                                                        </td> <td class="text-center">
+                <tbody><tr><td class="text-center">
                                                              
                                                             B001-0002
                                                         </td> <td class="text-center">
                                                             24/10/2021
                                                         </td> <td style="font-size: 11px;">
                                                         <strong><i class="ti-wheelchair"></i> MERA SEDANO, ERIKA MILAGROS</strong><br> <strong>DNI:</strong> 47012506<br>  
-                                                        </td> <td class="text-center">S/ 39.00</td> 
-                                                        <td class="text-center">S/ 1200.00</td> 
+                                                        </td> <td class="text-center">S/ 39.00</td> <td class="text-center">
+                                                          S/ 10.00
+                                                        </td> 
+                                                        <td class="text-center">S/ 49.00</td> 
                                                         <td class="text-center" style="padding: 0px !important; vertical-align: middle;"> 
                                                             <button id="btn_1" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="editModal(1);" data-id="  1" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
                                                                 <span class="fa fa-pencil-alt"></span>
@@ -59,17 +60,17 @@
                                                             </button>
                                                     
                                                         </td></tr>
-                                                        <tr><td class="text-center"><!---->
-                                                            20.00
-                                                        </td> <td class="text-center">
+                                                        <tr> <td class="text-center">
                                                              
                                                             B001-0003
                                                         </td> <td class="text-center">
                                                             24/10/2021
                                                         </td> <td style="font-size: 11px;">
                                                         <strong><i class="ti-wheelchair"></i> GOMEZ ALFONSO, JUAN BRYAN</strong><br>  <strong>RUC:</strong> 4701250<br>
-                                                        </td> <td class="text-center">S/ 45.00</td>
-                                                         <td class="text-center">S/ 1080.00</td> 
+                                                        </td> <td class="text-center">S/ 45.00</td><td class="text-center"><!---->
+                                                          S/ 20.00
+                                                        </td>
+                                                         <td class="text-center">S/ 65.00</td> 
                                                          <td class="text-center" style="padding: 0px !important; vertical-align: middle;">
                                                          <button id="btn_2" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="editModal(2);" data-id="2" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
                                                                 <span class="fa fa-pencil-alt"></span>
@@ -78,16 +79,16 @@
                                                                 <span class="fa fa-plus"></span>
                                                             </button>
                                                          </td></tr>
-                                                        <tr><td class="text-center"><!---->
-                                                            00.00
-                                                        </td> <td class="text-center">
+                                                        <tr> <td class="text-center">
                                                              
                                                             B001-0004
                                                         </td> <td class="text-center">
                                                             24/10/2021
                                                         </td> <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> DOMINGUEZ FERNANDEZ, YOVANA OLGA</strong><br> <strong>RUC:</strong> 4701250<br> 
-                                                        </td> <td class="text-center">S/ 35.00</td> 
-                                                        <td class="text-center">S/ 2000.00</td> 
+                                                        </td> <td class="text-center">S/ 35.00</td> <td class="text-center"><!---->
+                                                           S/ 00.00
+                                                        </td>
+                                                        <td class="text-center">S/ 35.00</td> 
                                                         <td class="text-center" style="padding: 0px !important; vertical-align: middle;">
                                                         <button id="btn_3" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="editModal(3);" data-id="3" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
                                                                 <span class="fa fa-pencil-alt"></span>
@@ -96,16 +97,16 @@
                                                                 <span class="fa fa-plus"></span>
                                                             </button>
                                                          </td></tr>
-                                                        <tr><td class="text-center"><!---->
-                                                            00.00
-                                                        </td> <td class="text-center">
+                                                        <tr> <td class="text-center">
                                                              
                                                             B001-0005
                                                         </td> <td class="text-center">
                                                             23/10/2021
                                                         </td> <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> MERA RIOS, ERIKA MILAGROS</strong><br>  <strong>RUC:</strong> 4701250<br> 
-                                                        </td> <td class="text-center">S/ 39.00</td> 
-                                                        <td class="text-center">S/ 2500.00</td>
+                                                        </td> <td class="text-center">S/ 39.00</td> <td class="text-center"><!---->
+                                                           S/ 00.00
+                                                        </td>
+                                                        <td class="text-center">S/ 39.00</td>
                                                          <td class="text-center" style="padding: 0px !important; vertical-align: middle;">
                                                          <button id="btn_4" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="editModal(4);" data-id="4" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
                                                                 <span class="fa fa-pencil-alt"></span>
@@ -113,16 +114,16 @@
                                                             <button id="butn_4" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="addModal(4);" data-id="4" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
                                                                 <span class="fa fa-plus"></span>
                                                             </button>
-                                                        </td></tr><tr><td class="text-center"><!---->
-                                                            10.00
-                                                        </td> <td class="text-center">
+                                                        </td></tr><tr> <td class="text-center">
                                                              
                                                             B001-0006
                                                         </td> <td class="text-center">
                                                             22/10/2021
                                                         </td> <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> COAQUIRA CHARAGUA, ROSA MARIA</strong><br> <strong>DNI:</strong> 45420911<br> 
-                                                        </td> <td class="text-center">S/ 36.00</td> 
-                                                        <td class="text-center">S/ 1090.00</td> 
+                                                        </td> <td class="text-center">S/ 36.00</td> <td class="text-center"><!---->
+                                                            S/ 10.00
+                                                        </td>
+                                                        <td class="text-center">S/ 46.00</td> 
                                                         <td class="text-center" style="padding: 0px !important; vertical-align: middle;">
                                                         <button id="btn_5" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="editModal(5);" data-id="5" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
                                                                 <span class="fa fa-pencil-alt"></span>
@@ -130,16 +131,16 @@
                                                             <button id="butn_5" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="addModal(5);" data-id="5" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
                                                                 <span class="fa fa-plus"></span>
                                                             </button>
-                                                        </td></tr><tr><td class="text-center"><!---->
-                                                            60.00
-                                                        </td> <td class="text-center">
+                                                        </td></tr><tr> <td class="text-center">
                                                              
                                                             B001-0045
                                                         </td> <td class="text-center">
                                                             22/10/2021
                                                         </td> <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> CARRUS BONILLA, FREDY</strong><br> <strong>DNI:</strong> 47012502<br>
-                                                        </td> <td class="text-center">S/ 40.00</td> 
-                                                        <td class="text-center">S/ 3500.00</td> 
+                                                        </td> <td class="text-center">S/ 40.00</td> <td class="text-center"><!---->
+                                                            S/ 60.00
+                                                        </td>
+                                                        <td class="text-center">S/ 100.00</td> 
                                                         <td class="text-center" style="padding: 0px !important; vertical-align: middle;">
                                                         <button id="btn_6" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="editModal(6);" data-id="6" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
                                                                 <span class="fa fa-pencil-alt"></span>
@@ -147,16 +148,16 @@
                                                             <button id="butn_6" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="addModal(6);" data-id="6" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
                                                                 <span class="fa fa-plus"></span>
                                                             </button>
-                                                        </td></tr><tr><td class="text-center"><!---->
-                                                            00.00
-                                                        </td> <td class="text-center">
+                                                        </td></tr><tr><td class="text-center">
                                                              
                                                             B001-0091
                                                         </td> <td class="text-center">
                                                             22/10/2021
                                                         </td> <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> ESTEBAN BEJARANO, JIM ALBERT</strong><br> <strong>RUC:</strong> 953957595<br> 
-                                                        </td> <td class="text-center">S/ 40.00</td> 
-                                                        <td class="text-center">S/ 1100.00</td>
+                                                        </td> <td class="text-center">S/ 40.00</td> <td class="text-center"><!---->
+                                                           S/ 00.00
+                                                        </td> 
+                                                        <td class="text-center">S/ 40.00</td>
                                                          <td class="text-center" style="padding: 0px !important; vertical-align: middle;">
                                                          <button id="btn_7" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="editModal(7);" data-id="7" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
                                                                 <span class="fa fa-pencil-alt"></span>
