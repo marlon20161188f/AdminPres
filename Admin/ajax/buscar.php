@@ -24,7 +24,7 @@ if(isset($_POST['consulta'])){
                             <td align='center'width='20%'>".$fila['cliente']."</td>
                             <td align='center'width='20%'>".$fila['codigo']."</td>
                             <td align='center'width='20%'>".$fila['fecha']."</td>
-                            <td align='center'width='20%'>".$fila['monto']."</td>
+                            <td align='center'width='20%'>S/ ".$fila['monto']."</td>
                         </tr>
                      ";
                     }
