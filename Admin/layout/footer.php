@@ -58,11 +58,11 @@ $(document).ready(function() {
     $('#example').DataTable({responsive: "true",
         dom: ''  });
 } );</script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 $(document).ready(function() {
     $('#example1').DataTable({responsive: "true",
         dom: ''  });
-} );</script>
+} );</script> -->
 <script type="text/javascript">
             $(document).ready(function(){
 
@@ -393,9 +393,10 @@ $("#menu-toggle").click(function(e){
 <script src="<?php echo $url_site; ?>dist/js/main2.js"></script>
 
 <!-- tabla clientes -->
-<script>
+<script type="text/javascript">
   $(function () {
-    $("#examples").DataTable({
+    $("#example1").DataTable({
+      "dom": 'lfBrtip', 
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
     }).buttons().container().appendTo('#examples_wrapper .col-md-6:eq(0)');
