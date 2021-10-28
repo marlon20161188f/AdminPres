@@ -410,6 +410,8 @@ $("#menu-toggle").click(function(e){
       "responsive": true,
     });
   });
-</script>  
- </body>
+</script>
+<!-- validar   -->
+
+</body>
 </html>

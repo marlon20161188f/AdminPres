@@ -45,7 +45,7 @@
   <link rel="stylesheet" href="<?php echo $url_site; ?>plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo $url_site; ?>dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="<?php echo $url_site; ?>dist/css/styless.css">
+  <link rel="stylesheet" href="<?php echo $url_site; ?>dist/css/stylesss.css">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="<?php echo $url_site; ?>plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->

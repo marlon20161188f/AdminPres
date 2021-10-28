@@ -178,10 +178,10 @@
   <div class="modal fade" id="AddModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="EditModal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Registrar Pago</h5>
+      <div class="modal-header"style="background:#28a745;color:#fff">
+        <h5 class="modal-title" id="staticBackdropLabel"><b>Registrar Pago</b></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true"style="color:#fff">&times;</span>
         </button>
       </div>
       <div class="modal-body">
@@ -197,11 +197,12 @@
             </div>
             <div class="form-group">
                 <label class="col-12 control-label no-padding" for="marca">Monto pagado S/ :</label>
-                <div class="col-12 no-padding">
-                    <!-- <input type="hidden" name="id" id="id">
-                    <input type="hidden" name="option" value="U"> -->
+                <label class="col-12 control-label no-padding" for="marca"> S/ 49.00 </label>
+                <!-- <div class="col-12 no-padding">
+                     --<input type="hidden" name="id" id="id">
+                    <input type="hidden" name="option" value="U"> --
                     <input type="number" class="form-control input-sm" name="marca" id="marca" placeholder="50"calue="40">
-                </div>
+                </div> -->
             </div>
            
             <!-- <div class="form-group">
@@ -226,10 +227,10 @@
   <div class="modal fade" id="EditModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="EditModal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Editar</h5>
+      <div class="modal-header"style="background:#ffc107;color:#fff">
+        <h5 class="modal-title" id="staticBackdropLabel"><b>Editar</b></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+          <span aria-hidden="true"style="color:#fff">&times;</span>
         </button>
       </div>
       <div class="modal-body">
