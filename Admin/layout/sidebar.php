@@ -41,7 +41,7 @@
             <a href="<?php echo $url_site; ?>index.php" class="nav-link">
               <i class="nav-icon far fa-plus-square"></i>
               <p>
-                Nuevo Préstamo
+                Nuevo préstamo
               </p>
             </a>
           </li>
@@ -58,7 +58,7 @@
             <a href="<?php echo $url_site; ?>cobranza/" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
-                Cobranza
+                Por cobrar
               </p>
             </a>
           </li>
@@ -90,7 +90,7 @@
         </ul>
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="<?php echo $url_site; ?>login.php" class="nav-link" style="margin-top: 16.5rem;">
+            <a href="<?php echo $url_site; ?>login.php" class="nav-link" style="margin-top: 14.5rem;">
               <i class="nav-icon fa fa-power-off text-danger"></i>
               <p class="text">Cerrar Sesión</p>
             </a>

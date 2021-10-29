@@ -65,7 +65,7 @@ $(document).ready(function() {
 } );</script> -->
 <script type="text/javascript">
             $(document).ready(function(){
-
+              
         var current_fs, next_fs, previous_fs; //fieldsets
         var opacity;
         var current = 1;
@@ -77,7 +77,7 @@ $(document).ready(function() {
 
         current_fs = $(this).parent();
         next_fs = $(this).parent().next();
-
+        console.log(document);
         //Add Class Active
         $("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 
@@ -389,16 +389,47 @@ $("#menu-toggle").click(function(e){
 <script src="<?php echo $url_site; ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?php echo $url_site; ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-
-<script src="<?php echo $url_site; ?>dist/js/main2.js"></script>
-
+<!-- historial -->
+<script src="<?php echo $url_site; ?>dist/js/main1.js"></script>
 <!-- tabla clientes -->
 <script type="text/javascript">
   $(function () {
     $("#example1").DataTable({
+      language: {
+        "lengthMenu": "Mostrar _MENU_ registros",
+                  "zeroRecords": "No se encontraron resultados",
+                  "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                  "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                  "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                  "sSearch": "Buscar:",
+                  "oPaginate": {
+                      "sFirst": "Primero",
+                      "sLast":"Último",
+                      "sNext":"Siguiente",
+                      "sPrevious": "Anterior"
+            },
+            "sProcessing":"Procesando...",
+              },    
       "dom": 'lfBrtip', 
       "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+      "buttons": [ {
+          extend:    'excelHtml5',
+          text:      '<i class="fa fa-file-excel"></i> ',
+          titleAttr: 'Exportar a Excel',
+          className: 'btn btn-success'
+        },
+        {
+          extend:    'pdfHtml5',
+          text:      '<i class="fa fa-file-pdf"></i> ',
+          titleAttr: 'Exportar a PDF',
+          className: 'btn btn-danger'
+        },
+        {
+          extend:    'colvis',
+          text:      'Visualizar Columnas',
+          titleAttr: 'Visualizar Columnas',
+          className: 'btn btn-info'
+        },]
     }).buttons().container().appendTo('#examples_wrapper .col-md-6:eq(0)');
     $('#exampless').DataTable({
       "paging": true,
@@ -409,7 +440,9 @@ $("#menu-toggle").click(function(e){
       "autoWidth": false,
       "responsive": true,
     });
+    $('.dataTables_length').addClass('bs-select');
   });
+  
 </script>
 <!-- validar   -->
 

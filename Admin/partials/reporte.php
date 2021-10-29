@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Reportes</h1>
+            <h1>Reporte</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -16,7 +16,7 @@
 
                             <div class="card">
                                 <div class="card-header"style="background-color:#ffc107;color:#ffffff;">
-                                    <div class="doc-card-title float-left">REPORTE DE COBRANZAS</div>
+                                    <div class="doc-card-title float-left">COBROS REGISTRADOS</div>
                                 </div>
   <div id="facturaciones" class="card-block"><div class="table-buscar row"><div class="col-md-5">
   </div> <div class="col-md-3" style="padding-right: 0px;">
@@ -33,7 +33,7 @@
              <th class="th2 text-center">CODIGO DE PRÉSTAMO</th>
               <th class="th3 text-center">FECHA DE PAGO</th> 
               <th class="th4">DATOS</th> 
-              <th class="th5 text-center">MONTO DE PAGO</th> 
+              <th class="th5 text-center">MONTO COBRADO</th> 
               <th class="th7 text-center">ELIMINAR</th></tr></thead>
        <tbody><tr> <td class="text-center">
                                                              
@@ -129,9 +129,10 @@
   } );
     function Eliminar(id) {
       Swal.fire({
-  title: '¿Usted esta seguro de eliminar el registro de pago?',
+  title: '¿Usted esta seguro de eliminar el monto cobrado?',
+  text: 'Este monto se va a reponer en "Por cobrar"',
   showCancelButton: true,
-  confirmButtonText: `ACEPTAR`,
+  confirmButtonText: `Aceptar`,
 }).then((result) => {
   if (result.isConfirmed) {
     // $.ajax({

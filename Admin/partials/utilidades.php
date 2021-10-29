@@ -48,11 +48,11 @@
                 <table class="table table-hover text-nowrap">
                   <thead>
                     <tr style="background-color:#001f3f;color:#ffffff;">
-                      <th>Código de Préstamo</th>
-                      <th>Datos del Cliente</th>
-                      <th>Monto Prestado</th>
-                      <th>Interes Utilitario</th>
-                      <th>Monto Cobrado</th>
+                      <th>Código de préstamo</th>
+                      <th>Datos del cliente</th>
+                      <th>Monto desembolsado</th>
+                      <th>Interés </th>
+                      <th>Monto cobrado</th>
                       <th>Utilidades</th>
                       <th>Moras</th>
                     </tr>

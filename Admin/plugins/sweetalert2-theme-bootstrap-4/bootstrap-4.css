@@ -312,7 +312,7 @@
   border-width: 0.25em;
   border-style: solid;
   border-radius: 100%;
-  border-color: #2778c4 transparent #2778c4 transparent; }
+  border-color: #28a745 transparent #28a745 transparent; }
 
 .swal2-styled {
   margin: 0.3125em;
@@ -678,12 +678,12 @@
     width: 2em;
     height: 2em;
     border-radius: 2em;
-    background: #2778c4;
+    background: #28a745;
     color: #fff;
     line-height: 2em;
     text-align: center; }
     .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step {
-      background: #2778c4; }
+      background: #28a745; }
       .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step ~ .swal2-progress-step {
         background: #add8e6;
         color: #fff; }
@@ -695,7 +695,7 @@
     width: 2.5em;
     height: .4em;
     margin: 0 -1px;
-    background: #2778c4; }
+    background: #28a745; }
 
 [class^='swal2'] {
   -webkit-tap-highlight-color: transparent; }

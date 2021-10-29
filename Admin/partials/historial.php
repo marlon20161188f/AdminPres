@@ -30,6 +30,7 @@
                             <label for="inputEmail3" class="col-sm-1 col-form-label">Cliente : </label>
                             <div class="col-sm-5">
                             <input  type="text" class="form-control" id="caja_busqueda" placeholder="Cliente">
+                             <!-- <input hidden type="text" class="form-control" id="caja_busqueda_vacio" placeholder="Cliente" value="mera">  -->
                             </div>
                             <div class="col-sm-4 card-footer"style="background-color: rgb(255 255 255);padding:0rem;">
                                 <button hidden type="submit" class="btn btn-info">Buscar otro cliente</button>
@@ -43,7 +44,19 @@
                  
                     <!-- /.card-footer -->
                 </form>
-                <div id="datos"></div>
+                <div id="datos">
+                <table class="table table-hover table-xs" style="background-color:#8f8f8f21;" width="100%">
+                <thead><tr class="first" style="background-color:#001f3f;color:#ffffff;">
+                <th class="th1 text-center">Cliente</th><th class="th1 text-center">Código de Prestamo</th>
+                <th class="th1 text-center">Fecha de desembolso</th><th class="th1 text-center">Monto prestado</th>
+                </tr></thead><tbody class="text-center" align="center">
+                  <tr><td align="center" width="20%">MERA SEDANO, ERIKA MILAGROS</td><td align="center" width="20%">B001-0003</td>
+                  <td align="center" width="20%">2021-10-29</td><td align="center" width="20%">S/ 1000</td> </tr> 
+                  <tr><td align="center" width="20%">MERA RIOS, ERIKA MILAGROS</td><td align="center" width="20%">B001-0004</td>
+                  <td align="center" width="20%">2021-10-28</td><td align="center" width="20%">S/ 40000</td>
+                </tr></tbody></table>
+
+                </div>
                 </div>
                 <!-- /.card -->
 

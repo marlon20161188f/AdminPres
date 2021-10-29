@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Cobranzas</h1>
+            <h1>Por cobrar</h1>
           </div>
         </div>
       </div><!-- /.container-fluid -->
@@ -16,7 +16,7 @@
 
                             <div class="card">
                                 <div class="card-header"style="background-color:#28a745;color:#ffffff;">
-                                    <div class="doc-card-title float-left">LISTA DE COBRANZAS</div>
+                                    <div class="doc-card-title float-left">LISTA DE CUOTAS POR COBRAR</div>
                                 </div>
   <div id="facturaciones" class="card-block"><div class="table-buscar row"><div class="col-md-5">
   </div> <div class="col-md-3" style="padding-right: 0px;">
@@ -35,10 +35,10 @@
             
              <th class="th2 text-center">CODIGO DE PRÉSTAMO</th>
               <th class="th3 text-center">FECHA DE VENCIMIENTO</th> 
-              <th class="th4">DATOS</th> 
+              <th class="th4 text-center">CLIENTE</th> 
               <th class="th5 text-center">VALOR DE CUOTA</th> 
               <th class="th1 text-center">MORA</th>
-              <th class="th6 text-center">TOTAL A PAGAR</th> 
+              <th class="th6 text-center">TOTAL A COBRAR</th> 
               <th class="th7 text-center">OPCIONES</th></tr></thead>
                 <tbody><tr><td class="text-center">
                                                              
@@ -188,7 +188,7 @@
         <form class="form-horizontal" id="edit">
         <div class="row">
             <div class="form-group">
-                <label class="col-12 control-label no-padding" for="placa">Fecha de Pago :</label>
+                <label class="col-12 control-label no-padding" for="placa">Ingresar fecha de pago :</label>
                 <div class="col-12 no-padding">
                     <input type="date" class="form-control input-sm" name="placa" id="placa" placeholder="27/10/2021" value="27/10/2021">
                     <input type="hidden" name="id" id="id">
@@ -196,7 +196,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-12 control-label no-padding" for="marca">Monto pagado S/ :</label>
+                <label class="col-12 control-label no-padding" for="marca">Monto a cobrar :</label>
                 <label class="col-12 control-label no-padding" for="marca"> S/ 49.00 </label>
                 <!-- <div class="col-12 no-padding">
                      --<input type="hidden" name="id" id="id">
@@ -218,7 +218,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary"><i class="fa fa-plus"></i> Registrar</button>
+        <button type="button" class="btn btn-info"> Registrar</button>
       </div>
     </div>
   </div>
@@ -266,7 +266,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary"><i class="fa fa-save"></i> Guardar</button>
+        <button type="button" class="btn btn-info"> Guardar</button>
       </div>
     </div>
   </div>

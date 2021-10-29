@@ -1,50 +1,61 @@
-<table id="example" class="cell-border compact stripe" style="width:100%">
-        <thead>
+<table id="example" class="cell-border compact stripe" style="width:80%">
+        <thead style="background:#001f3f;color:#fff;">
             <tr>
-                <th class="text-center">Fechas de cobros</th>
+                <th class="text-center"style="width:104;">Fechas de cobros</th>
                 <th class="text-center">Monto a Cobrar</th>
             </tr>
         </thead>
         <tbody>
             <tr>
-                <td class="text-center" contenteditable='true'>28/11/2021</td>
-                <td class="text-center" contenteditable='true'>S/ 120,00</td>
+                <td class="text-center" contenteditable='true'style="padding:0px;width:104; "> 
+                    <input style="margin-butom:0px;"value="2021-11-28" type="date"style="background:#fff;"/></td>
+                <td class="text-center" contenteditable='true'style="background:#fff;">S/ 120,00</td>
             </tr>
             <tr>
-                <td class="text-center"contenteditable='true'>28/12/2021</td>
-                <td class="text-center"contenteditable='true'>S/ 120,00</td>
+                <td class="text-center"contenteditable='true'style="padding:0px; width:104;">
+                    <input style="margin-butom:0px;"value="2021-12-28" type="date"style="background:#fff;"/></td>
+                <td class="text-center"contenteditable='true'style="background:#fff;">S/ 120,00</td>
             </tr>
             <tr>
-                <td class="text-center"contenteditable='true'>28/01/2022</td>
-                <td class="text-center"contenteditable='true'>S/ 120,00</td>
+                <td class="text-center"contenteditable='true'style="padding:0px; width:104;">
+                <input style="margin-butom:0px;"value="2022-01-28" type="date"style="background:#fff;"/></td>
+                <td class="text-center"contenteditable='true'style="background:#fff;">S/ 120,00</td>
             </tr>
             <tr>
-                <td class="text-center"contenteditable='true'>27/02/2022</td>
-                <td class="text-center"contenteditable='true'>S/ 120,00</td>
+                <td class="text-center"contenteditable='true'style="padding:0px; width:104;">
+                <input style="margin-butom:0px;"value="2022-02-28" type="date"style="background:#fff;"/></td>
+                <td class="text-center"contenteditable='true'style="background:#fff;">S/ 120,00</td>
             </tr>
             <tr>
-                <td class="text-center"contenteditable='true'>28/03/2022</td>
-                <td class="text-center"contenteditable='true'>S/ 120,00</td>
+                <td class="text-center"contenteditable='true'style="padding:0px; width:104;">
+                <input style="margin-butom:0px;"value="2022-03-28" type="date"style="background:#fff;"/></td>
+                <td class="text-center"contenteditable='true'style="background:#fff;">S/ 120,00</td>
             </tr>
             <tr>
-                <td class="text-center"contenteditable='true'>28/04/2022</td>
-                <td class="text-center"contenteditable='true'>S/ 120,00</td>
+                <td class="text-center"contenteditable='true'style="padding:0px; width:104;">
+                <input style="margin-butom:0px;"value="2022-04-28" type="date"style="background:#fff;"/></td>
+                <td class="text-center"contenteditable='true'style="background:#fff;">S/ 120,00</td>
             </tr>
             <tr>
-                <td class="text-center"contenteditable='true'>28/05/2022</td>
-                <td class="text-center"contenteditable='true'>S/ 120,00</td>
+                <td class="text-center"contenteditable='true'style="padding:0px; width:104;">
+                <input style="margin-butom:0px;"value="2022-05-28" type="date"style="background:#fff;"/></td>
+                <td class="text-center"contenteditable='true'style="background:#fff;">S/ 120,00</td>
             </tr>
             <tr>
-                <td class="text-center"contenteditable='true'>28/06/2022</td>
-                <td class="text-center"contenteditable='true'>S/ 120,00</td>
+                <td class="text-center"contenteditable='true'style="padding:0px; width:104;">
+                <input style="margin-butom:0px;"value="2022-06-28" type="date"style="background:#fff;"/></td>
+                <td class="text-center"contenteditable='true'style="background:#fff;">S/ 120,00</td>
             </tr>
             <tr>
-                <td class="text-center"contenteditable='true'>28/07/2022</td>
-                <td class="text-center"contenteditable='true'>S/ 120,00</td>
+                <td class="text-center"contenteditable='true'style="padding:0px; width:104;">
+                <input style="margin-butom:0px;"value="2022-07-28" type="date"style="background:#fff;"/></td>
+                <td class="text-center"contenteditable='true'style="background:#fff;">S/ 120,00</td>
             </tr>
             <tr>
-                <td class="text-center"contenteditable='true'>28/08/2022</td>
-                <td class="text-center"contenteditable='true'>S/ 120,00</td>
+                <td class="text-center"contenteditable='true'style="padding:0px; width:104;">
+                <input style="margin-butom:0px;"value="2022-08-28" type="date"style="background:#fff;"/></td>
+                <td class="text-center"contenteditable='true'style="background:#fff;">S/ 120,00</td>
             </tr>
         </tbody>
 </table>
+
