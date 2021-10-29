@@ -245,11 +245,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-12 control-label no-padding" for="marca">Mora % :</label>
+                <label class="col-12 control-label no-padding" for="marca">Mora :</label>
                 <div class="col-12 no-padding">
                     <!-- <input type="hidden" name="id" id="id">
                     <input type="hidden" name="option" value="U"> -->
-                    <input type="number" class="form-control input-sm" name="marca" id="marca" placeholder="5%">
+                    <input type="number" class="form-control input-sm" name="marca" id="marca" placeholder="S/ 50">
                 </div>
             </div>
            
