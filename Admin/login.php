@@ -1,11 +1,13 @@
 <?php
+ob_start();
 session_start(); //=> trabajar sessiones
 header('Content-Type: text/html; charset=UTF-8'); //=> documento muestro con tipo utf-8 => tildes y ñ
 define('CONTROLADOR', TRUE);
 require 'config/database.php'; //Clase de conexion
 require 'config/constantes.php'; //Constantes de la aplicacion
+require 'clases/clsUsuario.php'; // clase de usuario
 ?>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -54,7 +56,11 @@ require 'config/constantes.php'; //Constantes de la aplicacion
                 height: 100vh;
                 place-items: center;
             }
-
+            .alert {
+                color: #D8000C;
+                background-color: #FFBABA;
+               
+            }
             .form__title {
                 font-weight: 300;
                 margin: 0;
@@ -285,13 +291,38 @@ require 'config/constantes.php'; //Constantes de la aplicacion
 
 	<!-- Sign In -->
 	
-		<form action="#" class="form" id="form2">
-			<h2 class="form__title">Ingrese su Cuenta</h2>
-			<input type="email" placeholder="Email" class="input">
-			<input type="password" placeholder="Contraseña" class="input">
+		<form action="#" class="form" id="form2" role="form" id="form2" method="post">
+             <h2 class="form__title">Ingrese su Cuenta</h2>
+                        <?php 
+                            if(isset($_POST['email'])){
+                                $validar = clsUsuario::ValidarCorreo(Conexion::getInstancia(),$_POST['email']);
+
+                                if($validar){
+                                    $validar_clave = clsUsuario::ValidarClave(Conexion::getInstancia(), $_POST['clave'], $_POST['email']);
+                                    if($validar_clave){
+                                        $usuario = clsUsuario::Obtener(Conexion::getInstancia(), $_POST['email']);
+                                        $_SESSION['email'] = $usuario->correo;
+                                        if($usuario->id_tipo_usuario == 0){
+                                            //header('Location: http://resumeucci.me/');
+                                            
+                                            echo '<div class="alert bg-danger">SU CUENTA NO TIENE CREDENCIALES COMUNNIQUESE CON EL ADMINISTRADOR</div>';
+                                        }else{
+
+                                             header('Location: index.php');
+                                        }
+                                    }else{
+                                        echo '<div class="alert bg-danger">El correo o la contraseña son incorrectos.</div>';
+                                    }
+                                }else{
+                                    echo '<div class="alert bg-danger">No se encontró ninguna cuenta con el correo ingresado.</div>';
+                                }
+                            }
+                        ?>
+			<input autofocus=""name="email"type="email" placeholder="Ingrese email" class="form-control input">
+			<input type="password"  value="" name="clave" placeholder="Ingrese contraseña" class="form-control input">
 			<a href="#" class="link">¿Olvidó su contraseña?</a>
-			<button class="btn"><a href="<?php echo $url_site; ?>index.php" class="btn_login">
-            Iniciar sesión</a></button>
+			<button type="submit" class="btn"><a href="#" class="btn_login">
+            Iniciar sesión</a></button> 
 		</form>
 	
 
@@ -307,10 +338,18 @@ require 'config/constantes.php'; //Constantes de la aplicacion
 		</div>
 	</div> -->
 </div>
-  
+<?php
+    if(isset($_POST['email'])){
+        echo '<script  type="text/javascript">
+        window.setTimeout(function(){
+            $(\'.alert\').alert(\'close\');
+        }, 3000);
+    </script>';
+    }
+?>
 <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 
     const signInBtn = document.getElementById("signIn");
     const signUpBtn = document.getElementById("signUp");
@@ -330,6 +369,5 @@ require 'config/constantes.php'; //Constantes de la aplicacion
     secondForm.addEventListener("submit", (e) => e.preventDefault());
 
 
-</script>
-
+</script>  -->
 </body></html>

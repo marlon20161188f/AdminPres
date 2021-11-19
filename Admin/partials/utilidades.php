@@ -1,3 +1,7 @@
+<?php
+    $list = clsUtilidad::Listar(Conexion::getInstancia());
+    $list_mora = clsMoras::Listar(Conexion::getInstancia());
+?> 
 <style>
   #menu * { list-style:none;}
   #menu li{ line-height:180%;}
@@ -58,92 +62,42 @@
                     </tr>
                   </thead>
                   <tbody>
+                  <?php
+                        foreach ($list as $item) {     
+                  ?>
                     <tr>
-                      <td>B001-0002</td>
-                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> MERA SEDANO, ERIKA MILAGROS</strong><br> <strong>DNI:</strong> 47012506<br> </td>
-                      <td>S/ 15000</td>
-                      <td>5%</td>
-                      <td>S/ 15750</td>
-                      <td>S/ 750</td>
+                      <td> <?php $codigo="B001-"; $codigo.=$item['id_prestamo']; echo $codigo; ?></td>
+                      <td style="font-size: 11px;">
+                   <strong><i class="ti-wheelchair"></i>  <?php $nomapell=$item['nombre']; $nomapell.=" "; $nomapell.=$item['apellido']; echo $nomapell; ?>
+                </strong><br> <?php if( $item['dni'] !== '0' ){ ?>
+                          <strong>DNI:</strong> <?php echo $item['dni']; ?><br>
+                     <?php }else{ ?>
+                      <strong>RUC:</strong> <?php echo $item['ruc']; ?><br> 
+                      <?php  } ?> 
+                  </td> 
+                      <td>S/  <?php echo $item['monto']; ?></td>
+                      <td> <?php echo $item['tasa']; ?>%</td>
+                      <td>S/  <?php echo $item['monto_cobrado']; ?></td>
+                      <td>S/  <?php echo $item['utilidad']; ?></td>
                       <td style="font-size: 11px;">
                         <ul id="menu">
-                        <li><input type="checkbox" name="list" id="nivel1-1"><label for="nivel1-1"><strong><i class="ti-wheelchair"></i> Moras: </strong>2<br></label>
+                        <li><input type="checkbox" name="list" id="nivel1-1"><label for="nivel1-1"><strong><i class="ti-wheelchair"></i> Moras: </strong><?php 
+                        if(isset(array_count_values(array_column($list_mora,'codigo'))[$item['id_prestamo']])){
+                        echo array_count_values(array_column($list_mora,'codigo'))[$item['id_prestamo']]; }?><br></label>
                         <ul class="interior">
-                              <li><input name="list"   ><label for="nivel2-1"> <strong> </strong> 12/08/2021 - S/ 10<br></label>
+                          <?php foreach ($list_mora as $item_mora) {
+                                  if ( $item_mora['codigo']==$item['id_prestamo'] ) {
+                            ?>
+                              <li><input name="list"   ><label for="nivel2-1"> <strong> </strong> <?php echo $item_mora['fecha_de_pago']; ?> - S/ <?php echo $item_mora['mora']; ?><br></label>
                               </li>
-                              <li><input name="list"   ><label   ><strong> </strong> 02/10/2021 - S/ 10<br></label>
-                              </li>
+                              <?php } ?>
+                          <?php } ?>   
                         </ul>
                         </li>
                         </ul>
                       </td>
                     </tr>
-                    <tr>
-                      <td>B001-0003</td>
-                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> GOMEZ ALFONSO, JUAN BRYAN</strong><br> <strong>DNI:</strong> 47012123<br> </td>
-                      <td>S/ 10000</td>
-                      <td>25%</td>
-                      <td>S/ 12500</td>
-                      <td>S/ 2500</td>
-                      <td style="font-size: 11px;">
-                        <ul id="menu">
-                        <li><input type="checkbox" name="list" id="2nivel1-1"><label for="2nivel1-1"><strong><i class="ti-wheelchair"></i> Moras: </strong>3<br></label>
-                        <ul class="interior">
-                              <li><input name="list" ><label > <strong> </strong> 12/07/2021 - S/ 10<br></label>
-                              </li>
-                              <li><input name="list" ><label ><strong> </strong> 22/19/2021 - S/ 20<br></label>
-                              </li>
-                              <li><input name="list" ><label ><strong> </strong> 21/10/2021 - S/ 15<br></label>
-                              </li>
-                        </ul>
-                        </li>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>B001-0091</td>
-                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> DOMINGUEZ FERNANDEZ, YOVANA OLGA</strong><br> <strong>RUC:</strong> 47012500<br> </td>
-                      <td>S/ 11000</td>
-                      <td>10%</td>
-                      <td>S/ 12100</td>
-                      <td>S/ 1100</td>
-                      <td style="font-size: 11px;">
-                        <ul id="menu">
-                        <li><input type="checkbox" name="list" id="3nivel1-1"><label for="3nivel1-1"><strong><i class="ti-wheelchair"></i> Moras: </strong>2<br></label>
-                        <ul class="interior">
-                              <li><input name="list" ><label > <strong> </strong> 21/08/2021 - S/ 10<br></label>
-                              </li>
-                              <li><input name="list" ><label ><strong> </strong> 02/09/2021 - S/ 15<br></label>
-                              </li>
-                        </ul>
-                        </li>
-                        </ul>
-                      </td>                   
-                     </tr>
-                    <tr>
-                      <td>B001-0006</td>
-                      <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> COAQUIRA CHARAGUA, ROSA MARIA</strong><br>  <strong>RUC:</strong> 45420911<br> </td>
-                      <td>S/ 35000</td>
-                      <td>10%</td>
-                      <td>S/ 38500</td>
-                      <td>S/ 3500</td>
-                      <td style="font-size: 11px;">
-                        <ul id="menu">
-                        <li><input type="checkbox" name="list" id="4nivel1-1"><label for="4nivel1-1"><strong><i class="ti-wheelchair"></i> Moras: </strong>4<br></label>
-                        <ul class="interior">
-                              <li><input name="list" ><label > <strong> </strong> 10/07/2021 - S/ 15<br></label>
-                              </li>
-                              <li><input name="list" ><label ><strong> </strong> 02/08/2021 - S/ 20<br></label>
-                              </li>
-                              <li><input name="list" ><label ><strong> </strong> 01/10/2021 - S/ 10<br></label>
-                              </li>
-                              <li><input name="list" ><label ><strong> </strong> 29/06/2021 - S/ 25<br></label>
-                              </li>
-                        </ul>
-                        </li>
-                        </ul>
-                      </td>                    
-                    </tr>
+                    <?php } ?>
                   </tbody>
                 </table>
               </div>

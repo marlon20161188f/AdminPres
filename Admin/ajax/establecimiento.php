@@ -3,16 +3,16 @@
     header('Content-Type: text/html; charset=UTF-8');
     define('CONTROLADOR', TRUE);
     require '../config/database.php';
-    require '../clases/clsEstablecimiento.php';
+    require '../clases/clsPorcobrar.php';
     if(isset($_POST['option'])){
         if($_POST['option'] == 'C'){ //create del crud
-            $validar = clsEstablecimiento::Validar(Conexion::getInstancia(), $_POST['nombre'],  $_POST['direccion'], $_POST['telefono'], $_POST['horario'], $_POST['monto'], $_POST['tiempo']);
+            $validar = clsPorcobrar::Validar(Conexion::getInstancia(), $_POST['nombre'],  $_POST['direccion'], $_POST['telefono'], $_POST['horario'], $_POST['monto'], $_POST['tiempo']);
     
             if($validar == true){
                 echo json_encode(array('success' => 2));
             }else{
                 //obtener el ultimo id 
-                $last_id = clsEstablecimiento::ObtenerUltimoID(Conexion::getInstancia());
+                $last_id = clsPorcobrar::ObtenerUltimoID(Conexion::getInstancia());
                 $last_id = $last_id->id + 1;
                 $foto = $_FILES['foto']; // name, tmp_name, type, size, error
                 /*
@@ -25,7 +25,7 @@
                     $nombre = $last_id.".jpg";
                     $ruta = "../uploads/establecimientos/".$nombre;
                     move_uploaded_file($foto['tmp_name'], $ruta);
-                    $registro = clsEstablecimiento::Registro(Conexion::getInstancia(), $_POST['nombre'], $nombre, $_POST['direccion'], $_POST['telefono'], $_POST['horario'], $_POST['monto'], $_POST['tiempo']);
+                    $registro = clsPorcobrar::Registro(Conexion::getInstancia(), $_POST['nombre'], $nombre, $_POST['direccion'], $_POST['telefono'], $_POST['horario'], $_POST['monto'], $_POST['tiempo']);
                     if($registro > 0){
                         echo json_encode(array('success' => 1));
                     }else{
@@ -40,7 +40,7 @@
         }
 
         if($_POST['option'] == 'R'){
-            $listar = clsEstablecimiento::Listar(Conexion::getInstancia());
+            $listar = clsPorcobrar::Listar(Conexion::getInstancia());
             echo json_encode(array('data' => $listar));
         }
 
@@ -50,7 +50,7 @@
         */
         
         if($_POST['option'] == 'U'){
-            $validar = clsEstablecimiento::Validar(Conexion::getInstancia(), $_POST['nombre'],  $_POST['direccion'], $_POST['telefono'], $_POST['horario'], $_POST['monto'], $_POST['tiempo']);
+            $validar = clsPorcobrar::Validar(Conexion::getInstancia(), $_POST['nombre'],  $_POST['direccion'], $_POST['telefono'], $_POST['horario'], $_POST['monto'], $_POST['tiempo']);
     
             if($validar == true){
                 echo json_encode(array('success' => 2));
@@ -60,7 +60,7 @@
                     $nombre = $_POST['id'].".jpg";
                     $ruta = "../uploads/establecimientos/".$nombre;
                     move_uploaded_file($foto['tmp_name'], $ruta);
-                    $actualizar = clsEstablecimiento::Actualizar(Conexion::getInstancia(), $_POST['id'], $_POST['nombre'], $nombre, $_POST['direccion'], $_POST['telefono'], $_POST['horario'], $_POST['monto'], $_POST['tiempo']);
+                    $actualizar = clsPorcobrar::Actualizar(Conexion::getInstancia(), $_POST['id'], $_POST['nombre'], $nombre, $_POST['direccion'], $_POST['telefono'], $_POST['horario'], $_POST['monto'], $_POST['tiempo']);
                     echo json_encode(array('success' => 1));
                 }else{
                     echo json_encode(array('success' => 3));
@@ -70,7 +70,7 @@
         }
 
         if($_POST['option'] == 'D'){
-            $eliminar = clsEstablecimiento::Eliminar(Conexion::getInstancia(), $_POST['id']);
+            $eliminar = clsPorcobrar::Eliminar(Conexion::getInstancia(), $_POST['id']);
             echo json_encode(array('success' => 1));
         }
 

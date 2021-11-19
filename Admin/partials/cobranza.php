@@ -1,8 +1,12 @@
-
+<?php
+    $list = clsPorcobrar::Listar(Conexion::getInstancia());
+?> 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper"style="min-height: 1170.12px;">
   <section class="content-header">
       <div class="container-fluid">
+      <div id="Message"></div>
+      <div id="MessagePago"></div>
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Por cobrar</h1>
@@ -13,7 +17,6 @@
   <div class="page-body">
                     <div class="row">
                         <div class="col-sm-12">
-
                             <div class="card">
                                 <div class="card-header"style="background-color:#28a745;color:#ffffff;">
                                     <div class="doc-card-title float-left">LISTA DE CUOTAS POR COBRAR</div>
@@ -40,142 +43,52 @@
               <th class="th1 text-center">MORA</th>
               <th class="th6 text-center">TOTAL A COBRAR</th> 
               <th class="th7 text-center">OPCIONES</th></tr></thead>
-                <tbody><tr><td class="text-center">
-                                                             
-                                                            B001-0002
-                                                        </td> <td class="text-center">
-                                                            24/10/2021
-                                                        </td> <td style="font-size: 11px;">
-                                                        <strong><i class="ti-wheelchair"></i> MERA SEDANO, ERIKA MILAGROS</strong><br> <strong>DNI:</strong> 47012506<br>  
-                                                        </td> <td class="text-center">S/ 39.00</td> <td class="text-center">
-                                                          S/ 10.00
-                                                        </td> 
-                                                        <td class="text-center">S/ 49.00</td> 
-                                                        <td class="text-center" style="padding: 0px !important; vertical-align: middle;"> 
-                                                            <button id="btn_1" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="editModal(1);" data-id="  1" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
-                                                                <span class="fa fa-pencil-alt"></span>
-                                                            </button>
-                                                            <button id="butn_1" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="addModal(1);" data-id="  1" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
-                                                                <span class="fa fa-plus"></span>
-                                                            </button>
-                                                    
-                                                        </td></tr>
-                                                        <tr> <td class="text-center">
-                                                             
-                                                            B001-0003
-                                                        </td> <td class="text-center">
-                                                            24/10/2021
-                                                        </td> <td style="font-size: 11px;">
-                                                        <strong><i class="ti-wheelchair"></i> GOMEZ ALFONSO, JUAN BRYAN</strong><br>  <strong>RUC:</strong> 4701250<br>
-                                                        </td> <td class="text-center">S/ 45.00</td><td class="text-center"><!---->
-                                                          S/ 20.00
-                                                        </td>
-                                                         <td class="text-center">S/ 65.00</td> 
-                                                         <td class="text-center" style="padding: 0px !important; vertical-align: middle;">
-                                                         <button id="btn_2" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="editModal(2);" data-id="2" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
-                                                                <span class="fa fa-pencil-alt"></span>
-                                                            </button>
-                                                            <button id="butn_2" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="addModal(2);" data-id="2" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
-                                                                <span class="fa fa-plus"></span>
-                                                            </button>
-                                                         </td></tr>
-                                                        <tr> <td class="text-center">
-                                                             
-                                                            B001-0004
-                                                        </td> <td class="text-center">
-                                                            24/10/2021
-                                                        </td> <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> DOMINGUEZ FERNANDEZ, YOVANA OLGA</strong><br> <strong>RUC:</strong> 4701250<br> 
-                                                        </td> <td class="text-center">S/ 35.00</td> <td class="text-center"><!---->
-                                                           S/ 00.00
-                                                        </td>
-                                                        <td class="text-center">S/ 35.00</td> 
-                                                        <td class="text-center" style="padding: 0px !important; vertical-align: middle;">
-                                                        <button id="btn_3" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="editModal(3);" data-id="3" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
-                                                                <span class="fa fa-pencil-alt"></span>
-                                                            </button>
-                                                            <button id="butn_3" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="addModal(3);" data-id="3" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
-                                                                <span class="fa fa-plus"></span>
-                                                            </button>
-                                                         </td></tr>
-                                                        <tr> <td class="text-center">
-                                                             
-                                                            B001-0005
-                                                        </td> <td class="text-center">
-                                                            23/10/2021
-                                                        </td> <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> MERA RIOS, ERIKA MILAGROS</strong><br>  <strong>RUC:</strong> 4701250<br> 
-                                                        </td> <td class="text-center">S/ 39.00</td> <td class="text-center"><!---->
-                                                           S/ 00.00
-                                                        </td>
-                                                        <td class="text-center">S/ 39.00</td>
-                                                         <td class="text-center" style="padding: 0px !important; vertical-align: middle;">
-                                                         <button id="btn_4" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="editModal(4);" data-id="4" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
-                                                                <span class="fa fa-pencil-alt"></span>
-                                                            </button>
-                                                            <button id="butn_4" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="addModal(4);" data-id="4" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
-                                                                <span class="fa fa-plus"></span>
-                                                            </button>
-                                                        </td></tr><tr> <td class="text-center">
-                                                             
-                                                            B001-0006
-                                                        </td> <td class="text-center">
-                                                            22/10/2021
-                                                        </td> <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> COAQUIRA CHARAGUA, ROSA MARIA</strong><br> <strong>DNI:</strong> 45420911<br> 
-                                                        </td> <td class="text-center">S/ 36.00</td> <td class="text-center"><!---->
-                                                            S/ 10.00
-                                                        </td>
-                                                        <td class="text-center">S/ 46.00</td> 
-                                                        <td class="text-center" style="padding: 0px !important; vertical-align: middle;">
-                                                        <button id="btn_5" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="editModal(5);" data-id="5" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
-                                                                <span class="fa fa-pencil-alt"></span>
-                                                            </button>
-                                                            <button id="butn_5" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="addModal(5);" data-id="5" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
-                                                                <span class="fa fa-plus"></span>
-                                                            </button>
-                                                        </td></tr><tr> <td class="text-center">
-                                                             
-                                                            B001-0045
-                                                        </td> <td class="text-center">
-                                                            22/10/2021
-                                                        </td> <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> CARRUS BONILLA, FREDY</strong><br> <strong>DNI:</strong> 47012502<br>
-                                                        </td> <td class="text-center">S/ 40.00</td> <td class="text-center"><!---->
-                                                            S/ 60.00
-                                                        </td>
-                                                        <td class="text-center">S/ 100.00</td> 
-                                                        <td class="text-center" style="padding: 0px !important; vertical-align: middle;">
-                                                        <button id="btn_6" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="editModal(6);" data-id="6" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
-                                                                <span class="fa fa-pencil-alt"></span>
-                                                            </button>
-                                                            <button id="butn_6" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="addModal(6);" data-id="6" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
-                                                                <span class="fa fa-plus"></span>
-                                                            </button>
-                                                        </td></tr><tr><td class="text-center">
-                                                             
-                                                            B001-0091
-                                                        </td> <td class="text-center">
-                                                            22/10/2021
-                                                        </td> <td style="font-size: 11px;"><strong><i class="ti-wheelchair"></i> ESTEBAN BEJARANO, JIM ALBERT</strong><br> <strong>RUC:</strong> 953957595<br> 
-                                                        </td> <td class="text-center">S/ 40.00</td> <td class="text-center"><!---->
-                                                           S/ 00.00
-                                                        </td> 
-                                                        <td class="text-center">S/ 40.00</td>
-                                                         <td class="text-center" style="padding: 0px !important; vertical-align: middle;">
-                                                         <button id="btn_7" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="editModal(7);" data-id="7" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
-                                                                <span class="fa fa-pencil-alt"></span>
-                                                            </button>
-                                                            <button id="butn_7" class="btn btn-secondary btn-sm btn-circle margin" type="button" onclick="addModal(7);" data-id="7" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
-                                                                <span class="fa fa-plus"></span>
-                                                            </button>
-                                                        </td></tr></tbody></table></div> 
-                                                        <div class="table-paginate row"><div class="col-md-4"><div class="text-left" style="padding-top: 5px;">1 de 1 Páginas </div></div> <div class="col-md-4"><ul class="pagination justify-content-center"><li class="page-item inicio disabled"><a href="#" title="Ir al inicio" class="page-link"><<<i class="ti-angle-double-left" style="vertical-align: middle;"></i></a></li> <li class="page-item disabled"><a href="#" title="Anterior" class="page-link"><<i class="ti-angle-left" style="vertical-align: middle;"></i></a></li> <li class="page-item active"><a href="#" class="page-link">1</a></li> <li class="page-item disabled"><a href="#" title="Siguiente" class="page-link">><i class="ti-angle-right" style="vertical-align: middle;"></i></a></li> <li class="page-item final disabled"><a href="#" aria-label="Next" title="Ir al final" class="page-link">>><i class="ti-angle-double-right" style="vertical-align: middle;"></i></a></li></ul></div> <div class="col-sm-4">
-                                                          <div class="text-right" style="padding-top: 5px;">7 de 7 Registros</div></div></div> <div id="bvkb4e4en7lxy2wirejhmg" class="busy-load-container" style="position: absolute; top: 0px; left: 0px; background: rgba(0, 0, 0, 0.71); color: rgb(255, 255, 255); display: none; align-items: center; justify-content: center; width: 100%; height: 100%; z-index: 9999;"><div class="busy-load-container-item" style="background: none; display: flex; justify-content: center; align-items: center; flex-direction: row-reverse;"><span class="busy-load-text" style="font-size: 1rem; margin-left: 0.5rem;">Cargando datos ...</span><div class="spinner-accordion busy-load-spinner-css busy-load-spinner" style="max-height: 50px; max-width: 50px; min-height: 20px; min-width: 20px;"><div class="rect1" style="background-color: rgb(255, 255, 255);"></div> <div class="rect2" style="background-color: rgb(255, 255, 255);"></div> <div class="rect3" style="background-color: rgb(255, 255, 255);"></div> <div class="rect4" style="background-color: rgb(255, 255, 255);"></div> <div class="rect5" style="background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>
-                                                          </div>
+                <tbody>
+                <?php
+                      foreach ($list as $item) {     
+                  ?>
+                    <tr><td class="text-center">      
+                    <?php $codigo="B001-"; $codigo.=$item['id_prestamo']; echo $codigo; ?>
+                  </td> <td class="text-center">
+                  <?php echo $item['fecha_cobro']; ?>
+                  </td> <td style="font-size: 11px;">
+                   <strong><i class="ti-wheelchair"></i> <?php $nomapell=$item['nombre']; $nomapell.=" "; $nomapell.=$item['apellido']; echo $nomapell; ?>
+                  </strong><br> 
+                  <?php if( $item['dni'] !== '0' ){ ?>
+                          <strong>DNI:</strong> <?php echo $item['dni']; ?><br>
+                     <?php }else{ ?>
+                      <strong>RUC:</strong> <?php echo $item['ruc']; ?><br> 
+                      <?php  } ?> 
+                   </td> <td class="text-center">S/ <?php echo $item['valor_cuota']; ?></td> <td class="text-center">
+                    S/ <?php echo $item['mora']; ?>
+                     </td> 
+                    <td class="text-center">S/ <?php $total=$item['valor_cuota']+$item['mora']; echo $total; ?></td> 
+                    <td class="text-center" style="padding: 0px !important; vertical-align: middle;"> 
+                    <button id="btn_<?php echo $item['id_cobro']; ?>" class="btn btn-secondary btn-sm btn-circle margin" type="button" 
+                    onclick="editModal(<?php echo $item['id_cobro']; ?>);" data-id="<?php echo $item['id_cobro']; ?>" 
+                    data-fecha_cobro="<?php echo $item['fecha_cobro']; ?>" data-mora="<?php echo $item['mora']; ?>">
+                    <span class="fa fa-pencil-alt"></span>
+                    </button>
+                    <button id="botn_<?php echo $item['id_cobro']; ?>" class="btn btn-secondary btn-sm btn-circle margin" type="button" 
+                    onclick="addModal(<?php echo $item['id_cobro']; ?>);" data-id="<?php echo $item['id_cobro']; ?>" 
+                    data-fecha_cobro="<?php echo $item['fecha_cobro']; ?>" data-mora="<?php echo $item['mora']; ?>"
+                    data-total="<?php echo $total; ?>" data-total_cob="<?php echo $total; ?>"
+                    data-codigo="<?php echo $item['codigo']; ?>">
+                    <span class="fa fa-plus"></span>
+                     </button>                       
+                    </td>
+                  <?php  } ?>  
+                  </tbody></table></div> 
+                    <div class="table-paginate row"><div class="col-md-4"><div class="text-left" style="padding-top: 5px;">1 de 1 Páginas </div></div> <div class="col-md-4"><ul class="pagination justify-content-center"><li class="page-item inicio disabled"><a href="#" title="Ir al inicio" class="page-link"><<<i class="ti-angle-double-left" style="vertical-align: middle;"></i></a></li> <li class="page-item disabled"><a href="#" title="Anterior" class="page-link"><<i class="ti-angle-left" style="vertical-align: middle;"></i></a></li> <li class="page-item active"><a href="#" class="page-link">1</a></li> <li class="page-item disabled"><a href="#" title="Siguiente" class="page-link">><i class="ti-angle-right" style="vertical-align: middle;"></i></a></li> <li class="page-item final disabled"><a href="#" aria-label="Next" title="Ir al final" class="page-link">>><i class="ti-angle-double-right" style="vertical-align: middle;"></i></a></li></ul></div> <div class="col-sm-4">
+                    <div class="text-right" style="padding-top: 5px;">7 de 7 Registros</div></div></div> <div id="bvkb4e4en7lxy2wirejhmg" class="busy-load-container" style="position: absolute; top: 0px; left: 0px; background: rgba(0, 0, 0, 0.71); color: rgb(255, 255, 255); display: none; align-items: center; justify-content: center; width: 100%; height: 100%; z-index: 9999;"><div class="busy-load-container-item" style="background: none; display: flex; justify-content: center; align-items: center; flex-direction: row-reverse;"><span class="busy-load-text" style="font-size: 1rem; margin-left: 0.5rem;">Cargando datos ...</span><div class="spinner-accordion busy-load-spinner-css busy-load-spinner" style="max-height: 50px; max-width: 50px; min-height: 20px; min-width: 20px;"><div class="rect1" style="background-color: rgb(255, 255, 255);"></div> <div class="rect2" style="background-color: rgb(255, 255, 255);"></div> <div class="rect3" style="background-color: rgb(255, 255, 255);"></div> <div class="rect4" style="background-color: rgb(255, 255, 255);"></div> <div class="rect5" style="background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>
+                    </div>
                         </div>
                     </div>
                 </div>
    </div>
   <!-- /.content-wrapper -->
   <!-- Añadir pago -->
-  <div class="modal fade" id="AddModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="EditModal" aria-hidden="true">
+  <div class="modal fade" id="AddModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="AddModal" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header"style="background:#28a745;color:#fff">
@@ -185,19 +98,25 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="form-horizontal" id="edit">
+        <form class="form-horizontal" id="edits">
         <div class="row">
             <div class="form-group">
-                <label class="col-12 control-label no-padding" for="placa">Ingresar fecha de pago :</label>
+                <label class="col-12 control-label no-padding" for="fecha_pago">Ingresar fecha de pago :</label>
                 <div class="col-12 no-padding">
-                    <input type="date" class="form-control input-sm" name="placa" id="placa" placeholder="27/10/2021" value="27/10/2021">
+                    <input type="date" class="form-control input-sm" name="fecha_pago" id="fecha_pago"  >
                     <input type="hidden" name="id" id="id">
-                    <input type="hidden" name="option" value="U">
+                    <input type="hidden" name="codigo" id="codigo">
+                    <input type="hidden" name="option" value="R">
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-12 control-label no-padding" for="marca">Monto a cobrar :</label>
-                <label class="col-12 control-label no-padding" for="marca"> S/ 49.00 </label>
+                <label class="col-12 control-label no-padding" for="total">Monto a cobrar :</label>
+                <!-- <label class="col-12 control-label no-padding" for="total_mos"name="total_mos" id="total_mos"> S/ <?php echo $total; ?> </label> -->
+                <div class="col-12 no-padding">
+                  <input disabled type="number" class="form-control input-sm" name="total_cob" id="total_cob" >
+                  <input type="hidden" class="form-control input-sm" name="total" id="total" >
+
+                </div>
                 <!-- <div class="col-12 no-padding">
                      --<input type="hidden" name="id" id="id">
                     <input type="hidden" name="option" value="U"> --
@@ -218,7 +137,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-info"> Registrar</button>
+      <button type="button" class="btn btn-info" onclick="AddRegistro();">Registrar</button>
       </div>
     </div>
   </div>
@@ -237,19 +156,19 @@
         <form class="form-horizontal" id="edit">
         <div class="row">
             <div class="form-group">
-                <label class="col-12 control-label no-padding" for="placa">Fecha de vencimiento :</label>
+                <label class="col-12 control-label no-padding" for="fecha_cobro">Fecha de vencimiento :</label>
                 <div class="col-12 no-padding">
-                    <input type="date" class="form-control input-sm" name="placa" id="placa" placeholder="Ingrese la placa del vehículo">
+                    <input type="date" class="form-control input-sm" name="fecha_cobro" id="fecha_cobro"  >
                     <input type="hidden" name="id" id="id">
                     <input type="hidden" name="option" value="U">
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-12 control-label no-padding" for="marca">Mora :</label>
+                <label class="col-12 control-label no-padding" for="mora">Mora S/ :</label>
                 <div class="col-12 no-padding">
                     <!-- <input type="hidden" name="id" id="id">
                     <input type="hidden" name="option" value="U"> -->
-                    <input type="number" class="form-control input-sm" name="marca" id="marca" placeholder="S/ 50">
+                    <input type="number" class="form-control input-sm" name="mora" id="mora" placeholder="S/ 100">
                 </div>
             </div>
            
@@ -266,7 +185,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-info"> Guardar</button>
+        <!-- <button type="button" class="btn btn-info"> Guardar</button> -->
+        <button type="button" class="btn btn-info" onclick="EditarRegistro();">Guardar</button>
       </div>
     </div>
   </div>
@@ -278,28 +198,25 @@
       function editModal(id) {
         $('#EditModal').modal('show');
         $('#edit').find('#id').val($('#btn_' + id).data('id'));
-        $('#edit').find('#placa').val($('#btn_' + id).data('placa'));
-        $('#edit').find('#marca').val($('#btn_' + id).data('marca'));
-        $('#edit').find('#color').val($('#btn_' + id).data('color'));
-        $('#edit').find('#estacionamiento').val($('#btn_' + id).data('estacionamiento'));
-        $('#edit').find('#fecha').val($('#btn_' + id).data('fecha'));
+        $('#edit').find('#fecha_cobro').val($('#btn_' + id).data('fecha_cobro'));
+        $('#edit').find('#mora').val($('#btn_' + id).data('mora'));
         console.log($('#btn_' + id).data('id'));
     }function addModal(id) {
         $('#AddModal').modal('show');
-        $('#edit').find('#id').val($('#btn_' + id).data('id'));
-        $('#edit').find('#placa').val($('#btn_' + id).data('placa'));
-        $('#edit').find('#marca').val($('#btn_' + id).data('marca'));
-        $('#edit').find('#color').val($('#btn_' + id).data('color'));
-        $('#edit').find('#estacionamiento').val($('#btn_' + id).data('estacionamiento'));
-        $('#edit').find('#fecha').val($('#btn_' + id).data('fecha'));
-        console.log($('#btn_' + id).data('id'));
+        $('#edits').find('#id').val($('#botn_' + id).data('id'));
+        $('#edits').find('#fecha_cobro').val($('#botn_' + id).data('fecha_cobro'));
+        $('#edits').find('#mora').val($('#botn_' + id).data('mora'));
+        $('#edits').find('#total').val($('#botn_' + id).data('total'));
+        $('#edits').find('#total_cob').val($('#botn_' + id).data('total_cob'));
+        $('#edits').find('#codigo').val($('#botn_' + id).data('codigo'));
+        console.log($('#botn_' + id).data('id'));
     }
 
     function EditarRegistro() {
       let parametros = new FormData($('#edit')[0]);
       $.ajax({
         type: 'POST',
-        url: '../ajax/forma-de-pago.php',
+        url: '../ajax/porcobrar.php',
         data: parametros,
         contentType: false,
         processData: false,
@@ -309,17 +226,38 @@
             console.log(jsonData.success);
             $('#EditModal').modal('hide');
             if(jsonData.success == "2"){
-            $('#MessageCrud').html('<div class="alert bg-warning" role="alert"><em class="fa fa-exclamation-triangle-circle mr-2"></em>Se encontró mas de un 1 registró con la misma descripción, por favor intente con otro término.<a href="#" class="float-right"><em class="fa fa-remove"></em></a></div>');
+            $('#Message').html('<div class="alert bg-warning" role="alert"><em class="fa fa-exclamation-triangle-circle mr-2"></em>Se encontró mas de un 1 registró con la misma descripción, por favor intente con otros términos.<a href="#" class="float-right"><em class="fa fa-remove"></em></a></div>');
             }
             if(jsonData.success == "1"){
-            $('#MessageCrud').html('<div class="alert bg-success" role="alert"><em class="fa fa-check-circle mr-2"></em>Se actualizó correctamente el vehiculo seleccionado. Por favor de comprobar los cambios.<a href="#" class="float-right"><em class="fa fa-remove"></em></a></div>');
+            $('#Message').html('<div class="alert bg-success" role="alert"><em class="fa fa-check-circle mr-2"></em>Se actualizó correctamente los datos de cobro. Por favor de comprobar los cambios.<a href="#" class="float-right"><em class="fa fa-remove"></em></a></div>');
             }
-            
-            //actualizar la tabla
-            // $('#tabla_id').DataTable().ajax.reload();
-            // window.setTimeout(function(){ 
-            //     $('.alert').alert('close');
-            // }, 3000);
+            if(jsonData.success == "0"){
+            $('#Message').html('<div class="alert bg-danger" role="alert"><em class="fa fa-minus-circle mr-2"></em>Ocurrio un error inesperado, Por favor intente mas tarde nuevamente.<a href="#" class="float-right"><em class="fa fa-remove"></em></a></div>');
+          }
+        }
+        }); 
+    } function AddRegistro() {
+      let parametros = new FormData($('#edits')[0]);
+      $.ajax({
+        type: 'POST',
+        url: '../ajax/porcobrar.php',
+        data: parametros,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+          console.log(response);  
+          var jsonData = JSON.parse(response);
+            console.log(jsonData.success);
+            $('#AddModal').modal('hide');
+            if(jsonData.success == "2"){
+            $('#MessagePago').html('<div class="alert bg-warning" role="alert"><em class="fa fa-exclamation-triangle-circle mr-2"></em>Se encontró mas de un 1 registró con la misma descripción, por favor intente con otros términos.<a href="#" class="float-right"><em class="fa fa-remove"></em></a></div>');
+            }
+            if(jsonData.success == "1"){
+            $('#MessagePago').html('<div class="alert bg-success" role="alert"><em class="fa fa-check-circle mr-2"></em>Se realizó el cobro correctamente y se registro en "Reporte". Por favor de comprobar los cambios.<a href="#" class="float-right"><em class="fa fa-remove"></em></a></div>');
+            }
+            if(jsonData.success == "0"){
+            $('#MessagePago').html('<div class="alert bg-danger" role="alert"><em class="fa fa-minus-circle mr-2"></em>Ocurrio un error inesperado, Por favor intente mas tarde nuevamente.<a href="#" class="float-right"><em class="fa fa-remove"></em></a></div>');
+          }
         }
         }); 
     }

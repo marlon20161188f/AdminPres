@@ -53,7 +53,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-header">Collection Process</li>
+          <hr>
           <li class="nav-item">
             <a href="<?php echo $url_site; ?>cobranza/" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
@@ -70,7 +70,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-header">Management</li>
+          <hr>
           <li class="nav-item">
             <a href="<?php echo $url_site; ?>historial/" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
@@ -90,7 +90,7 @@
         </ul>
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li class="nav-item">
-            <a href="<?php echo $url_site; ?>login.php" class="nav-link" style="margin-top: 14.5rem;">
+            <a href="<?php echo $url_site; ?>login.php" class="nav-link" style="margin-top: 8.5rem;">
               <i class="nav-icon fa fa-power-off text-danger"></i>
               <p class="text">Cerrar Sesión</p>
             </a>
