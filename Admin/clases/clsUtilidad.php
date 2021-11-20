@@ -17,10 +17,39 @@ class clsUtilidad
     public static function Listar($conexion){
         try {
             $query = $conexion->prepare("SELECT R.codigo, C.nombre, C.apellido, C.dni,
-            C.ruc, R.utilidad, R.id_utilidad, P.id_prestamo, P.monto, P.tasa, R.monto_cobrado
-            FROM utilidades R
+            C.ruc, R.fecha_de_pago, P.id_prestamo, P.monto, P.tasa, R.monto_cobrado, SUM(R.monto_cobrado) montotatalcobrado
+            FROM cobrados R
             INNER JOIN prestamos P ON P.id_prestamo = R.codigo
-            INNER JOIN clientes C ON C.id_cliente = P.cliente");
+            INNER JOIN clientes C ON C.id_cliente = P.cliente
+            GROUP BY R.codigo");
+            // SELECT R.codigo, C.nombre, C.apellido, C.dni,
+            // C.ruc, R.utilidad, R.id_utilidad, P.id_prestamo, P.monto, P.tasa, R.monto_cobrado
+            // FROM utilidades R
+            // INNER JOIN prestamos P ON P.id_prestamo = R.codigo
+            // INNER JOIN clientes C ON C.id_cliente = P.cliente
+            
+            $query->execute();
+            
+                return $query->fetchAll();
+            
+        } catch (PDOException $e) {
+            exit($e->getMessage());
+        }
+    }
+    public static function Listar_fecha($conexion){
+        try {
+            $query = $conexion->prepare("SELECT R.codigo, C.nombre, C.apellido, C.dni,
+            C.ruc, R.fecha_de_pago, P.id_prestamo, P.monto, P.tasa, R.monto_cobrado, SUM(R.monto_cobrado) montotatalcobrado
+            FROM cobrados R
+            INNER JOIN prestamos P ON P.id_prestamo = R.codigo
+            INNER JOIN clientes C ON C.id_cliente = P.cliente
+            GROUP BY R.codigo");
+            // SELECT R.codigo, C.nombre, C.apellido, C.dni,
+            // C.ruc, R.utilidad, R.id_utilidad, P.id_prestamo, P.monto, P.tasa, R.monto_cobrado
+            // FROM utilidades R
+            // INNER JOIN prestamos P ON P.id_prestamo = R.codigo
+            // INNER JOIN clientes C ON C.id_cliente = P.cliente
+            
             $query->execute();
             
                 return $query->fetchAll();

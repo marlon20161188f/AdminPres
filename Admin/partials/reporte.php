@@ -25,7 +25,9 @@
   </div> <div class="col-md-3" style="padding-right: 0px;">
   </div> <div class="col-md-4">
     <div class="input-group input-group-button">
-      <input type="text" id="datos" placeholder="Buscar Reporte" class="form-control"> 
+      <div> <div class="col-md-4"><ul class="pagination justify-content-center">
+                  </div></div>
+       <input type="hidden" id="datos" placeholder="Buscar Reporte" class="form-control">
       <span class="input-group-addon"><i class="ti-search"></i></span></div></div></div> 
       <div id="formularioModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" class="modal fade">
         <div role="document" class="modal-dialog"><!----></div>
@@ -60,9 +62,18 @@
                     </button>
                   </td></tr>
             <?php  } ?>      
-                </tbody></table></div> <div class="table-paginate row"><div class="col-md-4"><div class="text-left" style="padding-top: 5px;">1 de 1 Páginas </div></div> <div class="col-md-4"><ul class="pagination justify-content-center"><li class="page-item inicio disabled"><a href="#" title="Ir al inicio" class="page-link"><<<i class="ti-angle-double-left" style="vertical-align: middle;"></i></a></li> <li class="page-item disabled"><a href="#" title="Anterior" class="page-link"><<i class="ti-angle-left" style="vertical-align: middle;"></i></a></li> <li class="page-item active"><a href="#" class="page-link">1</a></li> <li class="page-item disabled"><a href="#" title="Siguiente" class="page-link">><i class="ti-angle-right" style="vertical-align: middle;"></i></a></li> <li class="page-item final disabled"><a href="#" aria-label="Next" title="Ir al final" class="page-link">>><i class="ti-angle-double-right" style="vertical-align: middle;"></i></a></li></ul></div> <div class="col-sm-4">
-                                                          <div class="text-right" style="padding-top: 5px;">7 de 7 Registros</div></div></div> <div id="bvkb4e4en7lxy2wirejhmg" class="busy-load-container" style="position: absolute; top: 0px; left: 0px; background: rgba(0, 0, 0, 0.71); color: rgb(255, 255, 255); display: none; align-items: center; justify-content: center; width: 100%; height: 100%; z-index: 9999;"><div class="busy-load-container-item" style="background: none; display: flex; justify-content: center; align-items: center; flex-direction: row-reverse;"><span class="busy-load-text" style="font-size: 1rem; margin-left: 0.5rem;">Cargando datos ...</span><div class="spinner-accordion busy-load-spinner-css busy-load-spinner" style="max-height: 50px; max-width: 50px; min-height: 20px; min-width: 20px;"><div class="rect1" style="background-color: rgb(255, 255, 255);"></div> <div class="rect2" style="background-color: rgb(255, 255, 255);"></div> <div class="rect3" style="background-color: rgb(255, 255, 255);"></div> <div class="rect4" style="background-color: rgb(255, 255, 255);"></div> <div class="rect5" style="background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>
-                                                          </div>
+                </tbody></table></div> 
+                <div class="table-paginate row">
+                  <div class="col-md-4">
+                    <!-- <div class="text-left" style="padding-top: 5px;">1 de 1 Páginas 
+                    </div> -->
+                  </div> 
+                  <div class="col-md-4"><ul class="pagination justify-content-center">
+                    <!-- <li class="page-item inicio disabled"><a href="#" title="Ir al inicio" class="page-link"><<<i class="ti-angle-double-left" style="vertical-align: middle;"></i></a></li> <li class="page-item disabled"><a href="#" title="Anterior" class="page-link"><<i class="ti-angle-left" style="vertical-align: middle;"></i></a></li> <li class="page-item active"><a href="#" class="page-link">1</a></li> <li class="page-item disabled"><a href="#" title="Siguiente" class="page-link">><i class="ti-angle-right" style="vertical-align: middle;"></i></a></li> <li class="page-item final disabled"><a href="#" aria-label="Next" title="Ir al final" class="page-link">>><i class="ti-angle-double-right" style="vertical-align: middle;"></i></a></li></ul> -->
+                  </div>
+                     <div class="col-sm-4">
+                                                          <!-- <div class="text-right" style="padding-top: 5px;">7 de 7 Registros</div></div></div> <div id="bvkb4e4en7lxy2wirejhmg" class="busy-load-container" style="position: absolute; top: 0px; left: 0px; background: rgba(0, 0, 0, 0.71); color: rgb(255, 255, 255); display: none; align-items: center; justify-content: center; width: 100%; height: 100%; z-index: 9999;"><div class="busy-load-container-item" style="background: none; display: flex; justify-content: center; align-items: center; flex-direction: row-reverse;"><span class="busy-load-text" style="font-size: 1rem; margin-left: 0.5rem;">Cargando datos ...</span><div class="spinner-accordion busy-load-spinner-css busy-load-spinner" style="max-height: 50px; max-width: 50px; min-height: 20px; min-width: 20px;"><div class="rect1" style="background-color: rgb(255, 255, 255);"></div> <div class="rect2" style="background-color: rgb(255, 255, 255);"></div> <div class="rect3" style="background-color: rgb(255, 255, 255);"></div> <div class="rect4" style="background-color: rgb(255, 255, 255);"></div> <div class="rect5" style="background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>
+                                                          </div> -->
                         </div>
                     </div>
                 </div>

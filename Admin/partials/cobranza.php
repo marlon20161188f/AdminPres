@@ -1,5 +1,10 @@
 <?php
-    $list = clsPorcobrar::Listar(Conexion::getInstancia());
+    // $list = clsPorcobrar::Listar(Conexion::getInstancia());
+    if(isset($_POST['submit'])){
+      $ver=$_POST['verr'];
+       $list = clsPorcobrar::Listar_ver(Conexion::getInstancia(), $ver);
+    }else{
+  $list = clsPorcobrar::Listar(Conexion::getInstancia());}
 ?> 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper"style="min-height: 1170.12px;">
@@ -21,13 +26,17 @@
                                 <div class="card-header"style="background-color:#28a745;color:#ffffff;">
                                     <div class="doc-card-title float-left">LISTA DE CUOTAS POR COBRAR</div>
                                 </div>
-  <div id="facturaciones" class="card-block"><div class="table-buscar row"><div class="col-md-5">
-  </div> <div class="col-md-3" style="padding-right: 0px;">
-  <select id="anulado" class="form-control" style="height: 35px; padding: 6px 8px;">
-  <option value="">--- VER TODOS ---</option> <option value="SI">CON MORA</option> 
-  <option value="NO">PRÓXIMOS</option></select></div> <div class="col-md-4">
-    <div class="input-group input-group-button">
-      <input type="text" id="datos" placeholder="Buscar préstamo" class="form-control"> 
+  <div id="facturaciones" class="card-block"><div class="table-buscar row">
+    <div class="col-md-0">
+    <form action=""method="POST">
+  </div> <div id="filtra" class="col-md-3" style="padding-right: 0px;"><div class="col-md-4"><ul class="pagination justify-content-center"></div>
+  <select method="POST" id="ver" name="verr" class="form-control" style="height: 35px; padding: 6px 8px;">
+  <option value="1">--- VER TODOS ---</option> <option value="2">CON MORA</option> 
+  <option value="3">PRÓXIMOS</option></select>
+  <input type="submit" value="Filtrar" name="submit" class="btn btn-dark" style="margin-top: 10px; width: 90px; height: 35px; padding: 6px 8px;">
+  </div></form><div class="col-md-4">
+  <div class="input-group input-group-button">
+      <!-- <input type="text" id="datos" placeholder="Buscar préstamo" class="form-control">  -->
       <span class="input-group-addon"><i class="ti-search"></i></span></div></div></div> 
       <div id="formularioModal" tabindex="-1" role="dialog" data-backdrop="static" data-keyboard="false" class="modal fade">
         <div role="document" class="modal-dialog"><!----></div>
@@ -60,9 +69,20 @@
                       <strong>RUC:</strong> <?php echo $item['ruc']; ?><br> 
                       <?php  } ?> 
                    </td> <td class="text-center">S/ <?php echo $item['valor_cuota']; ?></td> <td class="text-center">
-                    S/ <?php echo $item['mora']; ?>
+                    S/ <?php 
+                    date_default_timezone_set('America/Los_Angeles');
+                    $fecha = date("Y-m-d");
+                    $date1 = new DateTime($item['fecha_cobro']);
+                    $date2 = new DateTime("now");
+                    if($date2>$date1){
+                    $diff=$date1->diff($date2);
+                    $dias=$diff->days;
+                    }else{
+                    $dias=0;
+                    }
+                    $moratotal=$item['mora']*$dias ; echo $moratotal; ?>
                      </td> 
-                    <td class="text-center">S/ <?php $total=$item['valor_cuota']+$item['mora']; echo $total; ?></td> 
+                    <td class="text-center">S/ <?php $total=$item['valor_cuota']+$moratotal; echo $total; ?></td> 
                     <td class="text-center" style="padding: 0px !important; vertical-align: middle;"> 
                     <button id="btn_<?php echo $item['id_cobro']; ?>" class="btn btn-secondary btn-sm btn-circle margin" type="button" 
                     onclick="editModal(<?php echo $item['id_cobro']; ?>);" data-id="<?php echo $item['id_cobro']; ?>" 
@@ -79,8 +99,11 @@
                     </td>
                   <?php  } ?>  
                   </tbody></table></div> 
-                    <div class="table-paginate row"><div class="col-md-4"><div class="text-left" style="padding-top: 5px;">1 de 1 Páginas </div></div> <div class="col-md-4"><ul class="pagination justify-content-center"><li class="page-item inicio disabled"><a href="#" title="Ir al inicio" class="page-link"><<<i class="ti-angle-double-left" style="vertical-align: middle;"></i></a></li> <li class="page-item disabled"><a href="#" title="Anterior" class="page-link"><<i class="ti-angle-left" style="vertical-align: middle;"></i></a></li> <li class="page-item active"><a href="#" class="page-link">1</a></li> <li class="page-item disabled"><a href="#" title="Siguiente" class="page-link">><i class="ti-angle-right" style="vertical-align: middle;"></i></a></li> <li class="page-item final disabled"><a href="#" aria-label="Next" title="Ir al final" class="page-link">>><i class="ti-angle-double-right" style="vertical-align: middle;"></i></a></li></ul></div> <div class="col-sm-4">
-                    <div class="text-right" style="padding-top: 5px;">7 de 7 Registros</div></div></div> <div id="bvkb4e4en7lxy2wirejhmg" class="busy-load-container" style="position: absolute; top: 0px; left: 0px; background: rgba(0, 0, 0, 0.71); color: rgb(255, 255, 255); display: none; align-items: center; justify-content: center; width: 100%; height: 100%; z-index: 9999;"><div class="busy-load-container-item" style="background: none; display: flex; justify-content: center; align-items: center; flex-direction: row-reverse;"><span class="busy-load-text" style="font-size: 1rem; margin-left: 0.5rem;">Cargando datos ...</span><div class="spinner-accordion busy-load-spinner-css busy-load-spinner" style="max-height: 50px; max-width: 50px; min-height: 20px; min-width: 20px;"><div class="rect1" style="background-color: rgb(255, 255, 255);"></div> <div class="rect2" style="background-color: rgb(255, 255, 255);"></div> <div class="rect3" style="background-color: rgb(255, 255, 255);"></div> <div class="rect4" style="background-color: rgb(255, 255, 255);"></div> <div class="rect5" style="background-color: rgb(255, 255, 255);"></div></div></div></div></div></div>
+                    <!-- <div class="table-paginate row"><div class="col-md-4"><div class="text-left" style="padding-top: 5px;">1 de 1 Páginas </div></div> 
+                     -->
+                     <div class="col-md-4"><ul class="pagination justify-content-center"></div>
+                      <!--<li class="page-item inicio disabled"><a href="#" title="Ir al inicio" class="page-link"><<<i class="ti-angle-double-left" style="vertical-align: middle;"></i></a></li> <li class="page-item disabled"><a href="#" title="Anterior" class="page-link"><<i class="ti-angle-left" style="vertical-align: middle;"></i></a></li> <li class="page-item active"><a href="#" class="page-link">1</a></li> <li class="page-item disabled"><a href="#" title="Siguiente" class="page-link">><i class="ti-angle-right" style="vertical-align: middle;"></i></a></li> <li class="page-item final disabled"><a href="#" aria-label="Next" title="Ir al final" class="page-link">>><i class="ti-angle-double-right" style="vertical-align: middle;"></i></a></li></ul></div> <div class="col-sm-4"> -->
+                    <!-- <div class="text-right" style="padding-top: 5px;">7 de 7 Registros</div></div></div> <div id="bvkb4e4en7lxy2wirejhmg" class="busy-load-container" style="position: absolute; top: 0px; left: 0px; background: rgba(0, 0, 0, 0.71); color: rgb(255, 255, 255); display: none; align-items: center; justify-content: center; width: 100%; height: 100%; z-index: 9999;"><div class="busy-load-container-item" style="background: none; display: flex; justify-content: center; align-items: center; flex-direction: row-reverse;"><span class="busy-load-text" style="font-size: 1rem; margin-left: 0.5rem;">Cargando datos ...</span><div class="spinner-accordion busy-load-spinner-css busy-load-spinner" style="max-height: 50px; max-width: 50px; min-height: 20px; min-width: 20px;"><div class="rect1" style="background-color: rgb(255, 255, 255);"></div> <div class="rect2" style="background-color: rgb(255, 255, 255);"></div> <div class="rect3" style="background-color: rgb(255, 255, 255);"></div> <div class="rect4" style="background-color: rgb(255, 255, 255);"></div> <div class="rect5" style="background-color: rgb(255, 255, 255);"></div></div></div></div></div></div> -->
                     </div>
                         </div>
                     </div>
@@ -193,8 +216,17 @@
 </div>
 <script>
     $(document).ready( function () {
-    $('#tabla_id').DataTable();
+    $('#tabla_ids').DataTable();
   } );
+    //  function filtro(){
+    //   var ver=document.getElementById("ver").value;
+    //   var mData={ver: ver}
+    //   $.ajax({
+    //       type: 'POST',
+    //       data: mData,
+    //       dataType: 'html'
+    //     });
+    // }
       function editModal(id) {
         $('#EditModal').modal('show');
         $('#edit').find('#id').val($('#btn_' + id).data('id'));

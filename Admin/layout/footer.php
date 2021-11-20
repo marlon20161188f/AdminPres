@@ -1,7 +1,7 @@
 <!-- </section>
 		</div> -->
 	</div>
-
+ <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
 	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
 
 	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
@@ -161,12 +161,12 @@ $("#menu-toggle").click(function(e){
     //--------------
     //- AREA CHART -
     //--------------
-
+    <?php $list = clsUtilidad::Listar_fecha(Conexion::getInstancia()); ?>
     // Get context with jQuery - using jQuery's .get() method.
     var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
 
     var areaChartData = {
-      labels  : ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
+      labels  : ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'],
       datasets: [
         {
           label               : 'Digital Goods',
@@ -388,6 +388,8 @@ $("#menu-toggle").click(function(e){
 <script src="<?php echo $url_site; ?>plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="<?php echo $url_site; ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?php echo $url_site; ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script src="<?php echo $url_site; ?>plugins/datatables-searchbuilder/js/dataTables.searchBuilder.js"></script>
+<script src="<?php echo $url_site; ?>plugins/DateTime-1.1.1/js/dataTables.dateTime.min.js"></script>
 
 <!-- historial -->
 <script src="<?php echo $url_site; ?>dist/js/main1.js"></script>
@@ -431,14 +433,142 @@ $("#menu-toggle").click(function(e){
           className: 'btn btn-info'
         },]
     }).buttons().container().appendTo('#examples_wrapper .col-md-6:eq(0)');
-    $('#exampless').DataTable({
+    $('#tabla_id').DataTable({
       "paging": true,
       "lengthChange": false,
-      "searching": false,
+      "searching": true,
       "ordering": true,
       "info": true,
       "autoWidth": false,
       "responsive": true,
+      "dom": 'lfBrtip',
+      language: {
+        "lengthMenu": "Mostrar _MENU_ registros",
+                  "zeroRecords": "No se encontraron resultados",
+                  "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                  "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                  "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                  "sSearch": "Buscar:",
+                  "oPaginate": {
+                      "sFirst": "Primero",
+                      "sLast":"Último",
+                      "sNext":"Siguiente",
+                      "sPrevious": "Anterior"
+            },
+            "sProcessing":"Procesando...",
+              },  
+      "buttons": [
+            // {
+            //     extend: 'searchBuilder',
+            //     config: {
+            //         depthLimit: 1,
+            //     }
+            // },
+            {
+          extend:    'excelHtml5',
+          text:      '<i class="fa fa-file-excel"></i> ',
+          titleAttr: 'Exportar a Excel',
+          className: 'btn btn-success'
+        },
+        {
+          extend:    'pdfHtml5',
+          text:      '<i class="fa fa-file-pdf"></i> ',
+          titleAttr: 'Exportar a PDF',
+          className: 'btn btn-danger'
+        },
+        {
+          extend:    'colvis',
+          text:      'Visualizar Columnas',
+          titleAttr: 'Visualizar Columnas',
+          className: 'btn btn-info'
+        }
+        ],
+    });
+    $('#tabla_idd').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+      "dom": 'lfBrtip',
+      language: {
+        "lengthMenu": "Mostrar _MENU_ registros",
+                  "zeroRecords": "No se encontraron resultados",
+                  "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                  "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                  "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                  "sSearch": "Buscar:",
+                  "oPaginate": {
+                      "sFirst": "Primero",
+                      "sLast":"Último",
+                      "sNext":"Siguiente",
+                      "sPrevious": "Anterior"
+            },
+            "sProcessing":"Procesando...",
+              },  
+              "buttons": [ {
+          extend:    'excelHtml5',
+          text:      '<i class="fa fa-file-excel"></i> ',
+          titleAttr: 'Exportar a Excel',
+          className: 'btn btn-success'
+        },
+        {
+          extend:    'pdfHtml5',
+          text:      '<i class="fa fa-file-pdf"></i> ',
+          titleAttr: 'Exportar a PDF',
+          className: 'btn btn-danger'
+        },
+        {
+          extend:    'colvis',
+          text:      'Visualizar Columnas',
+          titleAttr: 'Visualizar Columnas',
+          className: 'btn btn-info'
+        },]
+    });
+    $('#utilidad').DataTable({
+      "paging": true,
+      "lengthChange": false,
+      "searching": true,
+      "ordering": true,
+      "info": true,
+      "autoWidth": false,
+      "responsive": true,
+      "dom": 'lfBrtip',
+      language: {
+        "lengthMenu": "Mostrar _MENU_ registros",
+                  "zeroRecords": "No se encontraron resultados",
+                  "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                  "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                  "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                  "sSearch": "Buscar:",
+                  "oPaginate": {
+                      "sFirst": "Primero",
+                      "sLast":"Último",
+                      "sNext":"Siguiente",
+                      "sPrevious": "Anterior"
+            },
+            "sProcessing":"Procesando...",
+              },  
+              "buttons": [ {
+          extend:    'excelHtml5',
+          text:      '<i class="fa fa-file-excel"></i> ',
+          titleAttr: 'Exportar a Excel',
+          className: 'btn btn-success'
+        },
+        {
+          extend:    'pdfHtml5',
+          text:      '<i class="fa fa-file-pdf"></i> ',
+          titleAttr: 'Exportar a PDF',
+          className: 'btn btn-danger'
+        },
+        {
+          extend:    'colvis',
+          text:      'Visualizar Columnas',
+          titleAttr: 'Visualizar Columnas',
+          className: 'btn btn-info'
+        },]
     });
     $('.dataTables_length').addClass('bs-select');
   });

@@ -1,6 +1,6 @@
 <?php
 $mysqli=new mysqli("bigputucjf2kra8nu8kp-mysql.services.clever-cloud.com","uszd9o98c5dnkk9e","VSjhvIO58NTNWmCMl82h","bigputucjf2kra8nu8kp");
-//$mysqli=new mysqli("localhost","roots","","adminpress");
+// $mysqli=new mysqli("localhost","roots","","adminpress");
 if ($mysqli->connect_errno) {
   die("error de conexión: " . $mysqli->connect_error);
 }

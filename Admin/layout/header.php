@@ -27,10 +27,13 @@
   <script href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <!-- DataTables -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"> -->
   <link rel="stylesheet" href="<?php echo $url_site; ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo $url_site; ?>plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
   <link rel="stylesheet" href="<?php echo $url_site; ?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+  <link rel="stylesheet" href="<?php echo $url_site; ?>plugins/datatables-searchbuilder/css/searchBuilder.bootstrap4.css">
+  <link rel="stylesheet" href="<?php echo $url_site; ?>plugins/DateTime-1.1.1/css/dataTables.dateTime.min.css">
+
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
@@ -76,6 +79,8 @@
   <link rel="stylesheet" href="<?php echo $url_site; ?>plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
   <link rel="stylesheet" href="<?php echo $url_site; ?>plugins/summernote/summernote-bs4.min.css">
+
+
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 </style>

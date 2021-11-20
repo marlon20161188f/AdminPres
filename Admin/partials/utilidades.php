@@ -36,7 +36,7 @@
                 <h3 class="card-title">Monto ganado por préstamo</h3>
 
                 <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
+                  <!-- <div class="input-group input-group-sm" style="width: 150px;">
                     <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
                     <div class="input-group-append">
@@ -44,12 +44,13 @@
                         <i class="fas fa-search"></i>
                       </button>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
               <!-- /.card-header -->
               <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+              <div class="col-md-4"><ul class="pagination justify-content-center"></div>
+                <table id="utilidad" class="table table-hover text-nowrap">
                   <thead>
                     <tr style="background-color:#001f3f;color:#ffffff;">
                       <th>Código de préstamo</th>
@@ -77,11 +78,15 @@
                   </td> 
                       <td>S/  <?php echo $item['monto']; ?></td>
                       <td> <?php echo $item['tasa']; ?>%</td>
-                      <td>S/  <?php echo $item['monto_cobrado']; ?></td>
-                      <td>S/  <?php echo $item['utilidad']; ?></td>
+                      <td>S/  <?php echo $item['montotatalcobrado']; ?></td>
+                      <td>S/  <?php $utilidad=$item['montotatalcobrado']-$item['monto'];
+                      // if($utilidad<0){
+                      //   $utilidad="pendiente";
+                      // }
+                      echo $utilidad; ?></td>
                       <td style="font-size: 11px;">
                         <ul id="menu">
-                        <li><input type="checkbox" name="list" id="nivel1-1"><label for="nivel1-1"><strong><i class="ti-wheelchair"></i> Moras: </strong><?php 
+                        <li><input type="checkbox" name="list" id="nivel1-<?php echo $item['id_prestamo']; ?>"><label for="nivel1-<?php echo $item['id_prestamo']; ?>"><strong><i class="ti-wheelchair"></i> Moras: </strong><?php 
                         if(isset(array_count_values(array_column($list_mora,'codigo'))[$item['id_prestamo']])){
                         echo array_count_values(array_column($list_mora,'codigo'))[$item['id_prestamo']]; }?><br></label>
                         <ul class="interior">

@@ -36,6 +36,8 @@
 
         public static function Listar($conexion){
             try {
+                $actualiza=$conexion->prepare('UPDATE por_cobrar SET estado_mora = if(fecha_cobro<now(),1,2) WHERE estado_pago=1');
+                $actualiza->execute();
                 $query = $conexion->prepare('SELECT R.codigo, R.fecha_cobro, C.nombre, C.apellido, C.dni,
                 C.ruc, R.valor_cuota, R.mora, E.estado, M.estado_del_cobro, R.id_cobro, P.id_prestamo 
                 FROM por_cobrar R
@@ -52,6 +54,48 @@
                 echo($e->getMessage());
             }
         }
+        public static function Listar_ver($conexion,$ver){
+            try {
+                $actualiza=$conexion->prepare('UPDATE por_cobrar SET estado_mora = if(fecha_cobro<now(),1,2) WHERE estado_pago=1');
+                $actualiza->execute();
+                date_default_timezone_set('America/Los_Angeles');
+                $fecha = date("Y-m-d");
+                if($ver==1){
+                $query = $conexion->prepare('SELECT R.codigo, R.fecha_cobro, C.nombre, C.apellido, C.dni,
+                C.ruc, R.valor_cuota, R.mora, E.estado, M.estado_del_cobro, R.id_cobro, P.id_prestamo 
+                FROM por_cobrar R
+                INNER JOIN estado_cobro E ON E.id_estado = R.estado_pago
+                INNER JOIN estado_mora M ON M.id_mora = R.estado_mora
+                INNER JOIN prestamos P ON P.id_prestamo = R.codigo
+                INNER JOIN clientes C ON C.id_cliente = P.cliente
+                WHERE E.estado = "pendiente" ');}
+                if($ver==2){$query = $conexion->prepare('SELECT R.codigo, R.fecha_cobro, C.nombre, C.apellido, C.dni,
+                    C.ruc, R.valor_cuota, R.mora, E.estado, M.estado_del_cobro, R.id_cobro, P.id_prestamo 
+                    FROM por_cobrar R
+                    INNER JOIN estado_cobro E ON E.id_estado = R.estado_pago
+                    INNER JOIN estado_mora M ON M.id_mora = R.estado_mora
+                    INNER JOIN prestamos P ON P.id_prestamo = R.codigo
+                    INNER JOIN clientes C ON C.id_cliente = P.cliente
+                    WHERE E.estado = "pendiente" AND R.fecha_cobro < DATE_SUB(NOW(),INTERVAL 0 day)');}
+                if($ver==3){
+                    $query = $conexion->prepare('SELECT R.codigo, R.fecha_cobro, C.nombre, C.apellido, C.dni,
+                    C.ruc, R.valor_cuota, R.mora, E.estado, M.estado_del_cobro, R.id_cobro, P.id_prestamo 
+                    FROM por_cobrar R
+                    INNER JOIN estado_cobro E ON E.id_estado = R.estado_pago
+                    INNER JOIN estado_mora M ON M.id_mora = R.estado_mora
+                    INNER JOIN prestamos P ON P.id_prestamo = R.codigo
+                    INNER JOIN clientes C ON C.id_cliente = P.cliente
+                    WHERE E.estado = "pendiente" AND  R.fecha_cobro > now() LIMIT 10');
+                }
+                $query->execute();
+                if($query->rowCount() > 0){
+                    return $query->fetchAll();
+                }
+            } catch (PDOException $e) {
+                echo($e->getMessage());
+            }
+        }
+
 
         public static function Actualizar($conexion, $id, $fecha_cobro, $mora){
             try {
