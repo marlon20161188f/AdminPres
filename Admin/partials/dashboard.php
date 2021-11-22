@@ -130,7 +130,7 @@
                                 </div> 
                                 <div class="row justify-content-center">
                                     <div class="col-6" id="tabla_prestamos">
-                                            espere se esta vargando la tabla
+                                            espere se esta cargando la tabla
                                     </div>
                                 </div>
                             </div> <input type="button" name="next" class="next action-button"onclick="verRegistro();" value="Siguiente" > <input type="button" name="previous" class="previous action-button-previous" value="Atrás" >
@@ -311,9 +311,11 @@
     switch(document.getElementById("elije").value) {
         case "1":         
             document.getElementById("caja_bus").setAttribute("maxlength", "8");
+            document.getElementById("caja_bus").setAttribute("size", "8");
         break;
         case "2":
             document.getElementById("caja_bus").setAttribute("maxlength", "11");
+            document.getElementById("caja_bus").setAttribute("size", "11");
         break;
     }
 }

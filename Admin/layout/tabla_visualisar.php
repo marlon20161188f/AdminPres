@@ -6,10 +6,16 @@ require '../config/database.php';
 
 $q=$_POST['dniruc'];
     $conexion=Conexion::getInstancia();
-    $query=$conexion->prepare("SELECT clientes.id_cliente, clientes.nombre, clientes.apellido, clientes.dni, clientes.ruc, clientes.direccion, clientes.distrito, clientes.provincia,
-    clientes.departamento, clientes.celular, clientes.telefono FROM clientes
-    WHERE dni LIKE '%".$q."%'");
-     $resultado=$query->execute();
+    $dniuruc=strlen($q);
+    if( $dniuruc == 8 ){
+        $query=$conexion->prepare("SELECT clientes.id_cliente, clientes.nombre, clientes.apellido, clientes.dni, clientes.ruc, clientes.direccion, clientes.distrito, clientes.provincia,
+        clientes.departamento, clientes.celular, clientes.telefono FROM clientes
+        WHERE dni LIKE '%".$q."%' "); }
+    if( $dniuruc == 11 ){
+        $query=$conexion->prepare("SELECT clientes.id_cliente, clientes.nombre, clientes.apellido, clientes.dni, clientes.ruc, clientes.direccion, clientes.distrito, clientes.provincia,
+        clientes.departamento, clientes.celular, clientes.telefono FROM clientes
+        WHERE ruc LIKE '%".$q."%' "); }
+$resultado=$query->execute();
 $dniruc = $_POST['dniruc'];
 $tipo = $_POST['tipo'];
 $cuotas = $_POST['cuotas'];

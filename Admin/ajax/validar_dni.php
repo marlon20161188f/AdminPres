@@ -109,7 +109,7 @@ if(isset($_POST['consulta'])){
     }else{
         $curl = curl_init();
         $data = [
-            'token' => 'fkV0cQAEVyPPX4p5oS3mPBn1tOFFoWFdm4gqyc0bVbtzMfNbzkq1KGOFcI42',
+            'token' => 'DQBXYYgKnc3vUZE5VNHzb6tmYM9xggxbBJMfxtscFtUSOnNRtJ8H9gu0DuU3',
             'dni' => $q
         ];
         $post_data = http_build_query($data);
