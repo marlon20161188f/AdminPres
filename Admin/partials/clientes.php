@@ -135,11 +135,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-12 control-label no-padding" for="distrito">Distrito</label>
+                <label class="col-12 control-label no-padding" for="departamento">Departamento</label>
                 <div class="col-12 no-padding">
                     <!-- <input type="hidden" name="id" id="id">
                     <input type="hidden" name="option" value="U"> -->
-                    <input type="text" class="form-control input-sm" name="distrito" id="distrito" placeholder="Ingrese el distrito">
+                    <input type="text" class="form-control input-sm" name="departamento" id="departamento" placeholder="Ingrese el departamento">
                 </div>
             </div>
             <div class="form-group">
@@ -151,11 +151,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-12 control-label no-padding" for="departamento">Departamento</label>
+                <label class="col-12 control-label no-padding" for="distrito">Distrito</label>
                 <div class="col-12 no-padding">
                     <!-- <input type="hidden" name="id" id="id">
                     <input type="hidden" name="option" value="U"> -->
-                    <input type="text" class="form-control input-sm" name="departamento" id="departamento" placeholder="Ingrese el departamento">
+                    <input type="text" class="form-control input-sm" name="distrito" id="distrito" placeholder="Ingrese el distrito">
                 </div>
             </div>
             <div class="form-group">
