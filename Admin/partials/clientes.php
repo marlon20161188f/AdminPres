@@ -3,14 +3,14 @@
 ?> 
 <style>
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
-  background: none;
+  background: black;
   color: black!important;
   border-radius: 4px;
   border: 1px solid #828282;
 }
  
 .dataTables_wrapper .dataTables_paginate .paginate_button:active {
-  background: none;
+  background: black;
   color: black!important;
 }
 </style>
