@@ -27,8 +27,8 @@ if($tipo==1){
 <table id='example' class='cell-border compact stripe' style='width:80%'border='1'>
         <thead style='background:#001f3f;color:#fff;'>
             <tr>
-            <th class='text-center'> #  </th>
-                <th class='text-center'style='width:104;'>Vencimientos</th>
+            <th class='text-center'> Cuota  </th>
+                <th class='text-center'style='width:104;'>Vencimiento</th>
                 <th class='text-center'> A cobrar  </th>
             </tr>
         </thead>
