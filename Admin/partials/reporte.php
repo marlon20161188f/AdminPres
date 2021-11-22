@@ -37,7 +37,7 @@
           <thead><tr class="first"style="background-color:#001f3f;color:#ffffff;">
              <th class="th2 text-center">CODIGO DE PRÉSTAMO</th>
               <th class="th3 text-center">FECHA DE PAGO</th> 
-              <th class="th4">DATOS</th> 
+              <th class="th4 text-center">DATOS</th> 
               <th class="th5 text-center">MONTO COBRADO</th> 
               <th class="th7 text-center">ELIMINAR</th></tr></thead>
        <tbody>
