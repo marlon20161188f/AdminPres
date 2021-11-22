@@ -416,11 +416,6 @@ $("#menu-toggle").click(function(e){
       "dom": 'lfBrtip', 
       "responsive": true, "lengthChange": false, "autoWidth": false,
       "buttons": [ 
-        dom: {
-        button: {
-            className: 'btn btn-outline-info mr-2' //Primary class for all buttons
-          }
-        },
         {
           extend:    'excelHtml5',
           text:      '<i class="fa fa-file-excel"></i> ',
@@ -465,11 +460,12 @@ $("#menu-toggle").click(function(e){
             "sProcessing":"Procesando...",
               },  
       "buttons": [
-        dom: {
-        button: {
-            className: 'btn btn-outline-info mr-2' //Primary class for all buttons
-          }
-        },
+            // {
+            //     extend: 'searchBuilder',
+            //     config: {
+            //         depthLimit: 1,
+            //     }
+            // },
             {
           extend:    'excelHtml5',
           text:      '<i class="fa fa-file-excel"></i> ',
@@ -514,13 +510,7 @@ $("#menu-toggle").click(function(e){
             },
             "sProcessing":"Procesando...",
               },  
-              "buttons": [ 
-                dom: {
-        button: {
-            className: 'btn btn-outline-info mr-2' //Primary class for all buttons
-          }
-        },
-                {
+              "buttons": [ {
           extend:    'excelHtml5',
           text:      '<i class="fa fa-file-excel"></i> ',
           titleAttr: 'Exportar a Excel',
