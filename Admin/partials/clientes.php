@@ -1,6 +1,19 @@
 <?php
     $list = clsCliente::Listar(Conexion::getInstancia());
 ?> 
+<style>
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+  background: none;
+  color: black!important;
+  border-radius: 4px;
+  border: 1px solid #828282;
+}
+ 
+.dataTables_wrapper .dataTables_paginate .paginate_button:active {
+  background: none;
+  color: black!important;
+}
+</style>
 <div class="content-wrapper"style="min-height: 1170.12px;">
     <section class="content-header">
       <div class="container-fluid">
