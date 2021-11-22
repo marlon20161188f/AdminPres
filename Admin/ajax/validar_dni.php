@@ -51,12 +51,12 @@ if(isset($_POST['consulta'])){
                         </div>
                     </div>
                     <div class='form-group'>
-                        <label class='col-12 control-label no-padding' for='distrito'>Distrito</label>
+                        <label class='col-12 control-label no-padding' for='departamento'>Departamento</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='distrito' placeholder='Lonya Chico'value='".$fila['distrito']."'>
-                        </div>
+                         <input type='text' class='form-control input-sm' name='departamento'  placeholder='Amazonas'value='".$fila['departamento']."'>
+                         </div>
                     </div>
                     <div class='form-group'>
                         <label class='col-12 control-label no-padding' for='provincia'>Provincia</label>
@@ -67,12 +67,12 @@ if(isset($_POST['consulta'])){
                         </div>
                     </div>
                     <div class='form-group'>
-                        <label class='col-12 control-label no-padding' for='departamento'>Departamento</label>
+                        <label class='col-12 control-label no-padding' for='distrito'>Distrito</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='departamento'  placeholder='Amazonas'value='".$fila['departamento']."'>
-                        </div>
+                            <input type='text' class='form-control input-sm' name='distrito' placeholder='Lonya Chico'value='".$fila['distrito']."'>
+                         </div>
                     </div>
                     <div class='form-group'>
                         <label class='col-12 control-label no-padding' for='celular'>Celular</label>
@@ -170,11 +170,11 @@ if(isset($_POST['consulta'])){
                         </div>
                     </div>
                     <div class='form-group'>
-                        <label class='col-12 control-label no-padding' for='distrito'>Distrito</label>
+                        <label class='col-12 control-label no-padding' for='departamento'>Departamento</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='distrito' placeholder=''value=''>
+                            <input type='text' class='form-control input-sm' name='departamento'  placeholder=''value=''>
                         </div>
                     </div>
                     <div class='form-group'>
@@ -186,11 +186,11 @@ if(isset($_POST['consulta'])){
                         </div>
                     </div>
                     <div class='form-group'>
-                        <label class='col-12 control-label no-padding' for='departamento'>Departamento</label>
+                        <label class='col-12 control-label no-padding' for='distrito'>Distrito</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='departamento'  placeholder=''value=''>
+                            <input type='text' class='form-control input-sm' name='distrito' placeholder=''value=''>
                         </div>
                     </div>
                     <div class='form-group'>
@@ -270,11 +270,11 @@ if(isset($_POST['consulta'])){
                         </div>
                     </div>
                     <div class='form-group'>
-                        <label class='col-12 control-label no-padding' for='distrito'>Distrito</label>
+                        <label class='col-12 control-label no-padding' for='departamento'>Departamento</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='distrito' placeholder=''value=''>
+                            <input type='text' class='form-control input-sm' name='departamento'  placeholder=''value=''>
                         </div>
                     </div>
                     <div class='form-group'>
@@ -286,11 +286,11 @@ if(isset($_POST['consulta'])){
                         </div>
                     </div>
                     <div class='form-group'>
-                        <label class='col-12 control-label no-padding' for='departamento'>Departamento</label>
+                        <label class='col-12 control-label no-padding' for='distrito'>Distrito</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='departamento'  placeholder=''value=''>
+                            <input type='text' class='form-control input-sm' name='distrito' placeholder=''value=''>
                         </div>
                     </div>
                     <div class='form-group'>

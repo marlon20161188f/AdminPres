@@ -83,7 +83,7 @@
                       <?php  } ?> 
                    </td> <td class="text-center">S/ <?php echo $item['valor_cuota']; ?></td> <td class="text-center">
                     S/ <?php 
-                    date_default_timezone_set('America/Los_Angeles');
+                    date_default_timezone_set('America/Lima');
                     $fecha = date("Y-m-d");
                     $date1 = new DateTime($item['fecha_cobro']);
                     $date2 = new DateTime("now");
