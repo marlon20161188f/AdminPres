@@ -139,7 +139,7 @@
             <div class="form-group">
                 <label class="col-12 control-label no-padding" for="fecha_pago">Ingresar fecha de pago :</label>
                 <div class="col-12 no-padding">
-                    <input type="date" class="form-control input-sm" name="fecha_pago" id="fecha_pago"  >
+                    <input type="date" class="form-control input-sm" name="fecha_pago" id="fecha_pago" value="<?php echo date('Y-m-d');?>" >
                     <input type="hidden" name="id" id="id">
                     <input type="hidden" name="codigo" id="codigo">
                     <input type="hidden" name="option" value="R">

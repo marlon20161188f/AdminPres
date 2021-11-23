@@ -164,51 +164,115 @@ $("#menu-toggle").click(function(e){
     <?php $list = clsUtilidad::Listar_fecha(Conexion::getInstancia()); ?>
     // Get context with jQuery - using jQuery's .get() method.
     var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
-
     var areaChartData = {
-      // labels  : ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'],
-      labels  : ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio'],
+       //labels  : ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Setiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+      labels  : [<?php
+                        foreach ($list as $item) { 
+                          switch( $item['Mes']){
+                            case 1:
+                              echo "'Enero',";
+                              break;
+                            case 2:
+                              echo "'Febrero',";
+                              break;
+                            case 3:
+                              echo "'Marzo',";
+                              break;
+                            case 4:
+                              echo "'Abril',";
+                              break;
+                            case 5:
+                              echo "'Mayo',";
+                              break;
+                            case 6:
+                              echo "'Junio',";
+                              break;
+                            case 7:
+                              echo "'Julio',";
+                              break;
+                            case 8:
+                              echo "'Agosto',";
+                              break;
+                            case 9:
+                              echo "'Setiembre',";
+                              break;  
+                            case 10:
+                              echo "'Octubre',";
+                              break;
+                            case 11:
+                              echo "'Noviembre',";
+                              break;
+                            case 12:
+                              echo "'Diciembre',";
+                              break;   
+                          }    }
+                  ?>
+                  ],
       datasets: [
         {
-          label               : 'Digital Goods',
-          backgroundColor     : 'rgba(60,141,188,0.9)',
-          borderColor         : 'rgba(60,141,188,0.8)',
-          pointRadius          : false,
+          label               : 'Utilidades',
+          backgroundColor     : 'rgba(60,141,188,0.4)',
+          borderColor         : 'rgba(60,141,188,0.4)',
+          pointRadius          : true,
           pointColor          : '#3b8bba',
           pointStrokeColor    : 'rgba(60,141,188,1)',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48, 40, 19, 86, 27, 90]
+          data                : [<?php
+                        foreach ($list as $item) { echo $item['utilidades'].","; } ?>]
         },
         {
-          label               : 'Electronics',
-          backgroundColor     : 'rgba(210, 214, 222, 1)',
-          borderColor         : 'rgba(210, 214, 222, 1)',
-          pointRadius         : false,
+          label               : 'Prestamos emitidos',
+          backgroundColor     : 'rgba(210, 214, 222, 0.4)',
+          borderColor         : 'rgba(210, 214, 222, 0.4)',
+          pointRadius         : true,
           pointColor          : 'rgba(210, 214, 222, 1)',
           pointStrokeColor    : '#c1c7d1',
           pointHighlightFill  : '#fff',
           pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [65, 59, 80, 81, 56, 55, 40]
+          data                : [<?php
+                        foreach ($list as $item) { echo $item['total_prestado'].","; } ?>]
         },
       ]
     }
 
     var areaChartOptions = {
+    "animation": {
+      "duration": 1000,
+      "onComplete": function() {
+        var chartInstance = this.chart,
+          ctx = chartInstance.ctx;
+
+        ctx.font = Chart.helpers.fontString(Chart.defaults.global.defaultFontSize, Chart.defaults.global.defaultFontStyle, Chart.defaults.global.defaultFontFamily);
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'bottom';
+
+        this.data.datasets.forEach(function(dataset, i) {
+          var meta = chartInstance.controller.getDatasetMeta(i);
+          meta.data.forEach(function(bar, index) {
+            var data = dataset.data[index];
+            // ctx.fillText(data, bar._model.x, bar._model.y - 5);
+          });
+        });
+      }
+    },
       maintainAspectRatio : false,
       responsive : true,
       legend: {
-        display: false
+        display: true
       },
+      tooltips: {
+      "enabled": true
+    },
       scales: {
         xAxes: [{
           gridLines : {
-            display : false,
+            display : true,
           }
         }],
         yAxes: [{
           gridLines : {
-            display : false,
+            display : true,
           }
         }]
       }

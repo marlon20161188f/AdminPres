@@ -52,7 +52,7 @@ if(isset($_POST['consulta'])){
 else {
   date_default_timezone_set("America/Lima");
   $fecha = date("Y-m-d");
-  $query="SELECT a.monto, a.fecha, a.id_prestamo, CONCAT ( b.nombre,' ',b.apellido ) 
+  $query="SELECT a.monto, a.fecha, a.id_prestamo, CONCAT ( b.nombre,' ',COALESCE(b.apellido,'') ) 
   as client from prestamos a INNER JOIN clientes b ON a.cliente = b.id_cliente WHERE fecha <= '".$fecha."'
    ORDER BY fecha DESC LIMIT 10";
   $resultado=$mysqli->query($query);
@@ -83,7 +83,7 @@ else {
     <thead>
        <tr>
        <th colspan='1'></th>
-       <th align='center'width='34%'colspan='1'><H1 style='  border-radius: 5px; background: linear-gradient(180deg, rgba(255, 149, 16) 0%, rgba(255, 149, 16) 100%);' class='letra'>CLIENTE NO REGISTRADO</H1></th>
+       <th align='center'width='34%'colspan='1'><H1 style='  border-radius: 5px; background: linear-gradient(180deg, rgba(255, 149, 16) 0%, rgba(255, 149, 16) 100%);' class='letra'>PRESTAMO DEL CLIENTE NO REGISTRADO</H1></th>
        <th colspan='1'></th>
        </tr>
    </thead>"; $salida.="</tbody></table><div class='form-group text-center'style='margin-top:1rem'> 

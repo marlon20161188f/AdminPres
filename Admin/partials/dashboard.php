@@ -107,7 +107,7 @@
                                         <label class="fieldlabels">Tasa de interés %: </label> 
                                         <input method="post"type="number" name="tasa"id="tasa" placeholder="" style="background:#ffffff; height: 39px; margin-top:4px;"> 
                                         <label class="fieldlabels">Fecha de desembolso: </label> 
-                                        <input method="post"type="date" name="fecha_des" id="fecha_des" placeholder="<?php date('Y-m-d')?>" style="background:#ffffff; height: 39px; margin-top:4px;" > 
+                                        <input method="post"type="date" name="fecha_des" id="fecha_des"value="<?php echo date('Y-m-d');?>" placeholder="<?php echo date('Y-m-d');?>" style="background:#ffffff; height: 39px; margin-top:4px;" > 
                                        
                                     </div>
                                 </div>
