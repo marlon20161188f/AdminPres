@@ -95,17 +95,17 @@
                                         <label class="fieldlabels">Número de cuotas: </label>
                                         <input type="hidden" name="options" value="C">
                                         <input hidden type="number"name="idclient" id="idclient" placeholder="" value="3" >
-                                        <input method="post"type="number"name="cuotas" id="cuotas" placeholder="" style="background:#ffffff; height: 39px; margin-top:4px;">
+                                        <input method="post"type="number"name="cuotas" id="cuotas" placeholder="" style="background:#ffffff; height: 39px; margin-top:4px;" required>
                                         <label class="fieldlabels">Mora por día de retraso S/ : </label> 
-                                        <input method="post"type="number" name="moras" id="moras" placeholder=""style="background:#ffffff; height: 39px; margin-top:4px;" >
+                                        <input method="post"type="number" name="moras" id="moras" placeholder=""style="background:#ffffff; height: 39px; margin-top:4px;" required>
                                     
                                     </div>
                                     <div class="col-6" method="post">
                                        
                                         <label class="fieldlabels">Monto prestado S/ : </label> 
-                                        <input method="post"type="number" name="monto" id="monto" placeholder=""style="background:#ffffff; height: 39px; margin-top:4px;" > 
+                                        <input method="post"type="number" name="monto" id="monto" placeholder=""style="background:#ffffff; height: 39px; margin-top:4px;" required> 
                                         <label class="fieldlabels">Tasa de interés %: </label> 
-                                        <input method="post"type="number" name="tasa"id="tasa" placeholder="" style="background:#ffffff; height: 39px; margin-top:4px;"> 
+                                        <input method="post"type="number" name="tasa"id="tasa" placeholder="" style="background:#ffffff; height: 39px; margin-top:4px;" required> 
                                         <label class="fieldlabels">Fecha de desembolso: </label> 
                                         <input method="post"type="date" name="fecha_des" id="fecha_des"value="<?php echo date('Y-m-d');?>" placeholder="<?php echo date('Y-m-d');?>" style="background:#ffffff; height: 39px; margin-top:4px;" > 
                                        
@@ -115,7 +115,7 @@
                             <!-- <button id='btn_10' class='next action-button btn btn-primary'onclick="Registrar_prestamo();" type="button" data-dismiss="modal" aria-label="Close" >
                                 Siguiente
                              </button>  -->
-                             <input type="button" name="next" class="next action-button"onclick="Registrar_prestamos();" value="Siguiente" >
+                             <input type="button" name="next" class="next action-button"onmouseover="validdata();" onclick="Registrar_prestamos();" value="Siguiente" >
                              <input type="button" name="previous" class="previous action-button-previous" value="Atrás" >
                         </fieldset>
                         <fieldset>
@@ -286,7 +286,48 @@
         $("#tabla_visualizar").html(respuesta);
     })
     }
+    function validdata(){
+        var cuotasLength = document.getElementById("cuotas").value.length;
+        var morasLength = document.getElementById("moras").value.length;
+        var montoLength = document.getElementById("monto").value.length;
+        var tasaLength = document.getElementById("tasa").value.length;
+        if (cuotasLength == 0 || morasLength==0 || montoLength==0 || tasaLength==0) {
+            Swal.fire({
+  title: 'Campos vacíos, ingrese los parametros del prestamo para continuar.',
+  showCancelButton: false,
+  confirmButtonText: `Aceptar`,
+});
+        //alert("Campos vacíos, ingrese los valores para enviar.");
+        return false;
+    }
+    }
+    function valid(){
+        var nombreLength = document.getElementById("nombrew").value.length;
+        var apellidoLength = document.getElementById("apellidow").value.length;
+        if (nombreLength == 0 || apellidoLength==0) {
+            Swal.fire({
+  title: 'Campos vacíos, ingrese nombre y apellido para continuar.',
+  showCancelButton: false,
+  confirmButtonText: `Aceptar`,
+});
+       // alert("Campos vacíos, ingrese nombre y apellido para enviar.");
+        return false;
+    }
+    }
+    function validruc(){
+        var nombreLength = document.getElementById("nombrerazon").value.length;
+        if (nombreLength == 0 ) {
+            Swal.fire({
+  title: 'Campo vacío, ingrese nombre o razón social para continuar.',
+  showCancelButton: false,
+  confirmButtonText: `Aceptar`,
+});
+       // alert("Campo vacío, ingrese nombre o razón social para enviar.");
+        return false;
+    }
+    }
     function actualizarCliente() {
+       
       $.ajax({
         type: 'POST',
         url: '../ajax/cliente.php',

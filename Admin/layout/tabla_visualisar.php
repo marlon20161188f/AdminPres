@@ -39,7 +39,7 @@ $salid.="<table id='examples' class='cell-border' style='width:100%'>
                 <th>Nombre </th>
                 <th>: </th>
                 <th style='width:1rem;'></th>
-                <td> ".$fila['nombre'].", ".$fila['apellido']."</td>
+                <td> ".$fila['nombre']." ".$fila['apellido']."</td>
             </tr>
             <tr>
                 <th>DNI, RUC </th>

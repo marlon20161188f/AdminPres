@@ -140,7 +140,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='nombre'  placeholder=''value='' >
+                            <input type='text' class='form-control input-sm' name='nombre' id='nombrew' placeholder=''value='' required>
 
                         </div>
                     </div>
@@ -149,7 +149,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='apellido'  placeholder=''value=''>
+                            <input type='text' class='form-control input-sm' name='apellido' id='apellidow'  placeholder=''value='' required>
                         </div>
                     </div>
                     <div class='form-group'>
@@ -166,7 +166,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='direccion'  placeholder=''value=''>
+                            <input type='text' class='form-control input-sm' name='direccion'  placeholder=''value='' required>
                         </div>
                     </div>
                     <div class='form-group'>
@@ -174,7 +174,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='departamento'  placeholder=''value=''>
+                            <input type='text' class='form-control input-sm' name='departamento'  placeholder=''value='' >
                         </div>
                     </div>
                     <div class='form-group'>
@@ -182,7 +182,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='provincia' placeholder=''value=''>
+                            <input type='text' class='form-control input-sm' name='provincia' placeholder=''value='' >
                         </div>
                     </div>
                     <div class='form-group'>
@@ -190,7 +190,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='distrito' placeholder=''value=''>
+                            <input type='text' class='form-control input-sm' name='distrito' placeholder=''value='' >
                         </div>
                     </div>
                     <div class='form-group'>
@@ -198,7 +198,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='celular'  placeholder='' value=''>
+                            <input type='text' class='form-control input-sm' name='celular'  placeholder='' value='' >
                         </div>
                     </div>
                     <div class='form-group'>
@@ -206,7 +206,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='telefono'  placeholder='' value=''>
+                            <input type='text' class='form-control input-sm' name='telefono'  placeholder='' value='' >
                         </div>
                     </div>
                     </div>
@@ -218,7 +218,7 @@ if(isset($_POST['consulta'])){
         <!-- <button type='button' class='btn btn-primary' onclick='ValidarRegistro();'>
         <i class='fa fa-save'></i> Guardar</button> -->
         
-         <button id='btn_10' class='action-button btn btn-primary'onclick='actualizarCliente(); idRegistro(".$lastid.");' type='button' data-dismiss='modal' aria-label='Close' >
+         <button id='btn_10' class='action-button btn btn-primary' onmouseover='valid();' onclick='actualizarCliente(); idRegistro(".$lastid.");' type='button' data-dismiss='modal' aria-label='Close' >
         Continuar
          </button>
             ";echo $salida;
@@ -249,14 +249,14 @@ if(isset($_POST['consulta'])){
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
                             <input disabled type='text' class='form-control input-sm' placeholder='".$apellidos."'value='".$apellidos."'>
-                            <input hidden type='text' class='form-control input-sm' name='apellido'  placeholder='".$apellidos."'value='".$apellidos."'>
+                            <input hidden type='text' class='form-control input-sm' name='apellido'  placeholder='".$apellidos."'value='".$apellidos."' >
                         </div>
                     </div>
                     <div class='form-group'>
                         <label class='col-12 control-label no-padding' for='dniruc'>DNI</label>
                         <div class='col-12 no-padding'>
                             <input disabled type='text' class='form-control input-sm' placeholder='".$q."' value='".$q."'>
-                            <input hidden type='text' class='form-control input-sm' name='dniruc'  placeholder='".$q."' value='".$q."'>
+                            <input hidden type='text' class='form-control input-sm' name='dniruc'  placeholder='".$q."' value='".$q."' >
                             <input type='hidden' name='id_cliente' id='id_cliente' value=''>
                             <input type='hidden' name='option' value='C'>
                         </div>
@@ -266,7 +266,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='direccion'  placeholder=''value=''>
+                            <input type='text' class='form-control input-sm' name='direccion'  placeholder=''value='' required>
                         </div>
                     </div>
                     <div class='form-group'>
@@ -274,7 +274,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='departamento'  placeholder=''value=''>
+                            <input type='text' class='form-control input-sm' name='departamento'  placeholder=''value='' >
                         </div>
                     </div>
                     <div class='form-group'>
@@ -282,7 +282,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='provincia' placeholder=''value=''>
+                            <input type='text' class='form-control input-sm' name='provincia' placeholder=''value='' >
                         </div>
                     </div>
                     <div class='form-group'>
@@ -290,7 +290,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='distrito' placeholder=''value=''>
+                            <input type='text' class='form-control input-sm' name='distrito' placeholder=''value='' >
                         </div>
                     </div>
                     <div class='form-group'>
@@ -298,7 +298,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='celular'  placeholder='' value=''>
+                            <input type='text' class='form-control input-sm' name='celular'  placeholder='' value='' >
                         </div>
                     </div>
                     <div class='form-group'>
@@ -306,7 +306,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='telefono'  placeholder='' value=''>
+                            <input type='text' class='form-control input-sm' name='telefono'  placeholder='' value='' >
                         </div>
                     </div>
                     </div>

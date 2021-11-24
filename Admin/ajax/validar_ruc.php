@@ -133,7 +133,7 @@ if(isset($_POST['consulta'])){
                     <div class='col-12 no-padding'>
                         <!-- <input type='hidden' name='id' id='id'>
                         <input type='hidden' name='option' value='U'> -->
-                        <input type='text' class='form-control input-sm' style='width: 423px;' name='nombre'  placeholder=''value='' >
+                        <input type='text' id='nombrerazon' class='form-control input-sm' style='width: 423px;' name='nombre'  placeholder=''value='' required>
 
                     </div>
                 </div>
@@ -204,7 +204,7 @@ if(isset($_POST['consulta'])){
     <!-- <button type='button' class='btn btn-primary' onclick='ValidarRegistro();'>
     <i class='fa fa-save'></i> Guardar</button> -->
     
-     <button id='btn_10' class='action-button btn btn-primary'onclick='actualizarCliente(); idRegistro(".$lastid.");' type='button' data-dismiss='modal' aria-label='Close' >
+     <button id='btn_10' class='action-button btn btn-primary' onmouseover='validruc();' onclick='actualizarCliente(); idRegistro(".$lastid.");' type='button' data-dismiss='modal' aria-label='Close' >
     Continuar
      </button>
         ";echo $salida;
@@ -276,7 +276,7 @@ if(isset($_POST['consulta'])){
             <div class='col-12 no-padding'>
                 <!-- <input type='hidden' name='id' id='id'>
                 <input type='hidden' name='option' value='U'> -->
-                <input type='text' class='form-control input-sm' name='celular'  placeholder='' value=''>
+                <input type='text' class='form-control input-sm' name='celular'  placeholder='' value='' >
             </div>
         </div>
         <div class='form-group'>
