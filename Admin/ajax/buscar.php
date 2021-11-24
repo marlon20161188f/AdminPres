@@ -40,7 +40,7 @@ if(isset($_POST['consulta'])){
                 <thead>
                    <tr>
                    <th colspan='1'></th>
-                   <th align='center'width='34%'colspan='1'><H1 style='  border-radius: 5px; background: linear-gradient(180deg, rgba(255, 149, 16) 0%, rgba(255, 149, 16) 100%);' class='letra'>CLIENTE NO REGISTRADO</H1></th>
+                   <th align='center'width='34%'colspan='1'><H1 style='  border-radius: 5px; background: linear-gradient(180deg, rgba(255, 149, 16) 0%, rgba(255, 149, 16) 100%);' class='letra'>PRESTAMO DEL CLIENTE NO REGISTRADO</H1></th>
                    <th colspan='1'></th>
                    </tr>
                </thead>"; $salida.="</tbody></table><div class='form-group text-center'style='margin-top:1rem'> 

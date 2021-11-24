@@ -46,8 +46,8 @@
                                     </div>
                                     <div class="col-4" method="post">
                                         <label class="fieldlabels">Número de documento:</label>
-                                        <input value="" maxlength="8" id="caja_bus" name="dniruc"style="margin-left:0px; background:#ffffff;
-                                            height: 39px; margin-top:4px;" type="text"placeholder="" maxlength="11" > 
+                                        <input value="" maxlength="8" id="caja_bus" name="dniruc"style="font-family: inherit; margin-left:0px; background:#ffffff;
+                                            height: 39px; margin-top:4px;border: 1px solid #ced4da; border-radius: 0.25rem;" type="text"placeholder="" maxlength="11" > 
                                     </div>
                                     <div class="col-3">
                                     <button id="btn_7" class="action-button " style="margin-top:1.9rem;"type="button" onclick="validModal(7);" data-id="7" > <!-- data-estado="<?php //echo $item['id_provedor']; ?>"-->
@@ -95,19 +95,19 @@
                                         <label class="fieldlabels">Número de cuotas: </label>
                                         <input type="hidden" name="options" value="C">
                                         <input hidden type="number"name="idclient" id="idclient" placeholder="" value="3" >
-                                        <input method="post"type="number"name="cuotas" id="cuotas" placeholder="" style="background:#ffffff; height: 39px; margin-top:4px;" required>
+                                        <input method="post"type="number"class="form-control input-sm"name="cuotas" id="cuotas" placeholder="" style="font-family: inherit;background:#ffffff; height: 39px; margin-top:4px; border: 1px solid #ced4da; border-radius: 0.25rem;" required>
                                         <label class="fieldlabels">Mora por día de retraso S/ : </label> 
-                                        <input method="post"type="number" name="moras" id="moras" placeholder=""style="background:#ffffff; height: 39px; margin-top:4px;" required>
+                                        <input method="post"type="number" class="form-control" name="moras" id="moras" placeholder=""style="font-family: inherit;background:#ffffff; height: 39px; margin-top:4px; border: 1px solid #ced4da; border-radius: 0.25rem;" required>
                                     
                                     </div>
                                     <div class="col-6" method="post">
                                        
                                         <label class="fieldlabels">Monto prestado S/ : </label> 
-                                        <input method="post"type="number" name="monto" id="monto" placeholder=""style="background:#ffffff; height: 39px; margin-top:4px;" required> 
+                                        <input method="post"type="number"class="form-control" name="monto" id="monto" placeholder=""style="font-family: inherit;background:#ffffff; height: 39px; margin-top:4px; border: 1px solid #ced4da; border-radius: 0.25rem;" required> 
                                         <label class="fieldlabels">Tasa de interés %: </label> 
-                                        <input method="post"type="number" name="tasa"id="tasa" placeholder="" style="background:#ffffff; height: 39px; margin-top:4px;" required> 
+                                        <input method="post"type="number"class="form-control" name="tasa"id="tasa" placeholder="" style="font-family: inherit;background:#ffffff; height: 39px; margin-top:4px; border: 1px solid #ced4da; border-radius: 0.25rem;" required> 
                                         <label class="fieldlabels">Fecha de desembolso: </label> 
-                                        <input method="post"type="date" name="fecha_des" id="fecha_des"value="<?php echo date('Y-m-d');?>" placeholder="<?php echo date('Y-m-d');?>" style="background:#ffffff; height: 39px; margin-top:4px;" > 
+                                        <input method="post"type="date"class="form-control" name="fecha_des" id="fecha_des"value="<?php echo date('Y-m-d');?>" placeholder="<?php echo date('Y-m-d');?>" style="font-family: inherit;background:#ffffff; height: 39px; margin-top:4px;border: 1px solid #ced4da; border-radius: 0.25rem;" > 
                                        
                                     </div>
                                 </div>
@@ -359,6 +359,6 @@
             document.getElementById("caja_bus").setAttribute("size", "11");
         break;
     }
-}
+    } 
 </script>
 <script src="<?php echo $url_site; ?>dist/js/main2.js"></script>
