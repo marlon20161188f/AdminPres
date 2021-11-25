@@ -7,7 +7,7 @@ if ($mysqli->connect_errno) {
 $salida="";
 if(isset($_POST['consulta'])){
     $q=$mysqli->real_escape_string($_POST['consulta']);
-    $query="SELECT a.monto, a.fecha, a.id_prestamo, CONCAT ( b.nombre,' ',b.apellido ) 
+    $query="SELECT a.mora, a.monto, a.fecha, a.id_prestamo, CONCAT ( b.nombre,' ',b.apellido ) 
     as client from prestamos a INNER JOIN clientes b ON a.cliente = b.id_cliente
     WHERE CONCAT ( b.nombre,' ',b.apellido ) LIKE '%".$q."%'";
      date_default_timezone_set("America/Lima");
@@ -19,6 +19,7 @@ if(isset($_POST['consulta'])){
                             <th class='th1 text-center'>Cliente</th>
                             <th class='th1 text-center'>Código de Prestamo</th>
                             <th class='th1 text-center'>Fecha de desembolso</th>
+                            <th class='th1 text-center'>Mora por día de retraso</th>
                             <th class='th1 text-center'>Monto prestado</th> 
                         </tr>
                     </thead>
@@ -29,6 +30,7 @@ if(isset($_POST['consulta'])){
                             <td align='center'width='20%'>".$fila['client']."</td>
                             <td align='center'width='20%'>B001-".$fila['id_prestamo']."</td>
                             <td align='center'width='20%'>".$fila['fecha']."</td>
+                            <td align='center'width='20%'>".$fila['mora']."</td>
                             <td align='center'width='20%'>S/ ".$fila['monto']."</td>
                         </tr>
                      ";
@@ -52,7 +54,7 @@ if(isset($_POST['consulta'])){
 else {
   date_default_timezone_set("America/Lima");
   $fecha = date("Y-m-d");
-  $query="SELECT a.monto, a.fecha, a.id_prestamo, CONCAT ( b.nombre,' ',COALESCE(b.apellido,'') ) 
+  $query="SELECT a. mora, a.monto, a.fecha, a.id_prestamo, CONCAT ( b.nombre,' ',COALESCE(b.apellido,'') ) 
   as client from prestamos a INNER JOIN clientes b ON a.cliente = b.id_cliente WHERE fecha <= '".$fecha."'
    ORDER BY fecha DESC LIMIT 10";
   $resultado=$mysqli->query($query);
@@ -63,6 +65,7 @@ else {
                           <th class='th1 text-center'>Cliente</th>
                           <th class='th1 text-center'>Código de Prestamo</th>
                           <th class='th1 text-center'>Fecha de desembolso</th>
+                          <th class='th1 text-center'>Mora por día de retraso</th>
                           <th class='th1 text-center'>Monto prestado</th> 
                       </tr>
                   </thead>
@@ -73,6 +76,7 @@ else {
                           <td align='center'width='20%'>".$fila['client']."</td>
                           <td align='center'width='20%'>B001-".$fila['id_prestamo']."</td>
                           <td align='center'width='20%'>".$fila['fecha']."</td>
+                          <td align='center'width='20%'>".$fila['mora']."</td>
                           <td align='center'width='20%'>S/ ".$fila['monto']."</td>
                       </tr>
                    ";
