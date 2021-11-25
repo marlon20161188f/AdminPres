@@ -38,7 +38,9 @@ while($fila = $query->fetch(PDO::FETCH_ASSOC)){
         if ( $_POST['fecha_cobro'] !==""){
             $validar = clsPorcobrar::Validar(Conexion::getInstancia(), $_POST['fecha_cobro'], $_POST['mora']);
             if($validar == true){
-                echo json_encode(array('success' => 2));
+                echo json_encode(array('success' => 1));
+                clsPorcobrar::Actualizar(Conexion::getInstancia(), $_POST['id'],  $_POST['fecha_cobro'], $_POST['mora']);
+
             }else{
                 clsPorcobrar::Actualizar(Conexion::getInstancia(), $_POST['id'],  $_POST['fecha_cobro'], $_POST['mora']);
                 echo json_encode(array('success' => 1));

@@ -89,7 +89,7 @@
                     $date2 = new DateTime("now");
                     if($date2>$date1){
                     $diff=$date1->diff($date2);
-                    $dias=$diff->days;
+                    $dias=$diff->days-1;
                     }else{
                     $dias=0;
                     }
@@ -204,7 +204,7 @@
                 <div class="col-12 no-padding">
                     <!-- <input type="hidden" name="id" id="id">
                     <input type="hidden" name="option" value="U"> -->
-                    <input type="number" class="form-control input-sm" name="mora" id="mora" placeholder="S/ 100">
+                    <input type="number" class="form-control input-sm" name="mora" id="mora" placeholder="">
                 </div>
             </div>
            
