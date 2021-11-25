@@ -89,7 +89,7 @@
                     $date2 = new DateTime("now");
                     if($date2>$date1){
                     $diff=$date1->diff($date2);
-                    $dias=$diff->days-1;
+                    $dias=$diff->days;
                     }else{
                     $dias=0;
                     }
