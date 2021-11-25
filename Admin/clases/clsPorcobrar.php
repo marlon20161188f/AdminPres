@@ -85,7 +85,7 @@
                     INNER JOIN estado_mora M ON M.id_mora = R.estado_mora
                     INNER JOIN prestamos P ON P.id_prestamo = R.codigo
                     INNER JOIN clientes C ON C.id_cliente = P.cliente
-                    WHERE E.estado = "pendiente" AND  R.fecha_cobro > now() LIMIT 20 ORDER BY R.fecha_cobro ASC');
+                    WHERE E.estado = "pendiente" AND  R.fecha_cobro > now() ORDER BY R.fecha_cobro ASC LIMIT 20 ');
                 }
                 $query->execute();
                 if($query->rowCount() > 0){
