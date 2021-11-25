@@ -404,7 +404,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input disabled type='text' class='form-control input-sm' style='width: 423px;' name='nombre'  placeholder=' 'value='".$fila['nombre']." ".$fila['apellido']."' >
+                            <input disabled type='text' class='form-control input-sm' style='width: 423px;' name='nombre' id='nombrerazon' placeholder=' 'value='".$fila['nombre']." ".$fila['apellido']."' >
                         </div>
                     </div>
                     <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
@@ -679,7 +679,7 @@ if(isset($_POST['consulta'])){
                 <!-- <input type='hidden' name='id' id='id'>
                 <input type='hidden' name='option' value='U'> -->
                 <input disabled type='text' class='form-control input-sm' style='width: 423px;' placeholder='".$name."'value='".$name."' >
-                <input hidden type='text' class='form-control input-sm' style='width: 423px;' name='nombre'  placeholder='".$name."'value='".$name."' >
+                <input hidden type='text' class='form-control input-sm' style='width: 423px;' name='nombre' id='nombrerazon' placeholder='".$name."'value='".$name."' >
             </div>
         </div>
         <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
