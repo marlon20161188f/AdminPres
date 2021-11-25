@@ -30,7 +30,7 @@ if(isset($_POST['consulta'])){
                             <td align='center'width='20%'>".$fila['client']."</td>
                             <td align='center'width='20%'>B001-".$fila['id_prestamo']."</td>
                             <td align='center'width='20%'>".$fila['fecha']."</td>
-                            <td align='center'width='20%'>".$fila['mora']."</td>
+                            <td align='center'width='20%'>S/ ".$fila['mora']."</td>
                             <td align='center'width='20%'>S/ ".$fila['monto']."</td>
                         </tr>
                      ";
@@ -76,7 +76,7 @@ else {
                           <td align='center'width='20%'>".$fila['client']."</td>
                           <td align='center'width='20%'>B001-".$fila['id_prestamo']."</td>
                           <td align='center'width='20%'>".$fila['fecha']."</td>
-                          <td align='center'width='20%'>".$fila['mora']."</td>
+                          <td align='center'width='20%'>S/ ".$fila['mora']."</td>
                           <td align='center'width='20%'>S/ ".$fila['monto']."</td>
                       </tr>
                    ";
