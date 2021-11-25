@@ -7,6 +7,8 @@ class clsCliente
             date_default_timezone_set('America/Los_Angeles');
             $fecha = date("Y-m-d");
             $dniuruc=strlen($dniruc);
+            if( $celular==""){$celular=NULL;}
+            if( $telefono==""){$telefono=NULL;}
             if( $dniuruc == 8 ){
                 $dni = $dniruc;
                 $ruc = 0; }
@@ -85,6 +87,8 @@ class clsCliente
             date_default_timezone_set('America/Lima');
             $fecha = date("Y-m-d");
             $dniuruc=strlen($dniruc);
+            if( $celular==""){$celular=NULL;}
+            if( $telefono==""){$telefono=NULL;}
             if( $dniuruc == 8 ){
                 $dni = $dniruc;
                 $ruc = 0; }

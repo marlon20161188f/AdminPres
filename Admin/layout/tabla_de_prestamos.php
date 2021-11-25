@@ -39,7 +39,7 @@ if($tipo==1){
             <tr> 
             <td class='text-center' style='width:50%;padding: 10px 1% 10px; background:#fff;'>".$N." </td>
                 <td class='text-center' contenteditable='true'style='padding:0px;width:50$; background:#fff;'> 
-                    <input name='fecha_cobro_".$i."' id='fecha_cobro_".$i."' style='margin-butom:0px; background:#fff; border: 0px solid rgba(0, 0, 0, 0.5);'value='".date('Y-m-d', strtotime($fecha."+ $i $f"))."' type='date'style='background:#ffffff;'/></td>
+                    <input name='fecha_cobro_".$i."' id='fecha_cobro_".$i."' style='margin-butom:0px; background:#fff; border: 0px solid rgba(0, 0, 0, 0.5);'value='".date('Y-m-d', strtotime($fecha."+ $N $f"))."' type='date'style='background:#ffffff;'/></td>
                 <td class='text-center' contenteditable='false'style='border-color:#dee2e6; background:#eceff1; padding:0px;width:50%; '>
                     S/ ".$cobrar." 
                      <input hidden name='monto_cobro_".$i."' id='monto_cobro_".$i."' class='text-center' 

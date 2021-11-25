@@ -399,7 +399,7 @@ if(isset($_POST['consulta'])){
                     while($fila = $query->fetch(PDO::FETCH_ASSOC)){
                         $salida.="
                     <div class='row' id='validarcliente'>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='nombre'>Nombre o razón social</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -407,7 +407,7 @@ if(isset($_POST['consulta'])){
                             <input disabled type='text' class='form-control input-sm' style='width: 423px;' name='nombre'  placeholder=' 'value='".$fila['nombre']." ".$fila['apellido']."' >
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='dniruc'>RUC</label>
                         <div class='col-12 no-padding'>
                             <input disabled type='text' class='form-control input-sm' name='dniruc'  placeholder=''value='".$fila['ruc']."'>
@@ -416,7 +416,7 @@ if(isset($_POST['consulta'])){
                             <input type='hidden' name='option' value='U'>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='direccion'>Dirección</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -424,7 +424,7 @@ if(isset($_POST['consulta'])){
                             <input type='text' class='form-control input-sm' name='direccion'  placeholder=''value='".$fila['direccion']."'>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='departamento'>Departamento</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -460,7 +460,7 @@ if(isset($_POST['consulta'])){
                             </select>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='provincia'>Provincia</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -471,7 +471,7 @@ if(isset($_POST['consulta'])){
                           </select>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='distrito'>Distrito</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -482,15 +482,15 @@ if(isset($_POST['consulta'])){
                             </select>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='celular'>Celular</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='celular'  placeholder='' value='".$fila['celular']."'>
+                            <input type='text' class='form-control input-sm' name='celular' id='cel'  placeholder='' value='".$fila['celular']."'>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='telefono'>Teléfono</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -503,7 +503,7 @@ if(isset($_POST['consulta'])){
         <div class='message' id='editMessage'></div>
         </form>
       </div>
-      <div class='modal-footer'>
+      <div class='modal-footer' style='padding-right: 1.4rem;'>
         <!-- <button type='button' class='btn btn-primary' onclick='ValidarRegistro();'>
         <i class='fa fa-save'></i> Guardar</button> -->
         
@@ -545,7 +545,7 @@ if(isset($_POST['consulta'])){
         }
                 $salida.=" 
                 <div class='row' id='validarcliente'>
-                <div class='form-group'>
+                <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                     <label class='col-12 control-label no-padding' for='nombre'>Nombre o razón social</label>
                     <div class='col-12 no-padding'>
                         <!-- <input type='hidden' name='id' id='id'>
@@ -554,17 +554,16 @@ if(isset($_POST['consulta'])){
 
                     </div>
                 </div>
-                <div class='form-group'>
+                <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                     <label class='col-12 control-label no-padding' for='dniruc'>RUC</label>
                     <div class='col-12 no-padding'>
                         <input disabled type='text' class='form-control input-sm' placeholder='".$q."' value='".$q."'>
                         <input hidden type='text' class='form-control input-sm' name='dniruc'  placeholder='".$q."' value='".$q."'>
                         <input type='hidden' name='id_cliente' id='id_cliente' value=''>
-                        <input type='hidden' name='apellido' value=''>
                         <input type='hidden' name='option' value='C'>
                     </div>
                 </div>
-                <div class='form-group'>
+                <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                     <label class='col-12 control-label no-padding' for='direccion'>Dirección</label>
                     <div class='col-12 no-padding'>
                         <!-- <input type='hidden' name='id' id='id'>
@@ -572,7 +571,7 @@ if(isset($_POST['consulta'])){
                         <input type='text' class='form-control input-sm' name='direccion'  placeholder=''value=''>
                     </div>
                 </div>
-                <div class='form-group'>
+                <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                     <label class='col-12 control-label no-padding' for='departamento'>Departamento</label>
                     <div class='col-12 no-padding'>
                         <!-- <input type='hidden' name='id' id='id'>
@@ -608,7 +607,7 @@ if(isset($_POST['consulta'])){
                         </select>
                     </div>
                 </div>
-                <div class='form-group'>
+                <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                     <label class='col-12 control-label no-padding' for='provincia'>Provincia</label>
                     <div class='col-12 no-padding'>
                         <!-- <input type='hidden' name='id' id='id'>
@@ -619,7 +618,7 @@ if(isset($_POST['consulta'])){
                       </select>
                     </div>
                 </div>
-                <div class='form-group'>
+                <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                     <label class='col-12 control-label no-padding' for='distrito'>Distrito</label>
                     <div class='col-12 no-padding'>
                         <!-- <input type='hidden' name='id' id='id'>
@@ -629,15 +628,15 @@ if(isset($_POST['consulta'])){
                         </select>
                     </div>
                 </div>
-                <div class='form-group'>
+                <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                     <label class='col-12 control-label no-padding' for='celular'>Celular</label>
                     <div class='col-12 no-padding'>
                         <!-- <input type='hidden' name='id' id='id'>
                         <input type='hidden' name='option' value='U'> -->
-                        <input type='text' class='form-control input-sm' name='celular'  placeholder='' value=''>
+                        <input type='text' class='form-control input-sm' name='celular' id='cel'  placeholder='' value=''>
                     </div>
                 </div>
-                <div class='form-group'>
+                <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                     <label class='col-12 control-label no-padding' for='telefono'>Teléfono</label>
                     <div class='col-12 no-padding'>
                         <!-- <input type='hidden' name='id' id='id'>
@@ -650,7 +649,7 @@ if(isset($_POST['consulta'])){
     <div class='message' id='editMessage'></div>
     </form>
   </div>
-  <div class='modal-footer'>
+  <div class='modal-footer' style='padding-right: 1.4rem;'>
     <!-- <button type='button' class='btn btn-primary' onclick='ValidarRegistro();'>
     <i class='fa fa-save'></i> Guardar</button> -->
     
@@ -674,7 +673,7 @@ if(isset($_POST['consulta'])){
         }
         $salida.=" 
         <div class='row' id='validarcliente'>
-        <div class='form-group'>
+        <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
             <label class='col-12 control-label no-padding' for='nombre'>Nombre o razón social</label>
             <div class='col-12 no-padding'>
                 <!-- <input type='hidden' name='id' id='id'>
@@ -683,7 +682,7 @@ if(isset($_POST['consulta'])){
                 <input hidden type='text' class='form-control input-sm' style='width: 423px;' name='nombre'  placeholder='".$name."'value='".$name."' >
             </div>
         </div>
-        <div class='form-group'>
+        <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
             <label class='col-12 control-label no-padding' for='dniruc'>RUC</label>
             <div class='col-12 no-padding'>
                 <input disabled type='text' class='form-control input-sm' placeholder='".$q."' value='".$q."'>
@@ -692,7 +691,7 @@ if(isset($_POST['consulta'])){
                 <input type='hidden' name='option' value='C'>
             </div>
         </div>
-        <div class='form-group'>
+        <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
             <label class='col-12 control-label no-padding' for='direccion'>Dirección</label>
             <div class='col-12 no-padding'>
                 <!-- <input type='hidden' name='id' id='id'>
@@ -700,7 +699,7 @@ if(isset($_POST['consulta'])){
                 <input type='text' class='form-control input-sm' name='direccion'  placeholder='".$direccion."'value='".$direccion."'>
             </div>
         </div>
-        <div class='form-group'>
+        <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
             <label class='col-12 control-label no-padding' for='departamento'>Departamento</label>
             <div class='col-12 no-padding'>
                 <!-- <input type='hidden' name='id' id='id'>
@@ -736,7 +735,7 @@ if(isset($_POST['consulta'])){
                 </select>
             </div>
         </div>
-        <div class='form-group'>
+        <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
             <label class='col-12 control-label no-padding' for='provincia'>Provincia</label>
             <div class='col-12 no-padding'>
                 <!-- <input type='hidden' name='id' id='id'>
@@ -747,7 +746,7 @@ if(isset($_POST['consulta'])){
               </select>
             </div>
         </div>
-        <div class='form-group'>
+        <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
             <label class='col-12 control-label no-padding' for='distrito'>Distrito</label>
             <div class='col-12 no-padding'>
                 <!-- <input type='hidden' name='id' id='id'>
@@ -758,15 +757,15 @@ if(isset($_POST['consulta'])){
                 </select>
             </div>
         </div>
-        <div class='form-group'>
+        <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
             <label class='col-12 control-label no-padding' for='celular'>Celular</label>
             <div class='col-12 no-padding'>
                 <!-- <input type='hidden' name='id' id='id'>
                 <input type='hidden' name='option' value='U'> -->
-                <input type='text' class='form-control input-sm' name='celular'  placeholder='' value='' >
+                <input type='text' class='form-control input-sm' name='celular' id='cel'  placeholder='' value='' >
             </div>
         </div>
-        <div class='form-group'>
+        <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
             <label class='col-12 control-label no-padding' for='telefono'>Teléfono</label>
             <div class='col-12 no-padding'>
                 <!-- <input type='hidden' name='id' id='id'>
@@ -779,7 +778,7 @@ if(isset($_POST['consulta'])){
 <div class='message' id='editMessage'></div>
 </form>
 </div>
-<div class='modal-footer'>
+<div class='modal-footer' style='padding-right: 1.4rem;'>
 <!-- <button type='button' class='btn btn-primary' onclick='ValidarRegistro();'>
 <i class='fa fa-save'></i> Guardar</button> -->
 

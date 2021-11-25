@@ -304,9 +304,19 @@
     function valid(){
         var nombreLength = document.getElementById("nombrew").value.length;
         var apellidoLength = document.getElementById("apellidow").value.length;
+        var celularLength = document.getElementById("cel").value.length;
         if (nombreLength == 0 || apellidoLength==0) {
             Swal.fire({
   title: 'Campos vacíos, ingrese nombre y apellido para continuar.',
+  showCancelButton: false,
+  confirmButtonText: `Aceptar`,
+});
+       // alert("Campos vacíos, ingrese nombre y apellido para enviar.");
+        return false;
+    }
+    if (celularLength == 0 ) {
+            Swal.fire({
+  title: 'Campos vacíos, ingrese número de celular para continuar.',
   showCancelButton: false,
   confirmButtonText: `Aceptar`,
 });

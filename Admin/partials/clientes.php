@@ -102,7 +102,7 @@
       <div class="modal-body">
         <form class="form-horizontal" id="register">
         <div class="row">
-            <div class="form-group">
+            <div class="form-group" style="padding-right: 0px; padding-left: 16.5px;">
                 <label class="col-12 control-label no-padding" for="nombre">Nombres</label>
                 <div class="col-12 no-padding">
                     <input type="hidden" name="id" id="id" value="<?php echo $item['id_cliente']; ?>">
@@ -110,7 +110,7 @@
                     <input type="text" class="form-control input-sm" name="nombre" id="nombre" placeholder="Ingrese su nombre">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="padding-right: 0px; padding-left: 16.5px;">
                 <label class="col-12 control-label no-padding" for="apellido">Apellidos</label>
                 <div class="col-12 no-padding">
                     <!-- <input type="hidden" name="id" id="id">
@@ -118,7 +118,7 @@
                     <input type="text" class="form-control input-sm" name="apellido" id="apellido" placeholder="Ingrese su apellido">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="padding-right: 0px; padding-left: 16.5px;">
                 <label class="col-12 control-label no-padding" for="dniruc">DNI, RUC</label>
                 <div class="col-12 no-padding">
                     <input type="text" class="form-control input-sm" name="dniruc" id="dniruc" placeholder="Ingrese DNI o RUC">
@@ -126,7 +126,7 @@
                     <input type="hidden" name="option" value="U"> -->
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="padding-right: 0px; padding-left: 16.5px;">
                 <label class="col-12 control-label no-padding" for="direccion">Dirección</label>
                 <div class="col-12 no-padding">
                     <!-- <input type="hidden" name="id" id="id">
@@ -134,7 +134,7 @@
                     <input type="text" class="form-control input-sm" name="direccion" id="direccion" placeholder="Ingrese la dirección">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="padding-right: 0px; padding-left: 16.5px;">
                 <label class="col-12 control-label no-padding" for="departamento">Departamento</label>
                 <div class="col-12 no-padding">
                     <!-- <input type="hidden" name="id" id="id">
@@ -170,7 +170,7 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="padding-right: 0px; padding-left: 16.5px;">
                 <label class="col-12 control-label no-padding" for="provincia">Provincia</label>
                 <div class="col-12 no-padding">
                     <!-- <input type="hidden" name="id" id="id">
@@ -181,7 +181,7 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="padding-right: 0px; padding-left: 16.5px;">
                 <label class="col-12 control-label no-padding" for="distrito">Distrito</label>
                 <div class="col-12 no-padding">
                     <!-- <input type="hidden" name="id" id="id">
@@ -191,7 +191,7 @@
                     </select>
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="padding-right: 0px; padding-left: 16.5px;">
                 <label class="col-12 control-label no-padding" for="celular">Celular</label>
                 <div class="col-12 no-padding">
                     <!-- <input type="hidden" name="id" id="id">
@@ -199,7 +199,7 @@
                     <input type="text" class="form-control input-sm" name="celular" id="celular" placeholder="Ingrese el celular">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="padding-right: 0px; padding-left: 16.5px;">
                 <label class="col-12 control-label no-padding" for="telefono">Teléfono</label>
                 <div class="col-12 no-padding">
                     <!-- <input type="hidden" name="id" id="id">
@@ -207,7 +207,7 @@
                     <input type="text" class="form-control input-sm" name="telefono" id="telefono" placeholder="Ingrese el teléfono">
                 </div>
             </div>
-            <!-- <div class="form-group">
+            <!-- <div class="form-group" style="padding-right: 0px; padding-left: 16.5px;">
                 <label class="col-12 control-label no-padding" for="fecha">Fecha de registro</label>
                 <div class="col-12 no-padding">
                     <input type="hidden" name="id" id="id">
@@ -219,7 +219,7 @@
         <div class="message" id="editMessage"></div>
         </form>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer" style="padding-right: 1.4rem;">
         <!-- <button type="button" class="btn btn-primary" onclick="ValidarRegistro();">
         <i class="fa fa-save"></i> Guardar</button> -->
         <button type="button" class="action-button btn btn-primary" onclick="Registrar();"data-dismiss="modal" aria-label="Close" > Registrar</button>

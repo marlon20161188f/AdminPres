@@ -399,44 +399,44 @@ if(isset($_POST['consulta'])){
                     while($fila = $query->fetch(PDO::FETCH_ASSOC)){
                         $salida.="
                     <div class='row' id='validarcliente'>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='nombre'>Nombres</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input disabled type='text' class='form-control input-sm' name='nombre'  placeholder='JUAN BRYAN'value='".$fila['nombre']."' >
+                            <input disabled type='text' class='form-control input-sm' name='nombre' id='nombrew' placeholder=''value='".$fila['nombre']."' >
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='apellido'>Apellidos</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input disabled type='text' class='form-control input-sm' name='apellido'  placeholder='GOMEZ ALFONSO'value='".$fila['apellido']."'>
+                            <input disabled type='text' class='form-control input-sm' name='apellido' id='apellidow' placeholder=''value='".$fila['apellido']."'>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='dniruc'>DNI</label>
                         <div class='col-12 no-padding'>
-                            <input disabled type='text' class='form-control input-sm' name='dniruc'  placeholder='73208361'value='".$fila['dni']."'>
+                            <input disabled type='text' class='form-control input-sm' name='dniruc'  placeholder=''value='".$fila['dni']."'>
                             <input type='hidden' name='id_cliente' id='id_cliente' value='".$fila['id_cliente']."'>
                             <input type='hidden' name='option' value='U'>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='direccion'>Dirección</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='direccion'  placeholder='Calle 53 No 10, Piso 2'value='".$fila['direccion']."'>
+                            <input type='text' class='form-control input-sm' name='direccion'  placeholder=''value='".$fila['direccion']."'>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='departamento'>Departamento</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> 
-                         <input type='text' class='form-control input-sm' name='departamento'  placeholder='Amazonas'value='".$fila['departamento']."'> -->
+                         <input type='text' class='form-control input-sm' name='departamento'  placeholder=''value='".$fila['departamento']."'> -->
                          <select name='departamento' style='width:204px;' onchange='cambia()' class='form-control input-sm' placeholder=''value='' required=''>
                          <option value='".$fila['departamento']."'>".$fila['departamento']."</option>
                          <option value='Amazonas'>Amazonas</option>
@@ -467,42 +467,42 @@ if(isset($_POST['consulta'])){
                          </select>
                          </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='provincia'>Provincia</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> 
-                            <input type='text' class='form-control input-sm' name='provincia' placeholder='Luya'value='".$fila['provincia']."'> -->
+                            <input type='text' class='form-control input-sm' name='provincia' placeholder=''value='".$fila['provincia']."'> -->
                             <select class='form-control' name='provincia' style='width:204px;' onchange='cambiaDistrito();' placeholder='Ingrese la provincia' >
                             <option value='".$fila['provincia']."'>".$fila['provincia']."</option>
                           </select>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='distrito'>Distrito</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> 
-                            <input type='text' class='form-control input-sm' name='distrito' placeholder='Lonya Chico'value='".$fila['distrito']."'> -->
+                            <input type='text' class='form-control input-sm' name='distrito' placeholder=''value='".$fila['distrito']."'> -->
                             <select class='form-control input-sm' name='distrito' style='width:204px;' placeholder='Ingrese el distrito' >
                             <option value='".$fila['distrito']."'>".$fila['distrito']."</option>
                             </select>
                          </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='celular'>Celular</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='celular'  placeholder='995876803' value='".$fila['celular']."'>
+                            <input type='text' class='form-control input-sm' name='celular' id='cel'  placeholder='' value='".$fila['celular']."'>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='telefono'>Teléfono</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='telefono'  placeholder='8844437' value='".$fila['telefono']."'>
+                            <input type='text' class='form-control input-sm' name='telefono'  placeholder='' value='".$fila['telefono']."'>
                         </div>
                     </div>
                     </div>
@@ -510,11 +510,11 @@ if(isset($_POST['consulta'])){
         <div class='message' id='editMessage'></div>
         </form>
       </div>
-      <div class='modal-footer'>
+      <div class='modal-footer' style='padding-right: 1.4rem;'>
         <!-- <button type='button' class='btn btn-primary' onclick='ValidarRegistro();'>
         <i class='fa fa-save'></i> Guardar</button> -->
         
-         <button id='btn_10' class='action-button btn btn-primary'onclick='actualizarCliente();idRegistro(".$fila['id_cliente'].");' type='button' data-dismiss='modal' aria-label='Close' >
+         <button id='btn_10' class='action-button btn btn-primary' onmouseover='valid();' onclick='actualizarCliente();idRegistro(".$fila['id_cliente'].");' type='button' data-dismiss='modal' aria-label='Close' >
         Continuar
          </button> 
          <script>
@@ -552,7 +552,7 @@ if(isset($_POST['consulta'])){
         }
                 $salida.=" 
                 <div class='row' id='validarcliente'>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='nombre'>Nombres</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -561,7 +561,7 @@ if(isset($_POST['consulta'])){
 
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='apellido'>Apellidos</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -569,7 +569,7 @@ if(isset($_POST['consulta'])){
                             <input type='text' class='form-control input-sm' name='apellido' id='apellidow'  placeholder=''value='' required>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='dniruc'>DNI</label>
                         <div class='col-12 no-padding'>
                             <input disabled type='text' class='form-control input-sm' placeholder='".$q."' value='".$q."'>
@@ -578,7 +578,7 @@ if(isset($_POST['consulta'])){
                             <input type='hidden' name='option' value='C'>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='direccion'>Dirección</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -586,7 +586,7 @@ if(isset($_POST['consulta'])){
                             <input type='text' class='form-control input-sm' name='direccion'  placeholder=''value='' required>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='departamento'>Departamento</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -622,7 +622,7 @@ if(isset($_POST['consulta'])){
                             </select>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='provincia'>Provincia</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -633,7 +633,7 @@ if(isset($_POST['consulta'])){
                     </select>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='distrito'>Distrito</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -643,15 +643,15 @@ if(isset($_POST['consulta'])){
                             </select>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='celular'>Celular</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='celular'  placeholder='' value='' >
+                            <input type='text' class='form-control input-sm' name='celular' id='cel' placeholder='' value='' >
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='telefono'>Teléfono</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -664,7 +664,7 @@ if(isset($_POST['consulta'])){
         <div class='message' id='editMessage'></div>
         </form>
       </div>
-      <div class='modal-footer'>
+      <div class='modal-footer' style='padding-right: 1.4rem;'>
         <!-- <button type='button' class='btn btn-primary' onclick='ValidarRegistro();'>
         <i class='fa fa-save'></i> Guardar</button> -->
         
@@ -686,26 +686,26 @@ if(isset($_POST['consulta'])){
         }
                 $salida.=" 
                 <div class='row' id='validarcliente'>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='nombre'>Nombres</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
                             <input disabled type='text' class='form-control input-sm'  placeholder='".$nombres."'value='".$nombres."' >
-                            <input hidden type='text' class='form-control input-sm' name='nombre'  placeholder='".$nombres."'value='".$nombres."' >
+                            <input hidden type='text' class='form-control input-sm' name='nombre' id='nombrew' placeholder='".$nombres."'value='".$nombres."' >
 
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='apellido'>Apellidos</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
                             <input disabled type='text' class='form-control input-sm' placeholder='".$apellidos."'value='".$apellidos."'>
-                            <input hidden type='text' class='form-control input-sm' name='apellido'  placeholder='".$apellidos."'value='".$apellidos."' >
+                            <input hidden type='text' class='form-control input-sm' name='apellido' id='apellidow' placeholder='".$apellidos."'value='".$apellidos."' >
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='dniruc'>DNI</label>
                         <div class='col-12 no-padding'>
                             <input disabled type='text' class='form-control input-sm' placeholder='".$q."' value='".$q."'>
@@ -714,7 +714,7 @@ if(isset($_POST['consulta'])){
                             <input type='hidden' name='option' value='C'>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='direccion'>Dirección</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -722,7 +722,7 @@ if(isset($_POST['consulta'])){
                             <input type='text' class='form-control input-sm' name='direccion'  placeholder=''value='' required>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='departamento'>Departamento</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -758,36 +758,36 @@ if(isset($_POST['consulta'])){
                             </select>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='provincia'>Provincia</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> 
                             <input type='text' class='form-control input-sm' name='provincia' placeholder=''value='' > -->
                             <select class='form-control input-sm' style='width:204px;' name='provincia' onchange='cambiaDistrito()' required=''placeholder=''value='' >
-                            <option>Seleccione la Provincia</option>
+                            <option value=''>Seleccione la Provincia</option>
                             </select>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='distrito'>Distrito</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> 
                             <input type='text' class='form-control input-sm' name='distrito' placeholder=''value='' > -->
-                            <select class='form-control input-sm' style='width:204px;' name='distrito' required='' placeholder=''value='' ><option>Seleccione el Distrito</option>
+                            <select class='form-control input-sm' style='width:204px;' name='distrito' required='' placeholder=''value='' ><option value=''>Seleccione el Distrito</option>
                             </select>
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='celular'>Celular</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='celular'  placeholder='' value='' >
+                            <input type='text' class='form-control input-sm' name='celular' id='cel_' placeholder='' value='' >
                         </div>
                     </div>
-                    <div class='form-group'>
+                    <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
                         <label class='col-12 control-label no-padding' for='telefono'>Teléfono</label>
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
@@ -800,11 +800,11 @@ if(isset($_POST['consulta'])){
         <div class='message' id='editMessage'></div>
         </form>
       </div>
-      <div class='modal-footer'>
+      <div class='modal-footer' style='padding-right: 1.4rem;'>
         <!-- <button type='button' class='btn btn-primary' onclick='ValidarRegistro();'>
         <i class='fa fa-save'></i> Guardar</button> -->
         
-         <button id='btn_10' class='action-button btn btn-primary'onclick='actualizarCliente(); idRegistro(".$lastid.");' type='button' data-dismiss='modal' aria-label='Close' >
+         <button id='btn_10' class='action-button btn btn-primary' onmouseover='valid();' onclick='actualizarCliente(); idRegistro(".$lastid.");' type='button' data-dismiss='modal' aria-label='Close' >
         Continuar
          </button>
          <script>
