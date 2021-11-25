@@ -54,7 +54,7 @@ if(isset($_POST['consulta'])){
 else {
   date_default_timezone_set("America/Lima");
   $fecha = date("Y-m-d");
-  $query="SELECT a. mora, a.monto, a.fecha, a.id_prestamo, CONCAT ( b.nombre,' ',COALESCE(b.apellido,'') ) 
+  $query="SELECT a.mora, a.monto, a.fecha, a.id_prestamo, CONCAT ( b.nombre,' ',COALESCE(b.apellido,'') ) 
   as client from prestamos a INNER JOIN clientes b ON a.cliente = b.id_cliente WHERE fecha <= '".$fecha."'
    ORDER BY fecha DESC LIMIT 10";
   $resultado=$mysqli->query($query);
