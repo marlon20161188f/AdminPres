@@ -507,7 +507,7 @@ if(isset($_POST['consulta'])){
         <!-- <button type='button' class='btn btn-primary' onclick='ValidarRegistro();'>
         <i class='fa fa-save'></i> Guardar</button> -->
         
-         <button id='btn_10' class='action-button btn btn-primary'onclick='actualizarCliente();idRegistro(".$fila['id_cliente'].");' type='button' data-dismiss='modal' aria-label='Close' >
+         <button id='btn_10' class='action-button btn btn-primary' onmouseover='validruc();' onclick='actualizarCliente();idRegistro(".$fila['id_cliente'].");' type='button' data-dismiss='modal' aria-label='Close' >
         Continuar
          </button> 
          <script>
@@ -782,7 +782,7 @@ if(isset($_POST['consulta'])){
 <!-- <button type='button' class='btn btn-primary' onclick='ValidarRegistro();'>
 <i class='fa fa-save'></i> Guardar</button> -->
 
-<button id='btn_10' class='action-button btn btn-primary'onclick='actualizarCliente(); idRegistro(".$lastid.");' type='button' data-dismiss='modal' aria-label='Close' >
+<button id='btn_10' class='action-button btn btn-primary' onmouseover='validruc();' onclick='actualizarCliente(); idRegistro(".$lastid.");' type='button' data-dismiss='modal' aria-label='Close' >
 Continuar
 </button>
 ";echo $salida;

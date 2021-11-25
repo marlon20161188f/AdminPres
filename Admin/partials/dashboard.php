@@ -326,6 +326,7 @@
     }
     function validruc(){
         var nombreLength = document.getElementById("nombrerazon").value.length;
+        var celularLength = document.getElementById("cel").value.length;
         if (nombreLength == 0 ) {
             Swal.fire({
   title: 'Campo vacío, ingrese nombre o razón social para continuar.',
@@ -333,6 +334,15 @@
   confirmButtonText: `Aceptar`,
 });
        // alert("Campo vacío, ingrese nombre o razón social para enviar.");
+        return false;
+    }
+    if (celularLength == 0 ) {
+            Swal.fire({
+  title: 'Campos vacíos, ingrese número de celular para continuar.',
+  showCancelButton: false,
+  confirmButtonText: `Aceptar`,
+});
+       // alert("Campos vacíos, ingrese nombre y apellido para enviar.");
         return false;
     }
     }
