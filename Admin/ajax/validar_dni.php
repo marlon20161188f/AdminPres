@@ -784,7 +784,7 @@ if(isset($_POST['consulta'])){
                         <div class='col-12 no-padding'>
                             <!-- <input type='hidden' name='id' id='id'>
                             <input type='hidden' name='option' value='U'> -->
-                            <input type='text' class='form-control input-sm' name='celular' id='cel_' placeholder='' value='' >
+                            <input type='text' class='form-control input-sm' name='celular' id='cel' placeholder='' value='' >
                         </div>
                     </div>
                     <div class='form-group' style='padding-right: 0px; padding-left: 16.5px;'>
