@@ -87,19 +87,28 @@
                     $fecha = date("Y-m-d");
                     $date1 = new DateTime($item['fecha_cobro']);
                     $date2 = new DateTime("now");
+                    $moraedit=$item['moratotal'];
                     if($date2>$date1){
                     $diff=$date1->diff($date2);
                     $dias=$diff->days;
+                    $diamod=$item['diaMod'];
+                    $moraedit=$item['moratotal'];
+                    if($dias==0){
+                      $dias=0;
+                     $diamod=0;
+                    }
                     }else{
                     $dias=0;
+                    $diamod=0;
+                    $moraedit=0;
                     }
-                    $moratotal=$item['mora']*$dias ; echo $moratotal; ?>
+                    $moratotal=$item['mora']*($dias-$diamod)+$moraedit ; echo $moratotal; ?>
                      </td> 
                     <td class="text-center">S/ <?php $total=$item['valor_cuota']+$moratotal; echo $total; ?></td> 
                     <td class="text-center" style="padding: 0px !important; vertical-align: middle;"> 
                     <button id="btn_<?php echo $item['id_cobro']; ?>" class="btn btn-secondary btn-sm btn-circle margin" type="button" 
                     onclick="editModal(<?php echo $item['id_cobro']; ?>);" data-id="<?php echo $item['id_cobro']; ?>" 
-                    data-fecha_cobro="<?php echo $item['fecha_cobro']; ?>" data-mora="<?php echo $item['mora']; ?>">
+                    data-fecha_cobro="<?php echo $item['fecha_cobro']; ?>" data-moratotal="<?php echo $moratotal; ?>" data-mora="<?php echo $item['mora']; ?>" data-diamod="<?php echo $dias; ?>">
                     <span class="fa fa-pencil-alt"></span>
                     </button>
                     <button id="botn_<?php echo $item['id_cobro']; ?>" class="btn btn-secondary btn-sm btn-circle margin" type="button" 
@@ -204,7 +213,9 @@
                 <div class="col-12 no-padding">
                     <!-- <input type="hidden" name="id" id="id">
                     <input type="hidden" name="option" value="U"> -->
-                    <input type="number" class="form-control input-sm" name="mora" id="mora" placeholder="">
+                    <input type="hidden" class="form-control input-sm" name="mora" id="mora" placeholder="">
+                    <input type="number" class="form-control input-sm" name="moratotal" id="moratotal" placeholder="">
+                    <input type="hidden" class="form-control input-sm" name="diaMod" id="diaMod" placeholder="">
                 </div>
             </div>
            
@@ -245,6 +256,8 @@
         $('#edit').find('#id').val($('#btn_' + id).data('id'));
         $('#edit').find('#fecha_cobro').val($('#btn_' + id).data('fecha_cobro'));
         $('#edit').find('#mora').val($('#btn_' + id).data('mora'));
+        $('#edit').find('#moratotal').val($('#btn_' + id).data('moratotal'));
+        $('#edit').find('#diaMod').val($('#btn_' + id).data('diamod'));
         console.log($('#btn_' + id).data('id'));
     }function addModal(id) {
         $('#AddModal').modal('show');

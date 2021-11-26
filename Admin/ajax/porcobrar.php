@@ -36,13 +36,12 @@ while($fila = $query->fetch(PDO::FETCH_ASSOC)){
 
     if($_POST['option'] == 'U'){
         if ( $_POST['fecha_cobro'] !==""){
-            $validar = clsPorcobrar::Validar(Conexion::getInstancia(), $_POST['fecha_cobro'], $_POST['mora']);
+            $validar = clsPorcobrar::Validar(Conexion::getInstancia(), $_POST['id'],  $_POST['fecha_cobro'], $_POST['mora'], $_POST['diaMod'], $_POST['moratotal']);
             if($validar == true){
-                echo json_encode(array('success' => 1));
-                clsPorcobrar::Actualizar(Conexion::getInstancia(), $_POST['id'],  $_POST['fecha_cobro'], $_POST['mora']);
+                echo json_encode(array('success' => 2));
 
             }else{
-                clsPorcobrar::Actualizar(Conexion::getInstancia(), $_POST['id'],  $_POST['fecha_cobro'], $_POST['mora']);
+                clsPorcobrar::Actualizar(Conexion::getInstancia(), $_POST['id'],  $_POST['fecha_cobro'], $_POST['mora'], $_POST['diaMod'], $_POST['moratotal']);
                 echo json_encode(array('success' => 1));
             } 
         }else{

@@ -3,18 +3,18 @@
     exit;
 
     class Conexion {
-        //  private $tipo_de_base = 'mysql';
-        //  private $host = 'localhost';
-        //  private $nombre_de_base = 'adminpress';
-        //  private $usuario = 'roots';
-        //  private $contrasena = '';
-        //  private static $instancia = null;
          private $tipo_de_base = 'mysql';
-         private $host = 'bigputucjf2kra8nu8kp-mysql.services.clever-cloud.com';
-         private $nombre_de_base = 'bigputucjf2kra8nu8kp';
-         private $usuario = 'uszd9o98c5dnkk9e';
-         private $contrasena = 'VSjhvIO58NTNWmCMl82h';
+         private $host = 'localhost';
+         private $nombre_de_base = 'adminpress';
+         private $usuario = 'roots';
+         private $contrasena = '';
          private static $instancia = null;
+        //  private $tipo_de_base = 'mysql';
+        //  private $host = 'bigputucjf2kra8nu8kp-mysql.services.clever-cloud.com';
+        //  private $nombre_de_base = 'bigputucjf2kra8nu8kp';
+        //  private $usuario = 'uszd9o98c5dnkk9e';
+        //  private $contrasena = 'VSjhvIO58NTNWmCMl82h';
+        //  private static $instancia = null;
         private function __construct(){
             try {
                 self::$instancia = new PDO($this->tipo_de_base . ':host=' . $this->host . ';dbname=' . $this->nombre_de_base, $this->usuario, $this->contrasena);
