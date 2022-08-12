@@ -104,7 +104,8 @@
                     }
                     $moratotal=$item['mora']*($dias-$diamod)+$moraedit ; echo $moratotal; ?>
                      </td> 
-                    <td class="text-center">S/ <?php $total=$item['valor_cuota']+$moratotal; echo $total; ?></td> 
+                    <td class="text-center">S/ <?php 
+                    $total=$item['valor_cuota']+$moratotal-$item['monto_cobrado']; echo $total; ?></td> 
                     <td class="text-center" style="padding: 0px !important; vertical-align: middle;"> 
                     <button id="btn_<?php echo $item['id_cobro']; ?>" class="btn btn-secondary btn-sm btn-circle margin" type="button" 
                     onclick="editModal(<?php echo $item['id_cobro']; ?>);" data-id="<?php echo $item['id_cobro']; ?>" 
@@ -112,7 +113,7 @@
                     <span class="fa fa-pencil-alt"></span>
                     </button>
                     <button id="botn_<?php echo $item['id_cobro']; ?>" class="btn btn-secondary btn-sm btn-circle margin" type="button" 
-                    onclick="addModal(<?php echo $item['id_cobro']; ?>);" data-id="<?php echo $item['id_cobro']; ?>" 
+                    onclick="addModal(<?php echo $item['id_cobro']; ?>,<?php echo $total; ?>);" data-id="<?php echo $item['id_cobro']; ?>" 
                     data-fecha_cobro="<?php echo $item['fecha_cobro']; ?>" data-mora="<?php echo $item['mora']; ?>"
                     data-total="<?php echo $total; ?>" data-total_cob="<?php echo $total; ?>"
                     data-codigo="<?php echo $item['codigo']; ?>">
@@ -158,7 +159,7 @@
                 <label class="col-12 control-label no-padding" for="total">Monto a cobrar :</label>
                 <!-- <label class="col-12 control-label no-padding" for="total_mos"name="total_mos" id="total_mos"> S/ <?php echo $total; ?> </label> -->
                 <div class="col-12 no-padding">
-                  <input disabled type="number" class="form-control input-sm" name="total_cob" id="total_cob" >
+                  <input type="number" class="form-control input-sm" name="total_cob" id="total_cob" >
                   <input type="hidden" class="form-control input-sm" name="total" id="total" >
 
                 </div>
@@ -259,13 +260,13 @@
         $('#edit').find('#moratotal').val($('#btn_' + id).data('moratotal'));
         $('#edit').find('#diaMod').val($('#btn_' + id).data('diamod'));
         console.log($('#btn_' + id).data('id'));
-    }function addModal(id) {
+    }function addModal(id,total_cob) {
         $('#AddModal').modal('show');
         $('#edits').find('#id').val($('#botn_' + id).data('id'));
         $('#edits').find('#fecha_cobro').val($('#botn_' + id).data('fecha_cobro'));
         $('#edits').find('#mora').val($('#botn_' + id).data('mora'));
         $('#edits').find('#total').val($('#botn_' + id).data('total'));
-        $('#edits').find('#total_cob').val($('#botn_' + id).data('total_cob'));
+        $('#edits').find('#total_cob').css('width',190).attr({"max":total_cob, "min":0}).val($('#botn_' + id).data('total_cob'));
         $('#edits').find('#codigo').val($('#botn_' + id).data('codigo'));
         console.log($('#botn_' + id).data('id'));
     }

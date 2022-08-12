@@ -40,6 +40,8 @@
 <!-- <script src="dist/js/demo.js"></script> -->
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="<?php echo $url_site; ?>dist/js/pages/dashboard.js"></script>
+<!-- flatpickr -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <!-- DataTables  & Plugins -->
 <script src="<?php echo $url_site; ?>plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="<?php echo $url_site; ?>plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -53,6 +55,17 @@
 <script src="<?php echo $url_site; ?>plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="<?php echo $url_site; ?>plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?php echo $url_site; ?>plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<script>
+  $( function() {
+    $( "#fecha_des" ).datepicker({
+      dateFormat: "dd-mm-yy ",
+      beforeShowDay: function(date) {
+        var day = date.getDay();
+        return [(day != 0), ''];
+    },
+    });
+  } );
+  </script>
 <script type="text/javascript">
 $(document).ready(function() {
     $('#example').DataTable({responsive: "true",
@@ -457,7 +470,7 @@ $("#menu-toggle").click(function(e){
 <script src="<?php echo $url_site; ?>plugins/DateTime-1.1.1/js/dataTables.dateTime.min.js"></script>
 
 <!-- historial -->
-<script src="<?php echo $url_site; ?>dist/js/main1.js"></script>
+<script src="<?php echo $url_site; ?>dist/js/historial.js"></script>
 <!-- tabla clientes -->
 <script type="text/javascript">
   $(function () {

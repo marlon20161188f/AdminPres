@@ -46,8 +46,13 @@
        ?>
            <tr> <td class="text-center">    
                 <?php $codigo="B001-"; $codigo.=$item['id_prestamo']; echo $codigo; ?>
-                  </td> <td class="text-center">
-                  <?php echo $item['fecha_de_pago']; ?>
+                  </td> <td style="font-size: 15px;" class="text-center">
+                  <?php 
+                  $separar = (explode(" ",$item['fecha_de_pago']));
+                  $fecha = $separar[0];
+                  $hora = $separar[1];
+                  echo $fecha; ?>
+                  <br><?php echo $hora; ?>
                   </td> <td style="font-size: 11px;">
                    <strong><i class="ti-wheelchair"></i>  <?php $nomapell=$item['nombre']; $nomapell.=" "; $nomapell.=$item['apellido']; echo $nomapell; ?>
                 </strong><br> <?php if( $item['dni'] !== '0' ){ ?>

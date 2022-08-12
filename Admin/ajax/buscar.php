@@ -7,9 +7,10 @@ if ($mysqli->connect_errno) {
 $salida="";
 if(isset($_POST['consulta'])){
     $q=$mysqli->real_escape_string($_POST['consulta']);
-    $query="SELECT a.mora, a.monto, a.fecha, a.id_prestamo, CONCAT ( b.nombre,' ',b.apellido ) 
-    as client from prestamos a INNER JOIN clientes b ON a.cliente = b.id_cliente
-    WHERE CONCAT ( b.nombre,' ',b.apellido ) LIKE '%".$q."%'";
+    $query="SELECT a.mora, a.tasa, a.monto, a.fecha, a.id_prestamo, CONCAT ( b.nombre,' ',b.apellido ) 
+    as client, sum(c.monto_cobrado) as monto_cobrado_total from prestamos a INNER JOIN clientes b ON a.cliente = b.id_cliente 
+    LEFT JOIN cobrados c on a.id_prestamo = c.codigo
+    WHERE CONCAT ( b.nombre,' ',b.apellido ) LIKE '%".$q."%' GROUP BY a.id_prestamo";
      date_default_timezone_set("America/Lima");
     $resultado=$mysqli->query($query);
     if( $resultado->num_rows > 0){
@@ -21,17 +22,21 @@ if(isset($_POST['consulta'])){
                             <th class='th1 text-center'>Fecha de desembolso</th>
                             <th class='th1 text-center'>Mora por día de retraso</th>
                             <th class='th1 text-center'>Monto prestado</th> 
+                            <th class='th1 text-center'>Por cobrar</th> 
+                            <th class='th1 text-center'></th>   
                         </tr>
                     </thead>
                     <tbody class='text-center' align='center' >"; 
                     while($fila=$resultado->fetch_assoc()){
                         $salida.="
                         <tr>
-                            <td align='center'width='20%'>".$fila['client']."</td>
-                            <td align='center'width='20%'>B001-".$fila['id_prestamo']."</td>
-                            <td align='center'width='20%'>".$fila['fecha']."</td>
-                            <td align='center'width='20%'>S/ ".$fila['mora']."</td>
-                            <td align='center'width='20%'>S/ ".$fila['monto']."</td>
+                            <td align='center'width='17%'>".$fila['client']."</td>
+                            <td align='center'width='15%'>B001-".$fila['id_prestamo']."</td>
+                            <td align='center'width='15%'>".$fila['fecha']."</td>
+                            <td align='center'width='15%'>S/ ".$fila['mora']."</td>
+                            <td align='center'width='15%'>S/ ".$fila['monto']."</td>
+                            <td align='center'width='15%'>S/ "; $por_cobrar =$fila['monto']*(1+$fila['tasa']/100)-$fila['monto_cobrado_total'] ;$salida.="$por_cobrar</td>
+                            <td align='center'width='8%'><button id='btn_".$fila['id_prestamo']." class='btn btn-secondary btn-sm btn-circle margin' type='button'>Ver mas</button></td>
                         </tr>
                      ";
                     }
@@ -54,9 +59,13 @@ if(isset($_POST['consulta'])){
 else {
   date_default_timezone_set("America/Lima");
   $fecha = date("Y-m-d");
-  $query="SELECT a.mora, a.monto, a.fecha, a.id_prestamo, CONCAT ( b.nombre,' ',COALESCE(b.apellido,'') ) 
-  as client from prestamos a INNER JOIN clientes b ON a.cliente = b.id_cliente WHERE fecha <= '".$fecha."'
-   ORDER BY fecha DESC LIMIT 10";
+  $query="SELECT a.mora, a.tasa, a.monto, a.fecha, a.id_prestamo, CONCAT ( b.nombre,' ',COALESCE(b.apellido,'') ) 
+  as client, sum(c.monto_cobrado) as monto_cobrado_total from prestamos a 
+  INNER JOIN clientes b ON a.cliente = b.id_cliente
+  LEFT JOIN cobrados c on a.id_prestamo = c.codigo
+  WHERE fecha <= '".$fecha."'
+  GROUP BY a.id_prestamo
+  ORDER BY fecha DESC LIMIT 10";
   $resultado=$mysqli->query($query);
   if( $resultado->num_rows > 0){
       $salida.="<table class='table table-hover table-xs'style='background-color:#8f8f8f21;' width='100%'>
@@ -66,18 +75,27 @@ else {
                           <th class='th1 text-center'>Código de Prestamo</th>
                           <th class='th1 text-center'>Fecha de desembolso</th>
                           <th class='th1 text-center'>Mora por día de retraso</th>
-                          <th class='th1 text-center'>Monto prestado</th> 
+                          <th class='th1 text-center'>Monto prestado</th>
+                          <th class='th1 text-center'>Por cobrar</th> 
+                          <th class='th1 text-center'></th>   
                       </tr>
                   </thead>
                   <tbody class='text-center' align='center' >"; 
                   while($fila=$resultado->fetch_assoc()){
                       $salida.="
                       <tr>
-                          <td align='center'width='20%'>".$fila['client']."</td>
-                          <td align='center'width='20%'>B001-".$fila['id_prestamo']."</td>
-                          <td align='center'width='20%'>".$fila['fecha']."</td>
-                          <td align='center'width='20%'>S/ ".$fila['mora']."</td>
-                          <td align='center'width='20%'>S/ ".$fila['monto']."</td>
+                          <td align='center'width='17%'>".$fila['client']."</td>
+                          <td align='center'width='15%'>B001-".$fila['id_prestamo']."</td>
+                          <td align='center'width='15%'>".$fila['fecha']."</td>
+                          <td align='center'width='15%'>S/ ".$fila['mora']."</td>
+                          <td align='center'width='15%'>S/ ".$fila['monto']."</td>
+                          <td align='center'width='15%'>S/ "; $por_cobrar =$fila['monto']*(1+$fila['tasa']/100)-$fila['monto_cobrado_total'] ;$salida.="$por_cobrar</td>
+                          <td align='center'width='8%'><button style='color: #fff;
+                          background-color: #6c757d;border-color: #6c757d; padding: 0.175rem 0.25rem;
+                          box-shadow: none;
+                          font-size: .875rem;
+                          line-height: 1.5;cursor: pointer;
+                          border-radius: 0.2rem;' id='btn_".$fila['id_prestamo']."  type='button'>Ver más</button></td>
                       </tr>
                    ";
                   }

@@ -25,7 +25,12 @@
   <script href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet"  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
   <script href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+  <!-- jQuery UI 1.11.4 -->
+  <link rel="stylesheet" href="<?php echo $url_site; ?>plugins/jquery-ui/jquery-ui.min.css"></script>
+  <!-- Modernizr -->
+  <script src="<?php echo $url_site; ?>plugins/jquery/jquery-3.6.0.min.js"></script>
+  <script src="<?php echo $url_site; ?>plugins/jquery-ui/jquery-ui.min.js"></script>
+  
   <!-- DataTables -->
   <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"> -->
   <link rel="stylesheet" href="<?php echo $url_site; ?>plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">

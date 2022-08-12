@@ -106,8 +106,8 @@
                                         <input method="post"type="number"class="form-control" name="monto" id="monto" placeholder=""style="font-family: inherit;background:#ffffff; height: 39px; margin-top:4px; border: 1px solid #ced4da; border-radius: 0.25rem;" required> 
                                         <label class="fieldlabels">Tasa de interés %: </label> 
                                         <input method="post"type="number"class="form-control" name="tasa"id="tasa" placeholder="" style="font-family: inherit;background:#ffffff; height: 39px; margin-top:4px; border: 1px solid #ced4da; border-radius: 0.25rem;" required> 
-                                        <label class="fieldlabels">Fecha de desembolso: </label> 
-                                        <input method="post"type="date"class="form-control" name="fecha_des" id="fecha_des"value="<?php echo date('Y-m-d');?>" placeholder="<?php echo date('Y-m-d');?>" style="font-family: inherit;background:#ffffff; height: 39px; margin-top:4px;border: 1px solid #ced4da; border-radius: 0.25rem;" > 
+                                        <label for="fecha_des"class="fieldlabels">Fecha de desembolso: </label> 
+                                        <input method="post"type="text"class="form-control" name="fecha_des" id="fecha_des"value="<?php echo date('d-m-Y');?>" placeholder="<?php echo date('d-m-Y');?>" style="font-family: inherit;background:#ffffff; height: 39px; margin-top:4px;border: 1px solid #ced4da; border-radius: 0.25rem;" > 
                                        
                                     </div>
                                 </div>
@@ -129,7 +129,7 @@
                                     </div>
                                 </div> 
                                 <div class="row justify-content-center">
-                                    <div class="col-6" id="tabla_prestamos">
+                                    <div class="col-8" id="tabla_prestamos">
                                             espere se esta cargando la tabla
                                     </div>
                                 </div>
@@ -209,6 +209,7 @@
     }
 </style>
 <script>
+  
     $(document).ready( function () {
     $('#tabla_id').DataTable();
   } );

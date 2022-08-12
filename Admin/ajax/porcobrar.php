@@ -49,11 +49,17 @@ while($fila = $query->fetch(PDO::FETCH_ASSOC)){
         }
     }
     if($_POST['option'] == 'R'){
-        $estado_pago=2;
+        if($_POST['total_cob'] == $_POST['total']){
+            $estado_pago=2;//pagado cancelado
+        }else{
+            $estado_pago=1;//pagado
+        }
         $codigo=$_POST['codigo'];
         if ( $_POST['fecha_pago'] !==""){
+            date_default_timezone_set('America/Lima');
+            $_POST['fecha_pago'] =$_POST['fecha_pago']." ".date('H-i-s');
                 clsPorcobrar::Actualizar_estado_pago(Conexion::getInstancia(), $_POST['id'], $estado_pago);
-                $registro_cobro = clsPorcobrar::Registro_cobro(Conexion::getInstancia(),$_POST['id'],$codigo,$_POST['fecha_pago'],$_POST['total']);
+                $registro_cobro = clsPorcobrar::Registro_cobro(Conexion::getInstancia(),$_POST['id'],$codigo,$_POST['fecha_pago'],$_POST['total_cob']);
                 
                 if($registro_cobro > 0){
                     echo json_encode(array('success' => 1));
