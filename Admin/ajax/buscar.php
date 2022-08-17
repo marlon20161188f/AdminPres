@@ -36,11 +36,19 @@ if(isset($_POST['consulta'])){
                             <td align='center'width='15%'>S/ ".$fila['mora']."</td>
                             <td align='center'width='15%'>S/ ".$fila['monto']."</td>
                             <td align='center'width='15%'>S/ "; $por_cobrar =$fila['monto']*(1+$fila['tasa']/100)-$fila['monto_cobrado_total'] ;$salida.="$por_cobrar</td>
-                            <td align='center'width='8%'><button id='btn_".$fila['id_prestamo']." class='btn btn-secondary btn-sm btn-circle margin' type='button'>Ver mas</button></td>
+                            <td align='center'width='8%'><button class='btn btn-secondary btn-sm btn-circle margin' style='color: #fff;
+                            background-color: #6c757d;border-color: #6c757d; padding: 0.175rem 0.25rem;
+                            box-shadow: none;
+                            font-size: .875rem;
+                            line-height: 1.5;cursor: pointer;
+                            border-radius: 0.2rem;'
+                            onclick='vermas(".$fila['id_prestamo'].",".$por_cobrar." );'
+                            id='botn_".$fila['id_prestamo']."' data-id='".$fila['id_prestamo']."' type='button'>Ver más
+                            <span class='fa fa-plus'></button></td>
                         </tr>
                      ";
                     }
-                     $salida.="</tbody></table>";echo $salida;
+                     $salida.="</tbody></table>";
     }else{
     
                 $salida.="<table class='tabla_datos heading text-center' width='100%'>
@@ -51,7 +59,7 @@ if(isset($_POST['consulta'])){
                    <th colspan='1'></th>
                    </tr>
                </thead>"; $salida.="</tbody></table><div class='form-group text-center'style='margin-top:1rem'> 
-                 </div>";echo $salida;}?>
+                 </div>";}?>
                   <?php
 
     
@@ -90,16 +98,19 @@ else {
                           <td align='center'width='15%'>S/ ".$fila['mora']."</td>
                           <td align='center'width='15%'>S/ ".$fila['monto']."</td>
                           <td align='center'width='15%'>S/ "; $por_cobrar =$fila['monto']*(1+$fila['tasa']/100)-$fila['monto_cobrado_total'] ;$salida.="$por_cobrar</td>
-                          <td align='center'width='8%'><button style='color: #fff;
+                          <td align='center'width='8%'><button class='btn btn-secondary btn-sm btn-circle margin' style='color: #fff;
                           background-color: #6c757d;border-color: #6c757d; padding: 0.175rem 0.25rem;
                           box-shadow: none;
                           font-size: .875rem;
                           line-height: 1.5;cursor: pointer;
-                          border-radius: 0.2rem;' id='btn_".$fila['id_prestamo']."  type='button'>Ver más</button></td>
+                          border-radius: 0.2rem;'
+                          onclick='vermas(".$fila['id_prestamo'].",".$por_cobrar." );'
+                          id='botn_".$fila['id_prestamo']."' data-id='".$fila['id_prestamo']."' type='button'>Ver más
+                          <span class='fa fa-plus'></button></td>
                       </tr>
                    ";
                   }
-                   $salida.="</tbody></table>";echo $salida;
+                   $salida.="</tbody></table>";
   }else{
     $salida.="<table class='tabla_datos heading text-center' width='100%'>
     <thead>
@@ -109,8 +120,7 @@ else {
        <th colspan='1'></th>
        </tr>
    </thead>"; $salida.="</tbody></table><div class='form-group text-center'style='margin-top:1rem'> 
-     </div>";echo $salida; ?>
-      <?php
+     </div>"; 
   }
     // echo $salida="
     //  <table class='table table-hover table-xs' style='background-color:#8f8f8f21;'
@@ -125,8 +135,73 @@ else {
     // ";
 }
 
+$salida.="<div class='modal fade' id='Vermas' data-backdrop='static' data-keyboard='false' tabindex='-1' aria-labelledby='Vermas' aria-hidden='true' >
+<div class='modal-dialog modal-dialog-centered'>
+ <div class='modal-content' style='width: auto;'>
+   <div class='modal-header'style='background:#001f3f;color:#fff'>
+     <h5 class='modal-title' id='staticBackdropLabel'><b>Pagos realizados</b></h5>
+     <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+       <span aria-hidden='true'style='color:#fff'>&times;</span>
+     </button>
+   </div>
+   <div class='modal-body' style='width: 500px;'>
+   <div id='pagos'>
+   <table id='detalles' class='table table-hover table-xs'style='background-color:#8f8f8f21;' width='100%'>
+   <thead>
+   <tr class='first' style='background-color:#001f3f;color:#ffffff;'>
+       <th class='th1 text-center'>Fecha de pago</th>
+       <th class='th1 text-center'>Monto cobrado</th>
+   </tr>
+</thead>
+<tbody class='text-center' align='center' >
+  <tr>
+    <td align='center'width='60%'></td>
+    <td align='center'width='40%'></td>
+  </tr>
+</tbody>
+<tfooter class='text-center' align='center' >
+   <tr class='first' style='background-color:#001f3f;color:#ffffff;'>
+       <th class='th1 text-center'></th>
+       <th class='th1 text-center'>Por cobrar</th>
+   </tr>
+</tfooter>
+</table>
+</div>
+   </div>
+   <div class='modal-footer'>
+   <button type='button' class='btn btn-info' onclick='cerrar();'>cerrar</button>
+   </div>
+ </div>
+</div>
+</div>
+";echo $salida;
 ?>
-
+<script>
+    $(document).ready( function () {
+    $('#detalles').DataTable({
+      retrieve: true,});
+  } );
+    function vermas(id,por_cobrar) {
+        $('#Vermas').appendTo('body').modal('show');
+        console.log($('#botn_' + id).data('id'));
+        $.ajax({
+        url: '../ajax/detalles.php',
+        type: 'POST',
+        dataType: 'html',
+        data: {id: id,
+          por_cobrar: por_cobrar},
+    })
+    .done(function(respuesta){
+        $("#pagos").html(respuesta);
+    })
+    .fail(function(){
+         console.log("error");
+    })
+    }function cerrar() {
+      $('#Vermas').appendTo('body').modal('hide');
+    }
+    
+</script>
 <script type="text/javascript"> 
 function miFunc() {
       $.ajax({

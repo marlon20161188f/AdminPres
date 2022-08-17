@@ -15,6 +15,10 @@ function buscar_datos(consulta){
     })
 }
 $(document).on('keyup','#caja_busqueda',function(){
+    
+    $('#detalles').DataTable({
+        destroy: true,
+    });
     var valor=$(this).val();
     numeroCaracteres = valor.length;
         if(numeroCaracteres == 0){
@@ -22,4 +26,5 @@ $(document).on('keyup','#caja_busqueda',function(){
         }else{
             buscar_datos(valor);
         }
+        
 })

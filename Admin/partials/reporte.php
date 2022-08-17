@@ -88,7 +88,7 @@
 
   <script>
         $(document).ready( function () {
-   // $('#tabla_idd').DataTable();
+    //$('#tabla_idd').DataTable();
   } );
     function Eliminar(id_cobrado,id_cobro) {
       Swal.fire({
