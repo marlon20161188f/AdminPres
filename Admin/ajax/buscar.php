@@ -5,8 +5,10 @@ if ($mysqli->connect_errno) {
   die("error de conexión: " . $mysqli->connect_error);
 }
 $salida="";
+$num_consulta=1;
 if(isset($_POST['consulta'])){
     $q=$mysqli->real_escape_string($_POST['consulta']);
+    $num_consulta=strlen($_POST['consulta']);
     $query="SELECT a.mora, a.tasa, a.monto, a.fecha, a.id_prestamo, CONCAT ( b.nombre,' ',b.apellido ) 
     as client, sum(c.monto_cobrado) as monto_cobrado_total from prestamos a INNER JOIN clientes b ON a.cliente = b.id_cliente 
     LEFT JOIN cobrados c on a.id_prestamo = c.codigo
@@ -146,30 +148,10 @@ $salida.="<div class='modal fade' id='Vermas' data-backdrop='static' data-keyboa
    </div>
    <div class='modal-body' style='width: 500px;'>
    <div id='pagos'>
-   <table id='detalles' class='table table-hover table-xs'style='background-color:#8f8f8f21;' width='100%'>
-   <thead>
-   <tr class='first' style='background-color:#001f3f;color:#ffffff;'>
-       <th class='th1 text-center'>Fecha de pago</th>
-       <th class='th1 text-center'>Monto cobrado</th>
-   </tr>
-</thead>
-<tbody class='text-center' align='center' >
-  <tr>
-    <td align='center'width='60%'></td>
-    <td align='center'width='40%'></td>
-  </tr>
-</tbody>
-<tfooter class='text-center' align='center' >
-   <tr class='first' style='background-color:#001f3f;color:#ffffff;'>
-       <th class='th1 text-center'></th>
-       <th class='th1 text-center'>Por cobrar</th>
-   </tr>
-</tfooter>
-</table>
 </div>
    </div>
    <div class='modal-footer'>
-   <button type='button' class='btn btn-info' onclick='cerrar();'>cerrar</button>
+   <button type='button' class='btn btn-info' onclick='cerrar(".$num_consulta.");'>cerrar</button>
    </div>
  </div>
 </div>
@@ -178,27 +160,87 @@ $salida.="<div class='modal fade' id='Vermas' data-backdrop='static' data-keyboa
 ?>
 <script>
     $(document).ready( function () {
-    $('#detalles').DataTable({
-      retrieve: true,});
+      $('#detalles').DataTable({
+      retrieve: true,
+      language: {
+        "lengthMenu": "Mostrar _MENU_ registros",
+                  "zeroRecords": "No se encontraron resultados",
+                  "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                  "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                  "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                  "sSearch": "Buscar:",
+                  "oPaginate": {
+                      "sFirst": "Primero",
+                      "sLast":"Último",
+                      "sNext":"Siguiente",
+                      "sPrevious": "Anterior"
+            },
+            "sProcessing":"Procesando...",
+              },    
+      "dom": 'lfrBtip', 
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": [ 
+        {
+          extend:    'excelHtml5',
+          text:      '<i class="fa fa-file-excel"></i> Exportar ',
+          titleAttr: 'Exportar a Excel',
+          className: 'btn btn-success'
+        },
+       ]
+    });
   } );
     function vermas(id,por_cobrar) {
-        $('#Vermas').appendTo('body').modal('show');
         console.log($('#botn_' + id).data('id'));
         $.ajax({
         url: '../ajax/detalles.php',
         type: 'POST',
         dataType: 'html',
         data: {id: id,
-          por_cobrar: por_cobrar},
+        por_cobrar: por_cobrar},
+        // success: function(respuesta) {
+        //   $("#pagos").html(respuesta);
+        //   $('#Vermas').appendTo('body').modal('show');
+        // }
     })
     .done(function(respuesta){
-        $("#pagos").html(respuesta);
+        $('#pagos').html(respuesta);
+        $('#detalles').DataTable({
+      retrieve: true,
+      language: {
+        "lengthMenu": "Mostrar _MENU_ registros",
+                  "zeroRecords": "No se encontraron resultados",
+                  "info": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                  "infoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                  "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+                  "sSearch": "Buscar:",
+                  "oPaginate": {
+                      "sFirst": "Primero",
+                      "sLast":"Último",
+                      "sNext":"Siguiente",
+                      "sPrevious": "Anterior"
+            },
+            "sProcessing":"Procesando...",
+              },    
+      "dom": 'lfrBtip', 
+      "responsive": true, "lengthChange": false, "autoWidth": false,
+      "buttons": [ 
+        {
+          extend:    'excelHtml5',
+          text:      '<i class="fa fa-file-excel"></i> Exportar ',
+          titleAttr: 'Exportar a Excel',
+          className: 'btn btn-success'
+        },
+       ]
+    });
+        $('#Vermas').appendTo('body').modal('show');
     })
     .fail(function(){
-         console.log("error");
+         console.log('error');
     })
-    }function cerrar() {
-      $('#Vermas').appendTo('body').modal('hide');
+    }function cerrar(num) {
+      for (let index = 0; index < num+20; index++) {
+        $('#Vermas').appendTo('body').modal('hide');
+      }
     }
     
 </script>

@@ -5,6 +5,7 @@ if ($mysqli->connect_errno) {
   die("error de conexión: " . $mysqli->connect_error);
 }
 $salida="";
+if(isset($_POST['id'])){
     $q=$mysqli->real_escape_string($_POST['id']);
     $query="SELECT a.fecha_de_pago,a.monto_cobrado FROM cobrados a
     WHERE a.codigo='".$q."'";
@@ -37,7 +38,7 @@ $salida="";
                          <th class='th1 text-center'>".$_POST['por_cobrar']."</th>
                      </tr>
                   </tfooter>
-                  </table>";echo $salida;
+                  </table>";
     }else{
              $salida.="<table class='tabla_datos heading text-center' width='100%'>
                 <thead>
@@ -47,8 +48,9 @@ $salida="";
                    <th colspan='1'></th>
                    </tr>
                </thead>"; $salida.="</tbody></table><div class='form-group text-center'style='margin-top:1rem'> 
-                 </div>";echo $salida;}
+                 </div>";}
  
+};echo $salida;
 ?>
 <script>
     $(document).ready( function () {
