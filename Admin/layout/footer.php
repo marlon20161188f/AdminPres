@@ -294,7 +294,7 @@ $("#menu-toggle").click(function(e){
 
     // This will get the first returned node in the jQuery collection.
     new Chart(areaChartCanvas, {
-      type: 'bar',
+      type: 'line',
       data: areaChartData,
       options: areaChartOptions
     })

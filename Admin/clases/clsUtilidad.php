@@ -39,12 +39,12 @@ class clsUtilidad
     public static function Listar_fecha($conexion){
         try {
             $query = $conexion->prepare("SELECT R.codigo, C.nombre, C.apellido, C.dni,
-            C.ruc, R.fecha_de_pago,Day(R.fecha_de_pago) AS Día, P.id_prestamo, P.monto, P.tasa, R.monto_cobrado,
+            C.ruc, R.fecha_de_pago,MONTH(R.fecha_de_pago) AS Mes, P.id_prestamo, P.monto, P.tasa, R.monto_cobrado,
              SUM(R.monto_cobrado) total_cobrado, SUM(P.monto)/P.cuotas as total_prestado,  SUM(R.monto_cobrado)-SUM(P.monto)/P.cuotas as utilidades                
             FROM cobrados R
             INNER JOIN prestamos P ON P.id_prestamo = R.codigo
             INNER JOIN clientes C ON C.id_cliente = P.cliente
-            GROUP BY Día");
+            GROUP BY Mes");
             // SELECT R.codigo, C.nombre, C.apellido, C.dni,
             // C.ruc, R.utilidad, R.id_utilidad, P.id_prestamo, P.monto, P.tasa, R.monto_cobrado
             // FROM utilidades R
