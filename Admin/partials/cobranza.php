@@ -69,7 +69,7 @@
                 <?php
                       foreach ($list as $item) {     
                   ?>
-                    <tr><td class="text-center">      
+                    <tr class="row<?php echo $item['id_cobro']; ?>"><td class="text-center">      
                     <?php $codigo="B001-"; $codigo.=$item['id_prestamo']; echo $codigo; ?>
                   </td> <td class="text-center">
                   <?php echo $item['fecha_cobro']; ?>
@@ -104,7 +104,7 @@
                     }
                     $moratotal=$item['mora']*($dias-$diamod)+$moraedit ; echo $moratotal; ?>
                      </td> 
-                    <td class="text-center">S/ <?php 
+                    <td class="total_cobrar text-center">S/ <?php 
                     $total=$item['valor_cuota']+$moratotal-$item['monto_cobrado']; echo $total; ?></td> 
                     <td class="text-center" style="padding: 0px !important; vertical-align: middle;"> 
                     <button id="btn_<?php echo $item['id_cobro']; ?>" class="btn btn-secondary btn-sm btn-circle margin" type="button" 
@@ -159,7 +159,7 @@
                 <label class="col-12 control-label no-padding" for="total">Monto a cobrar :</label>
                 <!-- <label class="col-12 control-label no-padding" for="total_mos"name="total_mos" id="total_mos"> S/ <?php echo $total; ?> </label> -->
                 <div class="col-12 no-padding">
-                  <input type="number" class="form-control input-sm" name="total_cob" id="total_cob" >
+                  <input type="number" class="form-control input-sm" name="total_cob" id="total_cob" max="">
                   <input type="hidden" class="form-control input-sm" name="total" id="total" >
 
                 </div>
@@ -306,7 +306,20 @@
         success: function(response) {
           console.log(response);  
           var jsonData = JSON.parse(response);
-            console.log(jsonData.success);
+            //console.log(jsonData.success);
+            //addModal(jsonData.id_cobro,jsonData.total_cobrar);
+            if ( jsonData.total_cobrar == 0) {
+              $('.row'+jsonData.id_cobro).remove();
+            } else {
+              $('.row'+jsonData.id_cobro+' .total_cobrar').html('S/ '+jsonData.total_cobrar);
+            var id=jsonData.id_cobro;
+            var total_cob=jsonData.total_cobrar;
+            $('#edits').find('#id').val($('#botn_' + id).data('id',id));
+            $('#edits').find('#total_cob').attr({"max":total_cob, "min":0});
+            $('#edits').find('#total_cob').val($('#botn_' + id).data('total_cob',total_cob));
+            $('#edits').find('#total').val($('#botn_' + id).data('total',total_cob));
+            }
+           
             $('#AddModal').modal('hide');
             if(jsonData.success == "2"){
             $('#MessagePago').html('<div class="alert bg-warning" role="alert"><em class="fa fa-exclamation-triangle-circle mr-2"></em>Se encontró mas de un 1 registró con la misma descripción, por favor intente con otros términos.<a href="#" class="float-right"><em class="fa fa-remove"></em></a></div>');

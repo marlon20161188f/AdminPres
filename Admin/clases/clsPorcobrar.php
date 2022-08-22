@@ -55,6 +55,27 @@
                 echo($e->getMessage());
             }
         }
+        public static function Obtener($conexion,$id){
+            try {
+                $actualiza=$conexion->prepare('UPDATE por_cobrar SET estado_mora = if(fecha_cobro<now(),1,2) WHERE estado_pago=1');
+                $actualiza->execute();
+                $query = $conexion->prepare('SELECT R.moratotal, R.diaMod, R.codigo, R.fecha_cobro, C.nombre, C.apellido, C.dni,
+                C.ruc, R.valor_cuota, R.mora, E.estado, M.estado_del_cobro, R.id_cobro, P.id_prestamo , sum(Y.monto_cobrado) as monto_cobrado
+                FROM por_cobrar R
+                INNER JOIN estado_cobro E ON E.id_estado = R.estado_pago
+                INNER JOIN estado_mora M ON M.id_mora = R.estado_mora
+                INNER JOIN prestamos P ON P.id_prestamo = R.codigo
+                INNER JOIN clientes C ON C.id_cliente = P.cliente
+                LEFT JOIN cobrados Y ON Y.id_cobro = R.id_cobro
+                WHERE E.estado = "pendiente" and R.id_cobro = "'.$id.'" group by id_cobro ORDER BY R.fecha_cobro ASC');
+                $query->execute();
+                if($query->rowCount() > 0){
+                    return $query->fetchAll();
+                }
+            } catch (PDOException $e) {
+                echo($e->getMessage());
+            }
+        }
         public static function Listar_ver($conexion,$ver){
             try {
                 $actualiza=$conexion->prepare('UPDATE por_cobrar SET estado_mora = if(fecha_cobro<now(),1,2) WHERE estado_pago=1');

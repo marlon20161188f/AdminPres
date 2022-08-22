@@ -58,11 +58,38 @@ while($fila = $query->fetch(PDO::FETCH_ASSOC)){
         if ( $_POST['fecha_pago'] !==""){
             date_default_timezone_set('America/Lima');
             $_POST['fecha_pago'] =$_POST['fecha_pago']." ".date('H-i-s');
-                clsPorcobrar::Actualizar_estado_pago(Conexion::getInstancia(), $_POST['id'], $estado_pago);
                 $registro_cobro = clsPorcobrar::Registro_cobro(Conexion::getInstancia(),$_POST['id'],$codigo,$_POST['fecha_pago'],$_POST['total_cob']);
-                
+                $list = clsPorcobrar::Obtener(Conexion::getInstancia(), $_POST['id']);
+                clsPorcobrar::Actualizar_estado_pago(Conexion::getInstancia(), $_POST['id'], $estado_pago);
                 if($registro_cobro > 0){
-                    echo json_encode(array('success' => 1));
+                    // echo json_encode(array('success' => 1));
+                    foreach ($list as $item) {  
+                        date_default_timezone_set('America/Lima');
+                        $fecha = date("Y-m-d");
+                        $date1 = new DateTime($item['fecha_cobro']);
+                        $date2 = new DateTime("now");
+                        $moraedit=$item['moratotal'];
+                        if($date2>$date1){
+                        $diff=$date1->diff($date2);
+                        $dias=$diff->days;
+                        $diamod=$item['diaMod'];
+                        $moraedit=$item['moratotal'];
+                        if($dias==0){
+                          $dias=0;
+                         $diamod=0;
+                        }
+                        }else{
+                        $dias=0;
+                        $diamod=0;
+                        $moraedit=0;
+                        }
+                        $moratotal=$item['mora']*($dias-$diamod)+$moraedit ;
+                        $total=$item['valor_cuota']+$moratotal-$item['monto_cobrado'];
+                        if ($total==null) {
+                            $total=0;
+                        }
+                    echo json_encode(array('success' => 1,'total' => $total,'total_cobrar' => $total,'id_cobro' => $item['id_cobro']));
+                    }
                 }else{
                     echo json_encode(array('success' => 0));
                 }
