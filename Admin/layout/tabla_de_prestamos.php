@@ -37,12 +37,12 @@ if($tipo==1){
                  $N = $i +1;
                  $feriados= array('1/1/2022','14/4/2022','15/4/2022','17/4/2022','1/5/2022','29/6/2022','28/7/2022','29/7/2022','06-08-2022',
                  '30/8/2022','8/10/2022','1/11/2022','8/12/2022','9/12/2022','25/12/2022');
-                 $D = date('d-m-Y', strtotime($fecha."+ $N $f"));
+                 $D = date('Y-m-d', strtotime($fecha."+ $N $f"));
                  if(date('l', strtotime($D)) == 'Sunday' ){
-                    $D = date('d-m-Y', strtotime($D."+ 1 days"));
+                    $D = date('Y-m-d', strtotime($D."+ 1 days"));
                  }
                  if (in_array($D, $feriados)) {
-                    $D = date('d-m-Y', strtotime($D."+ 1 days"));
+                    $D = date('Y-m-d', strtotime($D."+ 1 days"));
                 };
                 
                  $salida.="
