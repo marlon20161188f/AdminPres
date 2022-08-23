@@ -4,7 +4,7 @@ class clsPrestamo
     public static function Registro($conexion, $tipo, $idclient,$cuotas,$moras,$monto,$tasa,$fecha_des){
         try {
             date_default_timezone_set('America/Los_Angeles');
-            $fecha = date("Y-m-d");
+            $fecha_des = date('Y-m-d', strtotime($fecha_des));
             $query = $conexion->prepare("INSERT INTO prestamos( cliente, tipo, monto, cuotas, tasa, fecha, mora ) 
             VALUES( :idclient, :tipo, :monto, :cuotas, :tasa, :fecha_des, :moras )");
             $query->bindParam("tipo", $tipo, PDO::PARAM_STR);
@@ -65,7 +65,7 @@ class clsPrestamo
     public static function Validar($conexion, $tipo, $idclient,$cuotas,$moras,$monto,$tasa,$fecha_des){
         try {
             date_default_timezone_set('America/Lima');
-            $fecha = date("Y-m-d");
+            $fecha_des = date('Y-m-d', strtotime($fecha_des));
             $query = $conexion->prepare("SELECT * FROM prestamos WHERE tipo = :tipo AND cliente = :idclient AND monto = :monto AND cuotas = :cuotas
             AND tasa = :tasa AND fecha = :fecha_des AND mora = :moras");
             $query->bindParam("tipo", $tipo, PDO::PARAM_STR);

@@ -22,7 +22,7 @@
         } 
     }
 
-    if($_POST['option'] == 'U'){
+    if($_POST['options'] == 'U'){
         $validar = clsPrestamo::Validar(Conexion::getInstancia(), $_POST['placa'], $_POST['marca'], $_POST['color'], $_POST['estacionamiento']);
         if($validar == true){
             echo json_encode(array('success' => 2));
@@ -32,7 +32,7 @@
         } 
     }
 
-    if($_POST['option'] == 'D'){
+    if($_POST['options'] == 'D'){
         clsPrestamo::Eliminar(Conexion::getInstancia(), $_POST['id']);
         echo json_encode(array('success' => 1));
     }
