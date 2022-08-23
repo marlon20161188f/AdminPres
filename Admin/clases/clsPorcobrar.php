@@ -33,6 +33,19 @@
                 echo($e->getMessage());
             }
         }
+        public static function Listar_retorno_esperado($conexion){
+            try {
+                $actualiza=$conexion->prepare('UPDATE por_cobrar SET estado_mora = if(fecha_cobro<now(),1,2) WHERE estado_pago=1');
+                $actualiza->execute();
+                $query = $conexion->prepare('SELECT R.valor_cuota FROM por_cobrar R');
+                $query->execute();
+                if($query->rowCount() > 0){
+                    return $query->fetchAll();
+                }
+            } catch (PDOException $e) {
+                echo($e->getMessage());
+            }
+        }
 
         public static function Listar($conexion){
             try {

@@ -1,6 +1,6 @@
 <?php
-    $list = clsUtilidad::Listar(Conexion::getInstancia());
-    $list_mora = clsMoras::Listar(Conexion::getInstancia());
+$list = clsPorcobrar::Listar(Conexion::getInstancia());
+$ret_esp = clsPorcobrar::Listar_retorno_esperado(Conexion::getInstancia());
 ?> 
 <style>
   #menu * { list-style:none;}
@@ -27,6 +27,38 @@
         </div>
       </div><!-- /.container-fluid -->
     </section>
+    <?php
+     $valor_total=0;
+    foreach ($ret_esp as $items) {
+     $valor_total = $valor_total + $items['valor_cuota'];
+    }
+    $total_total=0;
+     foreach ($list as $item) {     
+      date_default_timezone_set('America/Lima');
+      $fecha = date("Y-m-d");
+      $date1 = new DateTime($item['fecha_cobro']);
+      $date2 = new DateTime("now");
+      $moraedit=$item['moratotal'];
+      if($date2>$date1){
+      $diff=$date1->diff($date2);
+      $dias=$diff->days;
+      $diamod=$item['diaMod'];
+      $moraedit=$item['moratotal'];
+      if($dias==0){
+        $dias=0;
+       $diamod=0;
+      }
+      }else{
+      $dias=0;
+      $diamod=0;
+      $moraedit=0;
+      }
+      $moratotal=$item['mora']*($dias-$diamod)+$moraedit ; 
+      $total=$item['valor_cuota']+$moratotal-$item['monto_cobrado'];
+      $total_total = $total_total + $total;
+     }
+  ?>
+
     <section class="content">
         <div class="container-fluid">
         <div class="row">
@@ -47,7 +79,7 @@
                       </header>
                       <div class="card-body p-1 text-center">
                         <p class="font-weight-semibold mb-0 mt-3">Total invertido</p> 
-                        <h2 class="font-weight-semibold mt-0 mb-3">1</h2> 
+                        <h2 class="font-weight-semibold mt-0 mb-3">10000</h2> 
                       </div>
                     </section>
                   </div> 
@@ -66,7 +98,7 @@
                     </header>
                      <div class="card-body p-1 text-center">
                       <p class="font-weight-semibold mb-0 mt-3">Retorno esperado</p>
-                       <h2 class="font-weight-semibold mt-0 mb-3">0</h2>
+                       <h2 class="font-weight-semibold mt-0 mb-3"><?php echo $valor_total; ?></h2>
                       </div>
                     </section>
                   </div>
@@ -85,7 +117,7 @@
                       </header>
                       <div class="card-body p-1 text-center">
                         <p class="font-weight-semibold mb-0 mt-3">Total por cobrar</p> 
-                        <h2 class="font-weight-semibold mt-0 mb-3">1</h2> 
+                        <h2 class="font-weight-semibold mt-0 mb-3"><?php echo $total_total; ?></h2> 
                       </div>
                     </section>
                   </div> 
