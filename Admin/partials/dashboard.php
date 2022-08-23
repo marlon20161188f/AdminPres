@@ -93,7 +93,7 @@
                                             <option value="3">Mensual</option>
                                         </select> 
                                         <label class="fieldlabels">Número de cuotas: </label>
-                                        <input type="hidden" name="options" value="C">
+                                        <input type="hidden" name="option" value="C">
                                         <input hidden type="number"name="idclient" id="idclient" placeholder="" value="3" >
                                         <input method="post"type="number"class="form-control input-sm"name="cuotas" id="cuotas" placeholder="" style="font-family: inherit;background:#ffffff; height: 39px; margin-top:4px; border: 1px solid #ced4da; border-radius: 0.25rem;" required>
                                         <label class="fieldlabels">Mora por día de retraso S/ : </label> 
