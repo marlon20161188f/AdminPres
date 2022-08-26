@@ -33,11 +33,12 @@
                 echo($e->getMessage());
             }
         }
-        public static function Listar_retorno_esperado($conexion){
+        
+        public static function Listar_filas($conexion){
             try {
-                $actualiza=$conexion->prepare('UPDATE por_cobrar SET estado_mora = if(fecha_cobro<now(),1,2) WHERE estado_pago=1');
-                $actualiza->execute();
-                $query = $conexion->prepare('SELECT R.valor_cuota FROM por_cobrar R');
+                $query = $conexion->prepare('SELECT b.id_prestamo as codigo, IFNULL(c.filas,0) as filas FROM (SELECT a.codigo, COUNT(*) as filas FROM por_cobrar a 
+                WHERE a.estado_pago=1 GROUP BY a.codigo) as c
+                RIGHT JOIN prestamos b on b.id_prestamo = c.codigo');
                 $query->execute();
                 if($query->rowCount() > 0){
                     return $query->fetchAll();
@@ -156,6 +157,17 @@
                 $query = $conexion->prepare("UPDATE por_cobrar SET estado_pago = :estado_pago WHERE id_cobro = :id");
                 $query->bindParam("id", $id, PDO::PARAM_STR);
                 $query->bindParam("estado_pago", $estado_pago, PDO::PARAM_STR);
+                $query->execute();
+            } catch (PDOException $e) {
+                exit($e->getMessage());
+            }
+        }
+        public static function Actualizar_estado_prestamo($conexion, $id, $estado_prestamo){
+            try {
+                $fecha = date("Y-m-d H:i:s");
+                $query = $conexion->prepare("UPDATE prestamos SET estado = :estado_prestamo WHERE id_prestamo= :id");
+                $query->bindParam("id", $id, PDO::PARAM_STR);
+                $query->bindParam("estado_prestamo", $estado_prestamo, PDO::PARAM_STR);
                 $query->execute();
             } catch (PDOException $e) {
                 exit($e->getMessage());

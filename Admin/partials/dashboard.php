@@ -36,8 +36,9 @@
                                     <div class="col-4" id="dniruc">
                                         <label class="fieldlabels">Tipo de documento:</label>
                                         <select class="form-control"type="text" name="tipodoc" id="elije" onchange="modificarTexbox()" placeholder="DNI"style="margin:0px;margin-top:6px;"> 
-                                            <option value="1">DNI</option>
+                                            <option value="1" selected="selected">DNI</option>
                                             <OPTIOn value="2">RUC</OPTIOn>
+                                            <OPTIOn value="3">Extranjero</OPTIOn>
                                         </select> 
                                     </div>
                                     <div class="col-1">
@@ -95,9 +96,9 @@
                                         <label class="fieldlabels">Número de cuotas: </label>
                                         <input type="hidden" name="options" value="C">
                                         <input hidden type="number"name="idclient" id="idclient" placeholder="" value="3" >
-                                        <input method="post"type="number"class="form-control input-sm"name="cuotas" id="cuotas" placeholder="" style="font-family: inherit;background:#ffffff; height: 39px; margin-top:4px; border: 1px solid #ced4da; border-radius: 0.25rem;" required>
+                                        <input method="post" min="1"value="1"type="number"class="form-control input-sm"name="cuotas" id="cuotas" placeholder="" style="font-family: inherit;background:#ffffff; height: 39px; margin-top:4px; border: 1px solid #ced4da; border-radius: 0.25rem;" required>
                                         <label class="fieldlabels">Mora por día de retraso S/ : </label> 
-                                        <input method="post"type="number" class="form-control" name="moras" id="moras" placeholder=""style="font-family: inherit;background:#ffffff; height: 39px; margin-top:4px; border: 1px solid #ced4da; border-radius: 0.25rem;" required>
+                                        <input method="post"type="number" class="form-control" name="moras" id="moras" placeholder="0" value="0" style="font-family: inherit;background:#ffffff; height: 39px; margin-top:4px; border: 1px solid #ced4da; border-radius: 0.25rem;" required>
                                     
                                     </div>
                                     <div class="col-6" method="post">
@@ -191,7 +192,7 @@
         <form class="form-horizontal" id="edit">
         <div class="row">
         <div id="datos_validados">
-            <h2>Error, no ingresó ningun número de documento</h2>
+            <h2>Error, numero de caracteres incorrecto</h2>
         </div>
         
       </div>
@@ -379,7 +380,11 @@
             document.getElementById("caja_bus").setAttribute("maxlength", "11");
             document.getElementById("caja_bus").setAttribute("size", "11");
         break;
+        case "3":
+            document.getElementById("caja_bus").setAttribute("maxlength", "24");
+            document.getElementById("caja_bus").setAttribute("size", "24");
+        break;
     }
     } 
 </script>
-<script src="<?php echo $url_site; ?>dist/js/main2.js"></script>
+<script src="<?php echo $url_site; ?>dist/js/main20.js"></script>

@@ -61,8 +61,10 @@
                   <tr >
                         <td > <?php if( $item['dni'] !== '0' ){
                           echo $item['dni']; 
-                        }else{
+                        }if( $item['ruc'] !== '0' ){
                           echo $item['ruc']; 
+                          }else {
+                            echo $item['extranjero']; 
                           } ?></td>
                          <td ><?php $nomapell=$item['nombre']; $nomapell.=" "; $nomapell.=$item['apellido']; echo $nomapell; ?></td> 
                         <td ><?php echo $item['direccion']; ?></td>

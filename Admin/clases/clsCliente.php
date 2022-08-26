@@ -11,18 +11,28 @@ class clsCliente
             if( $telefono==""){$telefono=NULL;}
             if( $dniuruc == 8 ){
                 $dni = $dniruc;
-                $ruc = 0; }
+                $ruc = 0; 
+                $extranjero=0;
+            }
             if( $dniuruc == 11 ){
-                $dni = 0;
-                $ruc = $dniruc; }
+                    $dni=0;
+                    $ruc=$dniruc; 
+                    $extranjero=0;
+                }
+            if( $dniuruc !== 11 && $dniuruc !== 8){
+                $dni=0;
+                $ruc=0;
+                $extranjero=$dniruc;
+            }
                         
-            $query = $conexion->prepare("INSERT INTO clientes( nombre, apellido, dni, ruc, direccion, distrito, provincia, departamento
-            , celular, telefono) VALUES( :nombre, :apellido, :dni, :ruc, :direccion, :distrito, :provincia, :departamento, :celular,
+            $query = $conexion->prepare("INSERT INTO clientes( nombre, apellido, dni, ruc, extranjero, direccion, distrito, provincia, departamento
+            , celular, telefono) VALUES( :nombre, :apellido, :dni, :ruc, :extranjero, :direccion, :distrito, :provincia, :departamento, :celular,
              :telefono)");
             $query->bindParam("nombre", $nombre, PDO::PARAM_STR);
             $query->bindParam("apellido", $apellido, PDO::PARAM_STR);
             $query->bindParam("dni", $dni, PDO::PARAM_STR);
             $query->bindParam("ruc", $ruc, PDO::PARAM_STR);
+            $query->bindParam("extranjero", $extranjero, PDO::PARAM_STR);
             $query->bindParam("direccion", $direccion, PDO::PARAM_STR);
             $query->bindParam("distrito", $distrito, PDO::PARAM_STR);
             $query->bindParam("provincia", $provincia, PDO::PARAM_STR);
@@ -38,7 +48,7 @@ class clsCliente
 
     public static function Listar($conexion){
         try {
-            $query = $conexion->prepare("SELECT clientes.id_cliente, clientes.nombre, clientes.apellido, clientes.dni, clientes.ruc, clientes.direccion, clientes.distrito, clientes.provincia,
+            $query = $conexion->prepare("SELECT clientes.id_cliente, clientes.nombre, clientes.apellido, clientes.dni, clientes.ruc, clientes.extranjero, clientes.direccion, clientes.distrito, clientes.provincia,
              clientes.departamento, clientes.celular, clientes.telefono FROM clientes");
             $query->execute();
             
@@ -91,17 +101,27 @@ class clsCliente
             if( $telefono==""){$telefono=NULL;}
             if( $dniuruc == 8 ){
                 $dni = $dniruc;
-                $ruc = 0; }
+                $ruc = 0; 
+                $extranjero=0;
+            }
             if( $dniuruc == 11 ){
                     $dni=0;
-                    $ruc=$dniruc; }
+                    $ruc=$dniruc; 
+                    $extranjero=0;
+                }
+            if( $dniuruc !== 11 && $dniuruc !== 8){
+                $dni=0;
+                $ruc=0;
+                $extranjero=$dniruc;
+            }
             $query = $conexion->prepare("SELECT nombre FROM clientes WHERE nombre = :nombre AND apellido = :apellido AND 
-            dni = :dni AND ruc = :ruc AND direccion = :direccion AND distrito = :distrito AND provincia = :provincia
-            AND departamento = :departamento AND celular = :celular AND telefono = :telefono");
+                dni = :dni AND ruc = :ruc AND extranjero = :extranjero AND direccion = :direccion AND distrito = :distrito AND provincia = :provincia
+                AND departamento = :departamento AND celular = :celular AND telefono = :telefono");
              $query->bindParam("nombre", $nombre, PDO::PARAM_STR);
              $query->bindParam("apellido", $apellido, PDO::PARAM_STR);
              $query->bindParam("dni", $dni, PDO::PARAM_STR);
              $query->bindParam("ruc", $ruc, PDO::PARAM_STR);
+             $query->bindParam("extranjero", $extranjero, PDO::PARAM_STR);
              $query->bindParam("direccion", $direccion, PDO::PARAM_STR);
              $query->bindParam("distrito", $distrito, PDO::PARAM_STR);
              $query->bindParam("provincia", $provincia, PDO::PARAM_STR);

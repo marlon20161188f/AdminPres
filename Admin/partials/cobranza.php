@@ -4,7 +4,16 @@
       $ver=$_POST['verr'];
        $list = clsPorcobrar::Listar_ver(Conexion::getInstancia(), $ver);
     }else{
-  $list = clsPorcobrar::Listar(Conexion::getInstancia());}
+  $list = clsPorcobrar::Listar(Conexion::getInstancia());
+  $fil= clsPorcobrar::Listar_filas(Conexion::getInstancia());
+  foreach ($fil as $filas) {
+    if ( $filas['filas']>0) {
+      clsPorcobrar::Actualizar_estado_prestamo(Conexion::getInstancia(), $filas['codigo'],1);
+    }else {
+      clsPorcobrar::Actualizar_estado_prestamo(Conexion::getInstancia(), $filas['codigo'],0);
+    }
+  }
+}
 ?> 
 <style>
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {

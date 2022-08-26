@@ -13,6 +13,55 @@ class clsUtilidad
             echo($e->getMessage());
         }
     }
+    public static function Listar_retorno_esperado($conexion){
+        try {
+            $actualiza=$conexion->prepare('UPDATE por_cobrar SET estado_mora = if(fecha_cobro<now(),1,2) WHERE estado_pago=1');
+            $actualiza->execute();
+            $query = $conexion->prepare('SELECT R.valor_cuota FROM por_cobrar R
+            INNER JOIN prestamos A ON A.id_prestamo=R.codigo
+            WHERE A.estado=1');
+            $query->execute();
+            if($query->rowCount() > 0){
+                return $query->fetchAll();
+            }
+        } catch (PDOException $e) {
+            echo($e->getMessage());
+        }
+    }
+    public static function Listar_total_invertido($conexion){
+        try {
+            $actualiza=$conexion->prepare('UPDATE por_cobrar SET estado_mora = if(fecha_cobro<now(),1,2) WHERE estado_pago=1');
+            $actualiza->execute();
+            $query = $conexion->prepare('SELECT id_prestamo,monto FROM prestamos a where a.estado=1');
+            $query->execute();
+            if($query->rowCount() > 0){
+                return $query->fetchAll();
+            }
+        } catch (PDOException $e) {
+            echo($e->getMessage());
+        }
+    }
+    public static function Listar_total_cobrar($conexion){
+        try {
+            $actualiza=$conexion->prepare('UPDATE por_cobrar SET estado_mora = if(fecha_cobro<now(),1,2) WHERE estado_pago=1');
+            $actualiza->execute();
+            $query = $conexion->prepare('SELECT R.moratotal, R.diaMod, R.codigo, R.fecha_cobro, C.nombre, C.apellido, C.dni,
+            C.ruc, R.valor_cuota, R.mora, E.estado, M.estado_del_cobro, R.id_cobro, P.id_prestamo , sum(Y.monto_cobrado) as monto_cobrado
+            FROM por_cobrar R
+            INNER JOIN estado_cobro E ON E.id_estado = R.estado_pago
+            INNER JOIN estado_mora M ON M.id_mora = R.estado_mora
+            INNER JOIN prestamos P ON P.id_prestamo = R.codigo
+            INNER JOIN clientes C ON C.id_cliente = P.cliente
+            LEFT JOIN cobrados Y ON Y.id_cobro = R.id_cobro
+            WHERE E.estado = "pendiente" group by id_cobro ORDER BY R.fecha_cobro ASC');
+            $query->execute();
+            if($query->rowCount() > 0){
+                return $query->fetchAll();
+            }
+        } catch (PDOException $e) {
+            echo($e->getMessage());
+        }
+    }
 
     public static function Listar($conexion){
         try {
@@ -134,7 +183,38 @@ class clsUtilidad
             echo($e->getMessage());
         }
     }
-
+    public static function Listar_ver($conexion,$data,$ver){
+        try {
+            $actualiza=$conexion->prepare('UPDATE por_cobrar SET estado_mora = if(fecha_cobro<now(),1,2) WHERE estado_pago=1');
+            $actualiza->execute();
+            date_default_timezone_set('America/Los_Angeles');
+            $fecha = date("Y-m-d");
+            if($ver==1){
+            $query = $conexion->prepare('SELECT SUM(d.monto) as monto, c.monto_cobrado, c.fecha_de_pago FROM (SELECT 1 as id, SUM(monto) as monto, a.fecha FROM prestamos a WHERE a.fecha = "'.$data.'" ) d
+            INNER JOIN (SELECT 1 as id, SUM(b.monto_cobrado) as monto_cobrado, b.fecha_de_pago FROM cobrados b WHERE b.fecha_de_pago like "'.$data.'%") c
+            on c.id=d.id');}
+            if($ver==2){$query = $conexion->prepare('SELECT SUM(d.monto) as monto, c.monto_cobrado, c.fecha_de_pago FROM (SELECT 1 as id, SUM(monto) as monto, a.fecha FROM prestamos a WHERE a.fecha like "'.$data.'%" ) d
+                INNER JOIN (SELECT 1 as id, SUM(b.monto_cobrado) as monto_cobrado, b.fecha_de_pago FROM cobrados b WHERE b.fecha_de_pago like "'.$data.'%") c
+                on c.id=d.id');}
+            if($ver==3){
+                $query = $conexion->prepare('SELECT R.moratotal, R.diaMod, R.codigo, R.fecha_cobro, C.nombre, C.apellido, C.dni,
+                C.ruc, R.valor_cuota, R.mora, E.estado, M.estado_del_cobro, R.id_cobro, P.id_prestamo , sum(Y.monto_cobrado) as monto_cobrado
+                FROM por_cobrar R
+                INNER JOIN estado_cobro E ON E.id_estado = R.estado_pago
+                INNER JOIN estado_mora M ON M.id_mora = R.estado_mora
+                INNER JOIN prestamos P ON P.id_prestamo = R.codigo
+                INNER JOIN clientes C ON C.id_cliente = P.cliente
+                LEFT JOIN cobrados Y ON Y.id_cobro = R.id_cobro
+                WHERE E.estado = "pendiente" AND  R.fecha_cobro > now() group by id_cobro  ORDER BY R.fecha_cobro ASC LIMIT 20 ');
+            }
+            $query->execute();
+            if($query->rowCount() > 0){
+                return $query->fetchAll();
+            }
+        } catch (PDOException $e) {
+            echo($e->getMessage());
+        }
+    }
 
 }
 

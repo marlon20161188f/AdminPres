@@ -61,6 +61,14 @@ while($fila = $query->fetch(PDO::FETCH_ASSOC)){
                 $registro_cobro = clsPorcobrar::Registro_cobro(Conexion::getInstancia(),$_POST['id'],$codigo,$_POST['fecha_pago'],$_POST['total_cob']);
                 $list = clsPorcobrar::Obtener(Conexion::getInstancia(), $_POST['id']);
                 clsPorcobrar::Actualizar_estado_pago(Conexion::getInstancia(), $_POST['id'], $estado_pago);
+                $fil= clsPorcobrar::Listar_filas(Conexion::getInstancia());
+  foreach ($fil as $filas) {
+    if ( $filas['filas']>0) {
+      clsPorcobrar::Actualizar_estado_prestamo(Conexion::getInstancia(), $filas['codigo'],1);
+    }else {
+      clsPorcobrar::Actualizar_estado_prestamo(Conexion::getInstancia(), $filas['codigo'],0);
+    }
+  }
                 if($registro_cobro > 0){
                     // echo json_encode(array('success' => 1));
                     foreach ($list as $item) {  
@@ -102,6 +110,14 @@ while($fila = $query->fetch(PDO::FETCH_ASSOC)){
         clsPorcobrar::Actualizar_estado_pago(Conexion::getInstancia(), $_POST['id_cobro'], $estado_pago);
         clsReporte::Eliminar(Conexion::getInstancia(), $_POST['id_cobrado']);
         echo json_encode(array('success' => 1));
+        $fil= clsPorcobrar::Listar_filas(Conexion::getInstancia());
+  foreach ($fil as $filas) {
+    if ( $filas['filas']>0) {
+      clsPorcobrar::Actualizar_estado_prestamo(Conexion::getInstancia(), $filas['codigo'],1);
+    }else {
+      clsPorcobrar::Actualizar_estado_prestamo(Conexion::getInstancia(), $filas['codigo'],0);
+    }
+  }
 
     }
 
